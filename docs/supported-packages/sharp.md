@@ -1,5 +1,5 @@
 ---
-title: sharp
+title: "sharp"
 ---
 
 # sharp
@@ -40,11 +40,11 @@ What happens **after** calling this function:
 
 **Condition:** file system error, invalid image data, or processing failure
 
-**Throws:** `Promise rejection with Error (ENOENT, EACCES, ENOMEM, or processing errors)`
+**Throws:** Promise rejection with Error (ENOENT, EACCES, ENOMEM, or processing errors)
 
 **Required Handling:**
 
-Caller MUST use try-catch or .catch() to handle Promise rejections from toFile(). File system errors (missing directory, permissions), invalid image data, and memory issues will reject the Promise and crash the application if unhandled. Use pattern: try { await sharp(input).toFile('output.jpg'); } catch (error) { /* handle */ }
+Caller MUST use try-catch or .catch() to handle Promise rejections from toFile(). File system errors (missing directory, permissions), invalid image data, and memory issues will reject the Promise and crash the application if unhandled. Use pattern: try  await sharp(input).toFile('output.jpg');  catch (error)  /* handle */ 
 
 
 📖 [Source](https://sharp.pixelplumbing.com/api-output#tofile)
@@ -68,11 +68,11 @@ What happens **after** calling this function:
 
 **Condition:** invalid image data or processing failure
 
-**Throws:** `Promise rejection with Error`
+**Throws:** Promise rejection with Error
 
 **Required Handling:**
 
-Caller MUST use try-catch or .catch() to handle Promise rejections from toBuffer(). Invalid or corrupted image data will reject the Promise and crash if unhandled. Use pattern: try { const buffer = await sharp(input).toBuffer(); } catch (error) { /* handle */ }
+Caller MUST use try-catch or .catch() to handle Promise rejections from toBuffer(). Invalid or corrupted image data will reject the Promise and crash if unhandled. Use pattern: try  const buffer = await sharp(input).toBuffer();  catch (error)  /* handle */ 
 
 
 📖 [Source](https://sharp.pixelplumbing.com/api-output#tobuffer)

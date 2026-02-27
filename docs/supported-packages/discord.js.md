@@ -1,5 +1,5 @@
 ---
-title: discord.js
+title: "discord.js"
 ---
 
 # discord.js
@@ -41,7 +41,7 @@ What happens **after** calling this function:
 
 **Condition:** Client.login() called without try-catch
 
-**Throws:** `Error on invalid/revoked token, network failure, or rate limiting`
+**Throws:** Error on invalid/revoked token, network failure, or rate limiting
 
 **Required Handling:**
 
@@ -69,7 +69,7 @@ What happens **after** calling this function:
 
 **Condition:** Client.destroy() called without try-catch
 
-**Throws:** `Error during cleanup or network disconnection`
+**Throws:** Error during cleanup or network disconnection
 
 **Required Handling:**
 
@@ -97,7 +97,7 @@ What happens **after** calling this function:
 
 **Condition:** Client.fetchWebhook() called without try-catch
 
-**Throws:** `DiscordAPIError (404 not found, 403 forbidden) or network errors`
+**Throws:** DiscordAPIError (404 not found, 403 forbidden) or network errors
 
 **Required Handling:**
 
@@ -125,7 +125,7 @@ What happens **after** calling this function:
 
 **Condition:** Client.deleteWebhook() called without try-catch
 
-**Throws:** `DiscordAPIError (403 forbidden, 404 not found) or network errors`
+**Throws:** DiscordAPIError (403 forbidden, 404 not found) or network errors
 
 **Required Handling:**
 
@@ -153,7 +153,7 @@ What happens **after** calling this function:
 
 **Condition:** Message.delete() called without try-catch
 
-**Throws:** `DiscordAPIError (10008 Unknown Message, 50013 Missing Permissions) or network errors`
+**Throws:** DiscordAPIError (10008 Unknown Message, 50013 Missing Permissions) or network errors
 
 **Required Handling:**
 
@@ -181,7 +181,7 @@ What happens **after** calling this function:
 
 **Condition:** Message.edit() called without try-catch
 
-**Throws:** `DiscordAPIError (50005 Cannot edit other user's message, 50035 Invalid Form Body)`
+**Throws:** DiscordAPIError (50005 Cannot edit other user's message, 50035 Invalid Form Body)
 
 **Required Handling:**
 
@@ -209,7 +209,7 @@ What happens **after** calling this function:
 
 **Condition:** Message.reply() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing Permissions, 50035 Invalid Form Body) or rate limits`
+**Throws:** DiscordAPIError (50013 Missing Permissions, 50035 Invalid Form Body) or rate limits
 
 **Required Handling:**
 
@@ -237,7 +237,7 @@ What happens **after** calling this function:
 
 **Condition:** Message.react() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing Permissions, 10014 Unknown Emoji, 90001 Reaction Blocked)`
+**Throws:** DiscordAPIError (50013 Missing Permissions, 10014 Unknown Emoji, 90001 Reaction Blocked)
 
 **Required Handling:**
 
@@ -265,7 +265,7 @@ What happens **after** calling this function:
 
 **Condition:** Message.pin() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing Permissions, 30003 Maximum Pins Reached)`
+**Throws:** DiscordAPIError (50013 Missing Permissions, 30003 Maximum Pins Reached)
 
 **Required Handling:**
 
@@ -293,7 +293,7 @@ What happens **after** calling this function:
 
 **Condition:** Message.unpin() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing Permissions) if message not pinned`
+**Throws:** DiscordAPIError (50013 Missing Permissions) if message not pinned
 
 **Required Handling:**
 
@@ -321,7 +321,7 @@ What happens **after** calling this function:
 
 **Condition:** Message.crosspost() called without try-catch
 
-**Throws:** `DiscordAPIError (50024 Cannot execute on system message, channel not announcement)`
+**Throws:** DiscordAPIError (50024 Cannot execute on system message, channel not announcement)
 
 **Required Handling:**
 
@@ -349,7 +349,7 @@ What happens **after** calling this function:
 
 **Condition:** Message.fetch() called without try-catch
 
-**Throws:** `DiscordAPIError (10008 Unknown Message) or network errors`
+**Throws:** DiscordAPIError (10008 Unknown Message) or network errors
 
 **Required Handling:**
 
@@ -377,7 +377,7 @@ What happens **after** calling this function:
 
 **Condition:** Message.fetchReference() called without try-catch
 
-**Throws:** `DiscordAPIError (10008 Unknown Message) if reference deleted`
+**Throws:** DiscordAPIError (10008 Unknown Message) if reference deleted
 
 **Required Handling:**
 
@@ -405,7 +405,7 @@ What happens **after** calling this function:
 
 **Condition:** Message.startThread() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing Permissions, 160004 Message already has thread, rate limits)`
+**Throws:** DiscordAPIError (50013 Missing Permissions, 160004 Message already has thread, rate limits)
 
 **Required Handling:**
 
@@ -433,7 +433,7 @@ What happens **after** calling this function:
 
 **Condition:** TextChannel.send() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing Permissions, 50035 Invalid Form Body, rate limits)`
+**Throws:** DiscordAPIError (50013 Missing Permissions, 50035 Invalid Form Body, rate limits)
 
 **Required Handling:**
 
@@ -461,7 +461,7 @@ What happens **after** calling this function:
 
 **Condition:** BaseChannel.send() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing Permissions, 50035 Invalid Form Body, rate limits)`
+**Throws:** DiscordAPIError (50013 Missing Permissions, 50035 Invalid Form Body, rate limits)
 
 **Required Handling:**
 
@@ -489,7 +489,7 @@ What happens **after** calling this function:
 
 **Condition:** ThreadChannel.send() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing Permissions, 40060 Thread archived, rate limits)`
+**Throws:** DiscordAPIError (50013 Missing Permissions, 40060 Thread archived, rate limits)
 
 **Required Handling:**
 
@@ -517,7 +517,7 @@ What happens **after** calling this function:
 
 **Condition:** TextChannel.bulkDelete() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing Permissions, 50034 Messages older than 14 days)`
+**Throws:** DiscordAPIError (50013 Missing Permissions, 50034 Messages older than 14 days)
 
 **Required Handling:**
 
@@ -545,7 +545,7 @@ What happens **after** calling this function:
 
 **Condition:** TextChannel.createInvite() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing CREATE_INSTANT_INVITE permission) or network errors`
+**Throws:** DiscordAPIError (50013 Missing CREATE_INSTANT_INVITE permission) or network errors
 
 **Required Handling:**
 
@@ -573,7 +573,7 @@ What happens **after** calling this function:
 
 **Condition:** CommandInteraction.reply() called without try-catch
 
-**Throws:** `DiscordAPIError (10062 Unknown interaction, already replied) or token expired (3s limit)`
+**Throws:** DiscordAPIError (10062 Unknown interaction, already replied) or token expired (3s limit)
 
 **Required Handling:**
 
@@ -601,7 +601,7 @@ What happens **after** calling this function:
 
 **Condition:** CommandInteraction.deferReply() called without try-catch
 
-**Throws:** `DiscordAPIError (10062 Unknown interaction, already replied) or token expired`
+**Throws:** DiscordAPIError (10062 Unknown interaction, already replied) or token expired
 
 **Required Handling:**
 
@@ -629,7 +629,7 @@ What happens **after** calling this function:
 
 **Condition:** CommandInteraction.followUp() called without try-catch
 
-**Throws:** `DiscordAPIError (10062 Unknown interaction, not replied first) or token expired (15min)`
+**Throws:** DiscordAPIError (10062 Unknown interaction, not replied first) or token expired (15min)
 
 **Required Handling:**
 
@@ -657,7 +657,7 @@ What happens **after** calling this function:
 
 **Condition:** CommandInteraction.editReply() called without try-catch
 
-**Throws:** `DiscordAPIError (10062 Unknown interaction, no initial reply) or token expired`
+**Throws:** DiscordAPIError (10062 Unknown interaction, no initial reply) or token expired
 
 **Required Handling:**
 
@@ -685,7 +685,7 @@ What happens **after** calling this function:
 
 **Condition:** ButtonInteraction.reply() called without try-catch
 
-**Throws:** `DiscordAPIError (10062 Unknown interaction, token expired) or network errors`
+**Throws:** DiscordAPIError (10062 Unknown interaction, token expired) or network errors
 
 **Required Handling:**
 
@@ -713,7 +713,7 @@ What happens **after** calling this function:
 
 **Condition:** SelectMenuInteraction.reply() called without try-catch
 
-**Throws:** `DiscordAPIError (10062 Unknown interaction, token expired) or network errors`
+**Throws:** DiscordAPIError (10062 Unknown interaction, token expired) or network errors
 
 **Required Handling:**
 
@@ -741,7 +741,7 @@ What happens **after** calling this function:
 
 **Condition:** Guild.fetch() called without try-catch
 
-**Throws:** `DiscordAPIError (10004 Unknown Guild) or network errors`
+**Throws:** DiscordAPIError (10004 Unknown Guild) or network errors
 
 **Required Handling:**
 
@@ -769,7 +769,7 @@ What happens **after** calling this function:
 
 **Condition:** Guild.edit() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing MANAGE_GUILD permission, 50035 Invalid options)`
+**Throws:** DiscordAPIError (50013 Missing MANAGE_GUILD permission, 50035 Invalid options)
 
 **Required Handling:**
 
@@ -797,7 +797,7 @@ What happens **after** calling this function:
 
 **Condition:** Guild.leave() called without try-catch
 
-**Throws:** `DiscordAPIError or network errors`
+**Throws:** DiscordAPIError or network errors
 
 **Required Handling:**
 
@@ -825,7 +825,7 @@ What happens **after** calling this function:
 
 **Condition:** Guild.fetchAuditLogs() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing VIEW_AUDIT_LOG permission) or network errors`
+**Throws:** DiscordAPIError (50013 Missing VIEW_AUDIT_LOG permission) or network errors
 
 **Required Handling:**
 
@@ -853,7 +853,7 @@ What happens **after** calling this function:
 
 **Condition:** Guild.fetchOwner() called without try-catch
 
-**Throws:** `DiscordAPIError or network errors`
+**Throws:** DiscordAPIError or network errors
 
 **Required Handling:**
 
@@ -881,7 +881,7 @@ What happens **after** calling this function:
 
 **Condition:** Guild.fetchWebhooks() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing MANAGE_WEBHOOKS permission) or network errors`
+**Throws:** DiscordAPIError (50013 Missing MANAGE_WEBHOOKS permission) or network errors
 
 **Required Handling:**
 
@@ -909,7 +909,7 @@ What happens **after** calling this function:
 
 **Condition:** GuildMember.ban() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing BAN_MEMBERS permission, role hierarchy violation)`
+**Throws:** DiscordAPIError (50013 Missing BAN_MEMBERS permission, role hierarchy violation)
 
 **Required Handling:**
 
@@ -937,7 +937,7 @@ What happens **after** calling this function:
 
 **Condition:** GuildMember.kick() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing KICK_MEMBERS permission, role hierarchy violation)`
+**Throws:** DiscordAPIError (50013 Missing KICK_MEMBERS permission, role hierarchy violation)
 
 **Required Handling:**
 
@@ -965,7 +965,7 @@ What happens **after** calling this function:
 
 **Condition:** GuildMember.timeout() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing MODERATE_MEMBERS permission, role hierarchy violation)`
+**Throws:** DiscordAPIError (50013 Missing MODERATE_MEMBERS permission, role hierarchy violation)
 
 **Required Handling:**
 
@@ -993,7 +993,7 @@ What happens **after** calling this function:
 
 **Condition:** GuildMember.edit() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing permissions, 50035 Invalid options)`
+**Throws:** DiscordAPIError (50013 Missing permissions, 50035 Invalid options)
 
 **Required Handling:**
 
@@ -1021,7 +1021,7 @@ What happens **after** calling this function:
 
 **Condition:** RoleManager.create() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing MANAGE_ROLES permission) or network errors`
+**Throws:** DiscordAPIError (50013 Missing MANAGE_ROLES permission) or network errors
 
 **Required Handling:**
 
@@ -1049,7 +1049,7 @@ What happens **after** calling this function:
 
 **Condition:** Role.edit() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing MANAGE_ROLES permission, role hierarchy violation)`
+**Throws:** DiscordAPIError (50013 Missing MANAGE_ROLES permission, role hierarchy violation)
 
 **Required Handling:**
 
@@ -1077,7 +1077,7 @@ What happens **after** calling this function:
 
 **Condition:** Role.delete() called without try-catch
 
-**Throws:** `DiscordAPIError (50013 Missing MANAGE_ROLES permission, role hierarchy violation)`
+**Throws:** DiscordAPIError (50013 Missing MANAGE_ROLES permission, role hierarchy violation)
 
 **Required Handling:**
 

@@ -1,5 +1,5 @@
 ---
-title: joi
+title: "joi"
 ---
 
 # joi
@@ -40,11 +40,13 @@ What happens **after** calling this function:
 
 **Condition:** data fails validation against the schema
 
-**Returns:** {error: ValidationError, value: any} where error contains validation failure details
+**Returns:**
+
+error: ValidationError, value: any where error contains validation failure details
 
 **Required Handling:**
 
-Caller MUST check result.error property before using result.value. Without checking error, invalid data will pass through silently, leading to data corruption, business logic errors, or security vulnerabilities. Use pattern: const { error, value } = schema.validate(data); if (error) { /* handle */ }
+Caller MUST check result.error property before using result.value. Without checking error, invalid data will pass through silently, leading to data corruption, business logic errors, or security vulnerabilities. Use pattern: const  error, value  = schema.validate(data); if (error)  /* handle */ 
 
 
 📖 [Source](https://joi.dev/api/#anyvalidatevalue-options)
@@ -68,11 +70,11 @@ What happens **after** calling this function:
 
 **Condition:** data fails validation against the schema
 
-**Throws:** `Promise rejection with ValidationError`
+**Throws:** Promise rejection with ValidationError
 
 **Required Handling:**
 
-Caller MUST wrap validateAsync() in try-catch or use .catch() handler. Without error handling, validation failures cause unhandled promise rejections that crash the application. Use pattern: try { const value = await schema.validateAsync(data); } catch (error) { /* handle */ }
+Caller MUST wrap validateAsync() in try-catch or use .catch() handler. Without error handling, validation failures cause unhandled promise rejections that crash the application. Use pattern: try  const value = await schema.validateAsync(data);  catch (error)  /* handle */ 
 
 
 📖 [Source](https://joi.dev/api/#anyvalidateasyncvalue-options)
@@ -96,11 +98,11 @@ What happens **after** calling this function:
 
 **Condition:** data fails validation against the schema
 
-**Throws:** `ValidationError`
+**Throws:** ValidationError
 
 **Required Handling:**
 
-Caller MUST wrap Joi.assert() in try-catch block. Without error handling, validation failures throw uncaught exceptions that crash the application. Use pattern: try { Joi.assert(value, schema); } catch (error) { /* handle */ }
+Caller MUST wrap Joi.assert() in try-catch block. Without error handling, validation failures throw uncaught exceptions that crash the application. Use pattern: try  Joi.assert(value, schema);  catch (error)  /* handle */ 
 
 
 📖 [Source](https://joi.dev/api/#assertvalue-schema-message-options)
@@ -124,11 +126,11 @@ What happens **after** calling this function:
 
 **Condition:** data fails validation against the schema
 
-**Throws:** `ValidationError`
+**Throws:** ValidationError
 
 **Required Handling:**
 
-Caller MUST wrap Joi.attempt() in try-catch block. Without error handling, validation failures throw uncaught exceptions that crash the application. Use pattern: try { const validated = Joi.attempt(value, schema); } catch (error) { /* handle */ }
+Caller MUST wrap Joi.attempt() in try-catch block. Without error handling, validation failures throw uncaught exceptions that crash the application. Use pattern: try  const validated = Joi.attempt(value, schema);  catch (error)  /* handle */ 
 
 
 📖 [Source](https://joi.dev/api/#attemptvalue-schema-message-options)

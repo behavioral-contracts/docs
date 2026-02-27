@@ -1,5 +1,5 @@
 ---
-title: lodash
+title: "lodash"
 ---
 
 # lodash
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** template string has invalid syntax
 
-**Throws:** `SyntaxError`
+**Throws:** SyntaxError
 
 **Required Handling:**
 
@@ -67,7 +67,9 @@ What happens **after** calling this function:
 
 **Condition:** wrapped function throws
 
-**Returns:** Error instance
+**Returns:**
+
+Error instance
 
 **Required Handling:**
 
@@ -94,7 +96,7 @@ What happens **after** calling this function:
 
 **Condition:** source objects contain __proto__, constructor, or prototype keys
 
-**Throws:** `Prototype pollution vulnerability`
+**Throws:** Prototype pollution vulnerability
 
 **Required Handling:**
 
@@ -121,7 +123,7 @@ What happens **after** calling this function:
 
 **Condition:** source objects contain __proto__, constructor, or prototype keys
 
-**Throws:** `Prototype pollution vulnerability`
+**Throws:** Prototype pollution vulnerability
 
 **Required Handling:**
 
@@ -148,7 +150,7 @@ What happens **after** calling this function:
 
 **Condition:** source objects contain __proto__, constructor, or prototype keys
 
-**Throws:** `Prototype pollution vulnerability`
+**Throws:** Prototype pollution vulnerability
 
 **Required Handling:**
 
@@ -175,7 +177,7 @@ What happens **after** calling this function:
 
 **Condition:** path contains __proto__, constructor, or prototype
 
-**Throws:** `Prototype pollution vulnerability`
+**Throws:** Prototype pollution vulnerability
 
 **Required Handling:**
 
@@ -202,7 +204,7 @@ What happens **after** calling this function:
 
 **Condition:** property paths contain __proto__, constructor, or prototype
 
-**Throws:** `Prototype pollution vulnerability`
+**Throws:** Prototype pollution vulnerability
 
 **Required Handling:**
 
@@ -229,7 +231,7 @@ What happens **after** calling this function:
 
 **Condition:** path contains __proto__, constructor, or prototype
 
-**Throws:** `Prototype pollution vulnerability allowing prototype method deletion`
+**Throws:** Prototype pollution vulnerability allowing prototype method deletion
 
 **Required Handling:**
 
@@ -256,7 +258,7 @@ What happens **after** calling this function:
 
 **Condition:** property paths contain __proto__, constructor, or prototype
 
-**Throws:** `Prototype pollution vulnerability allowing prototype method deletion`
+**Throws:** Prototype pollution vulnerability allowing prototype method deletion
 
 **Required Handling:**
 

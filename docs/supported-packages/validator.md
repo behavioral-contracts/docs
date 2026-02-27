@@ -1,5 +1,5 @@
 ---
-title: validator
+title: "validator"
 ---
 
 # validator
@@ -40,7 +40,9 @@ What happens **after** calling this function:
 
 **Condition:** user input rendered in HTML without escaping
 
-**Returns:** escaped string (always succeeds)
+**Returns:**
+
+escaped string (always succeeds)
 
 **Required Handling:**
 
@@ -55,7 +57,7 @@ Known gotchas and sharp edges:
 
 **⚠️ WARNING - always-escape-user-input**
 
-escape() replaces <, >, &, ', ", / with HTML entities. It ALWAYS succeeds and returns a string. However, failing to call escape() on user input before HTML rendering is the most common XSS vulnerability.
+escape() replaces , , &, ', ", / with HTML entities. It ALWAYS succeeds and returns a string. However, failing to call escape() on user input before HTML rendering is the most common XSS vulnerability.
 
 
 📖 [Source](https://github.com/validatorjs/validator.js#validators)
@@ -86,7 +88,9 @@ What happens **after** calling this function:
 
 **Condition:** email format is invalid
 
-**Returns:** false (boolean)
+**Returns:**
+
+false (boolean)
 
 **Required Handling:**
 
@@ -99,7 +103,9 @@ Caller MUST check return value. normalizeEmail() returns false for invalid email
 
 **Condition:** email not normalized before storage
 
-**Returns:** normalized email string OR false
+**Returns:**
+
+normalized email string OR false
 
 **Required Handling:**
 
@@ -114,7 +120,7 @@ Known gotchas and sharp edges:
 
 **ℹ️ INFO - gmail-alias-removal**
 
-normalizeEmail() removes Gmail +alias suffixes by default (user+spam@gmail.com becomes user@gmail.com). This prevents duplicate account creation but may break legitimate use cases. Use options: { gmail_remove_subaddress: false } to preserve aliases.
+normalizeEmail() removes Gmail +alias suffixes by default (user+spam@gmail.com becomes user@gmail.com). This prevents duplicate account creation but may break legitimate use cases. Use options:  gmail_remove_subaddress: false  to preserve aliases.
 
 
 📖 [Source](https://github.com/validatorjs/validator.js#sanitizers)
@@ -138,7 +144,9 @@ What happens **after** calling this function:
 
 **Condition:** email format is invalid
 
-**Returns:** false (boolean)
+**Returns:**
+
+false (boolean)
 
 **Required Handling:**
 
@@ -151,7 +159,9 @@ Caller MUST check return value. isEmail() returns false for invalid emails, it d
 
 **Condition:** user email not validated before storage or sending
 
-**Returns:** false for invalid, true for valid
+**Returns:**
+
+false for invalid, true for valid
 
 **Required Handling:**
 
@@ -190,7 +200,9 @@ What happens **after** calling this function:
 
 **Condition:** URL format is invalid
 
-**Returns:** false (boolean)
+**Returns:**
+
+false (boolean)
 
 **Required Handling:**
 
@@ -203,24 +215,28 @@ Caller MUST check return value. isURL() returns false for invalid URLs, it does 
 
 **Condition:** URL protocol not restricted to safe protocols (https only)
 
-**Returns:** true for valid URL (including javascript:, data:, file: URIs)
+**Returns:**
+
+true for valid URL (including javascript:, data:, file: URIs)
 
 **Required Handling:**
 
-Caller MUST whitelist URL protocols. Default isURL() accepts dangerous protocols like javascript:, data:, and file: which enable XSS and phishing. ALWAYS use: isURL(url, { protocols: ['https'], require_protocol: true })
+Caller MUST whitelist URL protocols. Default isURL() accepts dangerous protocols like javascript:, data:, and file: which enable XSS and phishing. ALWAYS use: isURL(url,  protocols: ['https'], require_protocol: true )
 
 
 📖 [Source](https://github.com/validatorjs/validator.js/security/advisories/GHSA-9965-vmph-33xx)
 
 **🔴 ERROR - url-validation-bypass-cve**
 
-**Condition:** validator version < 13.15.20
+**Condition:** validator version  13.15.20
 
-**Returns:** true (but may incorrectly validate malicious URLs)
+**Returns:**
+
+true (but may incorrectly validate malicious URLs)
 
 **Required Handling:**
 
-CRITICAL: CVE-2025-56200 affects validator < 13.15.20. The isURL() function has a validation bypass allowing XSS and open redirect attacks. Upgrade to 13.15.20+ immediately. Exploit POC available publicly.
+CRITICAL: CVE-2025-56200 affects validator  13.15.20. The isURL() function has a validation bypass allowing XSS and open redirect attacks. Upgrade to 13.15.20+ immediately. Exploit POC available publicly.
 
 
 📖 [Source](https://github.com/advisories/GHSA-9965-vmph-33xx)
@@ -255,7 +271,9 @@ What happens **after** calling this function:
 
 **Condition:** JSON format is invalid
 
-**Returns:** false (boolean)
+**Returns:**
+
+false (boolean)
 
 **Required Handling:**
 
@@ -268,7 +286,9 @@ Caller SHOULD use isJSON() before JSON.parse(). JSON.parse() throws SyntaxError 
 
 **Condition:** JSON.parse() called on untrusted input without validation
 
-**Returns:** false for invalid JSON
+**Returns:**
+
+false for invalid JSON
 
 **Required Handling:**
 

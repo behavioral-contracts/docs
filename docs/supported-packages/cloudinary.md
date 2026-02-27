@@ -1,5 +1,5 @@
 ---
-title: cloudinary
+title: "cloudinary"
 ---
 
 # cloudinary
@@ -40,11 +40,11 @@ What happens **after** calling this function:
 
 **Condition:** network error, validation error, authentication failure, or quota exceeded during upload
 
-**Throws:** `Error with network/validation/auth details`
+**Throws:** Error with network/validation/auth details
 
 **Required Handling:**
 
-MUST wrap cloudinary.v2.uploader.upload() in try-catch (for async/await) OR check error parameter in callback: (error, result) => { if (error) ... }
+MUST wrap cloudinary.v2.uploader.upload() in try-catch (for async/await) OR check error parameter in callback: (error, result) =  if (error) ... 
 
 
 📖 [Source](https://cloudinary.com/documentation/node_image_and_video_upload)
@@ -53,7 +53,7 @@ MUST wrap cloudinary.v2.uploader.upload() in try-catch (for async/await) OR chec
 
 ### `upload_large()`
 
-Upload large files (>100MB) in chunks to handle network interruptions
+Upload large files (100MB) in chunks to handle network interruptions
 
 **Import:**
 ```typescript
@@ -68,11 +68,11 @@ What happens **after** calling this function:
 
 **Condition:** network interruption, 413 error, authentication failure, or chunk upload failure
 
-**Throws:** `Error with 413 Request Entity Too Large or network error details`
+**Throws:** Error with 413 Request Entity Too Large or network error details
 
 **Required Handling:**
 
-MUST wrap cloudinary.v2.uploader.upload_large() in try-catch OR check error parameter in callback. Files >100MB require this method.
+MUST wrap cloudinary.v2.uploader.upload_large() in try-catch OR check error parameter in callback. Files 100MB require this method.
 
 
 📖 [Source](https://cloudinary.com/documentation/node_image_and_video_upload)
@@ -96,11 +96,11 @@ What happens **after** calling this function:
 
 **Condition:** stream read error, network interruption, memory issue, or authentication failure
 
-**Throws:** `Error with stream or network details`
+**Throws:** Error with stream or network details
 
 **Required Handling:**
 
-MUST provide callback with error parameter: cloudinary.v2.uploader.upload_stream((error, result) => { if (error) ... }) Stream uploads REQUIRE callback-based error handling.
+MUST provide callback with error parameter: cloudinary.v2.uploader.upload_stream((error, result) =  if (error) ... ) Stream uploads REQUIRE callback-based error handling.
 
 
 📖 [Source](https://support.cloudinary.com/hc/en-us/community/posts/360026620212-stream-upload-catching-errors-NODE-JS-)
@@ -124,7 +124,7 @@ What happens **after** calling this function:
 
 **Condition:** asset not found, authentication failure, network error, or permission denied
 
-**Throws:** `Error with resource not found or authentication details`
+**Throws:** Error with resource not found or authentication details
 
 **Required Handling:**
 

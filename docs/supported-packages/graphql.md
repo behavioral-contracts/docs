@@ -1,5 +1,5 @@
 ---
-title: graphql
+title: "graphql"
 ---
 
 # graphql
@@ -40,7 +40,9 @@ What happens **after** calling this function:
 
 **Condition:** resolver throws error or promise rejects (database error, validation error, network error)
 
-**Returns:** {errors: GraphQLError[], data: null | partial} - errors array contains resolver failures
+**Returns:**
+
+errors: GraphQLError[], data: null | partial - errors array contains resolver failures
 
 **Required Handling:**
 
@@ -67,7 +69,7 @@ What happens **after** calling this function:
 
 **Condition:** query string has syntax error (invalid GraphQL syntax, malformed query)
 
-**Throws:** `GraphQLError with syntax error details and location`
+**Throws:** GraphQLError with syntax error details and location
 
 **Required Handling:**
 
@@ -94,11 +96,13 @@ What happens **after** calling this function:
 
 **Condition:** query violates schema rules (unknown field, type mismatch, invalid argument)
 
-**Returns:** GraphQLError[] - array of validation errors (empty array means valid)
+**Returns:**
+
+GraphQLError[] - array of validation errors (empty array means valid)
 
 **Required Handling:**
 
-Caller MUST check if validate() returns non-empty array before executing query. Validation errors indicate query will fail - check if (errors.length > 0) and handle before execution.
+Caller MUST check if validate() returns non-empty array before executing query. Validation errors indicate query will fail - check if (errors.length  0) and handle before execution.
 
 📖 [Source](https://graphql.org/graphql-js/validation/#validate)
 

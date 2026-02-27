@@ -1,5 +1,5 @@
 ---
-title: @tanstack/react-query
+title: "@tanstack/react-query"
 ---
 
 # @tanstack/react-query
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** queryFn throws an error and error state is not checked
 
-**Throws:** `Error (type specified by TError generic, defaults to Error)`
+**Throws:** Error (type specified by TError generic, defaults to Error)
 
 **Required Handling:**
 
@@ -59,17 +59,17 @@ Ignoring the error state leaves users with broken UI and no feedback.
 
 **Condition:** retry is configured without checking error type (retries on 4xx)
 
-**Throws:** `N/A`
+**Throws:** N/A
 
 **Required Handling:**
 
 When configuring custom retry logic, MUST NOT retry on client errors (400, 401, 403, 404).
 
 Bad: retry: 3 (retries all errors including 4xx)
-Good: retry: (failureCount, error) => {
-  if (error.response?.status >= 400 && error.response?.status < 500) return false;
-  return failureCount < 3;
-}
+Good: retry: (failureCount, error) = 
+  if (error.response?.status = 400 && error.response?.status  500) return false;
+  return failureCount  3;
+
 
 Retrying client errors wastes resources and delays user feedback.
 Only server errors (5xx) and network errors should trigger retries.
@@ -81,7 +81,7 @@ Only server errors (5xx) and network errors should trigger retries.
 
 **Condition:** stale query refetches in background and new fetch fails
 
-**Throws:** `Error from queryFn`
+**Throws:** Error from queryFn
 
 **Required Handling:**
 
@@ -102,7 +102,7 @@ Silent failures leave users viewing stale data with no indication of problems.
 
 **Condition:** network failure prevents query from executing
 
-**Throws:** `Network error (TypeError, fetch errors, etc.)`
+**Throws:** Network error (TypeError, fetch errors, etc.)
 
 **Required Handling:**
 
@@ -153,7 +153,7 @@ What happens **after** calling this function:
 
 **Condition:** mutationFn throws an error and error is not handled
 
-**Throws:** `Error (type specified by TError generic, defaults to Error)`
+**Throws:** Error (type specified by TError generic, defaults to Error)
 
 **Required Handling:**
 
@@ -173,7 +173,7 @@ Silent failures lead to data inconsistency and user confusion.
 
 **Condition:** optimistic update is performed and mutation fails
 
-**Throws:** `Error from mutationFn`
+**Throws:** Error from mutationFn
 
 **Required Handling:**
 
@@ -181,15 +181,15 @@ When using optimistic updates, the onError callback MUST roll back the optimisti
 
 Required pattern:
 ```
-onMutate: async (newData) => {
-  await queryClient.cancelQueries({ queryKey })
+onMutate: async (newData) = 
+  await queryClient.cancelQueries( queryKey )
   const previousData = queryClient.getQueryData(queryKey)
   queryClient.setQueryData(queryKey, newData) // optimistic update
-  return { previousData } // context for rollback
-},
-onError: (err, newData, context) => {
+  return  previousData  // context for rollback
+,
+onError: (err, newData, context) = 
   queryClient.setQueryData(queryKey, context.previousData) // ROLLBACK
-}
+
 ```
 
 Without rollback, failed mutations leave UI showing incorrect data.
@@ -201,7 +201,7 @@ Without rollback, failed mutations leave UI showing incorrect data.
 
 **Condition:** mutation fails and caller expects retry behavior
 
-**Throws:** `N/A`
+**Throws:** N/A
 
 **Required Handling:**
 
@@ -214,10 +214,10 @@ If retry is needed for idempotent mutations:
 
 Bad: retry: 3 (may duplicate non-idempotent operations)
 Good: retry: false (default, explicit)
-Acceptable: retry: (failureCount, error) => {
+Acceptable: retry: (failureCount, error) = 
   // Only retry GET-like mutations or with idempotency keys
-  return error.response?.status >= 500 && failureCount < 2
-}
+  return error.response?.status = 500 && failureCount  2
+
 
 
 📖 [Source](https://tanstack.com/query/latest/docs/framework/react/guides/mutations)
@@ -226,7 +226,7 @@ Acceptable: retry: (failureCount, error) => {
 
 **Condition:** multiple mutations executing concurrently cause race conditions
 
-**Throws:** `N/A`
+**Throws:** N/A
 
 **Required Handling:**
 
@@ -277,7 +277,7 @@ What happens **after** calling this function:
 
 **Condition:** fetchNextPage fails and error is not handled
 
-**Throws:** `Error from queryFn for failed page`
+**Throws:** Error from queryFn for failed page
 
 **Required Handling:**
 
@@ -296,7 +296,7 @@ User must be informed that loading more failed.
 
 **Condition:** query is refetched and middle pages fail
 
-**Throws:** `Error from queryFn`
+**Throws:** Error from queryFn
 
 **Required Handling:**
 

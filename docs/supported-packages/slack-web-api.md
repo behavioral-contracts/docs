@@ -1,5 +1,5 @@
 ---
-title: @slack/web-api
+title: "@slack/web-api"
 ---
 
 # @slack/web-api

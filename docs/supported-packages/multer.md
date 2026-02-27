@@ -1,5 +1,5 @@
 ---
-title: multer
+title: "multer"
 ---
 
 # multer
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** file upload fails due to size limit, file type, or disk error
 
-**Throws:** `MulterError`
+**Throws:** MulterError
 
 **Required Handling:**
 
@@ -83,7 +83,7 @@ What happens **after** calling this function:
 
 **Condition:** one or more file uploads fail
 
-**Throws:** `MulterError`
+**Throws:** MulterError
 
 **Required Handling:**
 

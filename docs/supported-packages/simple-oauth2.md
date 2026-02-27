@@ -1,5 +1,5 @@
 ---
-title: simple-oauth2
+title: "simple-oauth2"
 ---
 
 # simple-oauth2
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Any error condition
 
-**Throws:** `Error`
+**Throws:** Error
 
 **Required Handling:**
 

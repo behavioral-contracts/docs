@@ -1,5 +1,5 @@
 ---
-title: @sendgrid/mail
+title: "@sendgrid/mail"
 ---
 
 # @sendgrid/mail
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** send() called without try-catch or .catch() handler
 
-**Throws:** `Error with error.response.body containing API error details`
+**Throws:** Error with error.response.body containing API error details
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ What happens **after** calling this function:
 
 **Condition:** sendMultiple() called without try-catch or .catch() handler
 
-**Throws:** `Error with error.response.body containing API error details`
+**Throws:** Error with error.response.body containing API error details
 
 **Required Handling:**
 

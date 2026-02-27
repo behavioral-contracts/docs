@@ -1,5 +1,5 @@
 ---
-title: mysql2
+title: "mysql2"
 ---
 
 # mysql2
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Cannot connect (wrong credentials, host unreachable, etc.)
 
-**Throws:** `Error with code 'ECONNREFUSED', 'ER_ACCESS_DENIED_ERROR', etc.`
+**Throws:** Error with code 'ECONNREFUSED', 'ER_ACCESS_DENIED_ERROR', etc.
 
 **Required Handling:**
 
@@ -68,7 +68,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL syntax error
 
-**Throws:** `Error with code 'ER_PARSE_ERROR' or similar`
+**Throws:** Error with code 'ER_PARSE_ERROR' or similar
 
 **Required Handling:**
 
@@ -81,7 +81,7 @@ Caller MUST validate SQL syntax before execution. DO NOT retry - indicates SQL s
 
 **Condition:** Unique constraint, foreign key, or NOT NULL violation
 
-**Throws:** `Error with code 'ER_DUP_ENTRY', 'ER_NO_REFERENCED_ROW', 'ER_BAD_NULL_ERROR'`
+**Throws:** Error with code 'ER_DUP_ENTRY', 'ER_NO_REFERENCED_ROW', 'ER_BAD_NULL_ERROR'
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ Caller MUST handle constraint violations: - ER_DUP_ENTRY (1062): Duplicate key v
 
 **Condition:** Connection lost during query execution
 
-**Throws:** `Error with code 'PROTOCOL_CONNECTION_LOST', 'ECONNRESET'`
+**Throws:** Error with code 'PROTOCOL_CONNECTION_LOST', 'ECONNRESET'
 
 **Required Handling:**
 
@@ -107,7 +107,7 @@ Caller MUST handle connection errors. Connection may be lost due to timeout or s
 
 **Condition:** Table or view does not exist
 
-**Throws:** `Error with code 'ER_NO_SUCH_TABLE' (1146)`
+**Throws:** Error with code 'ER_NO_SUCH_TABLE' (1146)
 
 **Required Handling:**
 
@@ -122,7 +122,7 @@ Known gotchas and sharp edges:
 
 **⚠️ WARNING - sql-injection-risk**
 
-NEVER use query() with string concatenation or template literals for user input. Example VULNERABLE code: query(`SELECT * FROM users WHERE id = ${userId}`) This creates SQL injection vulnerability. ALWAYS use execute() with parameters instead: execute('SELECT * FROM users WHERE id = ?', [userId])
+NEVER use query() with string concatenation or template literals for user input. Example VULNERABLE code: query(`SELECT * FROM users WHERE id = $userId`) This creates SQL injection vulnerability. ALWAYS use execute() with parameters instead: execute('SELECT * FROM users WHERE id = ?', [userId])
 
 
 📖 [Source](https://github.com/sidorares/node-mysql2/discussions/1601)
@@ -146,7 +146,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL syntax error in prepared statement
 
-**Throws:** `Error with code 'ER_PARSE_ERROR' or similar`
+**Throws:** Error with code 'ER_PARSE_ERROR' or similar
 
 **Required Handling:**
 
@@ -159,7 +159,7 @@ Caller MUST validate SQL syntax. Prepared statements prevent SQL injection but n
 
 **Condition:** Unique, foreign key, or NOT NULL constraint violation
 
-**Throws:** `Error with code 'ER_DUP_ENTRY', 'ER_NO_REFERENCED_ROW_2', 'ER_BAD_NULL_ERROR'`
+**Throws:** Error with code 'ER_DUP_ENTRY', 'ER_NO_REFERENCED_ROW_2', 'ER_BAD_NULL_ERROR'
 
 **Required Handling:**
 
@@ -172,7 +172,7 @@ Caller MUST handle constraint violations gracefully. DO NOT retry without changi
 
 **Condition:** Connection lost or timeout
 
-**Throws:** `Error with code 'PROTOCOL_CONNECTION_LOST', 'ETIMEDOUT'`
+**Throws:** Error with code 'PROTOCOL_CONNECTION_LOST', 'ETIMEDOUT'
 
 **Required Handling:**
 
@@ -211,7 +211,7 @@ What happens **after** calling this function:
 
 **Condition:** All connections in pool are busy and timeout exceeded
 
-**Throws:** `Error with message 'Pool is closed' or timeout error`
+**Throws:** Error with message 'Pool is closed' or timeout error
 
 **Required Handling:**
 
@@ -224,7 +224,7 @@ Caller MUST handle pool exhaustion. Root causes: 1. Connections not released (fo
 
 **Condition:** Cannot establish connection from pool
 
-**Throws:** `Error with code 'ECONNREFUSED', 'ETIMEDOUT'`
+**Throws:** Error with code 'ECONNREFUSED', 'ETIMEDOUT'
 
 **Required Handling:**
 
@@ -239,11 +239,11 @@ Known gotchas and sharp edges:
 
 **⚠️ WARNING - connection-leak-prevention**
 
-MOST COMMON PRODUCTION BUG: Forgetting to call connection.release() causes pool exhaustion. ALWAYS use try-finally pattern: const conn = await pool.getConnection(); try {
+MOST COMMON PRODUCTION BUG: Forgetting to call connection.release() causes pool exhaustion. ALWAYS use try-finally pattern: const conn = await pool.getConnection(); try 
   await conn.query(...);
-} finally {
+ finally 
   conn.release(); // CRITICAL - must always execute
-} Failure to release leads to "Pool is closed" errors and application hangs.
+ Failure to release leads to "Pool is closed" errors and application hangs.
 
 
 📖 [Source](https://github.com/sidorares/node-mysql2/issues/1486)
@@ -274,7 +274,7 @@ What happens **after** calling this function:
 
 **Condition:** Cannot start transaction (connection error, etc.)
 
-**Throws:** `Error with connection-related codes`
+**Throws:** Error with connection-related codes
 
 **Required Handling:**
 
@@ -302,7 +302,7 @@ What happens **after** calling this function:
 
 **Condition:** Transaction commit fails (constraint violation, connection lost, etc.)
 
-**Throws:** `Error with various codes depending on failure reason`
+**Throws:** Error with various codes depending on failure reason
 
 **Required Handling:**
 
@@ -330,7 +330,7 @@ What happens **after** calling this function:
 
 **Condition:** Rollback fails (connection lost, etc.)
 
-**Throws:** `Error with connection-related codes`
+**Throws:** Error with connection-related codes
 
 **Required Handling:**
 

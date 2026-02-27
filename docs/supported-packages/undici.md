@@ -1,5 +1,5 @@
 ---
-title: undici
+title: "undici"
 ---
 
 # undici
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused
 
-**Throws:** `Promise rejection with Error`
+**Throws:** Promise rejection with Error
 
 **Required Handling:**
 
@@ -67,7 +67,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, certificate errors
 
-**Throws:** `TypeError with 'fetch failed' message and cause property containing underlying error (UND_ERR_SOCKET, etc.)`
+**Throws:** TypeError with 'fetch failed' message and cause property containing underlying error (UND_ERR_SOCKET, etc.)
 
 **Required Handling:**
 

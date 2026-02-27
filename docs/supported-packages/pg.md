@@ -1,5 +1,5 @@
 ---
-title: pg
+title: "pg"
 ---
 
 # pg
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL syntax error (42601)
 
-**Throws:** `Error with code '42601'`
+**Throws:** Error with code '42601'
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST validate SQL syntax before execution. This indicates a SQL syntax er
 
 **Condition:** Unique constraint violation (23505)
 
-**Throws:** `Error with code '23505'`
+**Throws:** Error with code '23505'
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ Caller MUST handle duplicate key violations gracefully. Extract constraint name 
 
 **Condition:** Foreign key constraint violation (23503)
 
-**Throws:** `Error with code '23503'`
+**Throws:** Error with code '23503'
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ Caller MUST verify referenced record exists before insertion. Extract constraint
 
 **Condition:** NOT NULL constraint violation (23502)
 
-**Throws:** `Error with code '23502'`
+**Throws:** Error with code '23502'
 
 **Required Handling:**
 
@@ -92,7 +92,7 @@ Caller MUST provide all required fields. Extract column name from error.column. 
 
 **Condition:** Connection to database failed
 
-**Throws:** `Error with code 'ECONNREFUSED' or similar network errors`
+**Throws:** Error with code 'ECONNREFUSED' or similar network errors
 
 **Required Handling:**
 
@@ -105,7 +105,7 @@ Caller MUST handle connection failures separately from query errors. Common caus
 
 **Condition:** Table or view does not exist (42P01)
 
-**Throws:** `Error with code '42P01'`
+**Throws:** Error with code '42P01'
 
 **Required Handling:**
 
@@ -120,14 +120,14 @@ Known gotchas and sharp edges:
 
 **⚠️ WARNING - sql-injection-string-concatenation**
 
-CRITICAL SECURITY: Using string concatenation or template literals with user input. WRONG: pool.query(`SELECT * FROM users WHERE username = '${username}'`); CORRECT: pool.query('SELECT * FROM users WHERE username = $1', [username]); NEVER concatenate user input into SQL - use parameterized queries ($1, $2, etc). This is the #1 security vulnerability in database applications.
+CRITICAL SECURITY: Using string concatenation or template literals with user input. WRONG: pool.query(`SELECT * FROM users WHERE username = '$username'`); CORRECT: pool.query('SELECT * FROM users WHERE username = $1', [username]); NEVER concatenate user input into SQL - use parameterized queries ($1, $2, etc). This is the #1 security vulnerability in database applications.
 
 
 📖 [Source](https://dev.to/ofri-peretz/sql-injection-in-node-postgres-the-pattern-everyone-gets-wrong-54mn)
 
 **⚠️ WARNING - transaction-not-rolled-back**
 
-COMMON: BEGIN transaction without ROLLBACK in catch block. Results in data corruption and held locks. ALWAYS wrap transactions: try { BEGIN -> COMMIT } catch { ROLLBACK } finally { release() } Missing ROLLBACK leaves database in inconsistent state.
+COMMON: BEGIN transaction without ROLLBACK in catch block. Results in data corruption and held locks. ALWAYS wrap transactions: try  BEGIN - COMMIT  catch  ROLLBACK  finally  release()  Missing ROLLBACK leaves database in inconsistent state.
 
 
 📖 [Source](https://node-postgres.com/features/transactions)
@@ -157,7 +157,7 @@ What happens **after** calling this function:
 
 **Condition:** All clients in pool are busy and connectionTimeoutMillis exceeded
 
-**Throws:** `Error with message 'timeout exceeded when trying to connect'`
+**Throws:** Error with message 'timeout exceeded when trying to connect'
 
 **Required Handling:**
 
@@ -170,7 +170,7 @@ Caller MUST handle pool exhaustion errors. Root causes: 1. Clients not released 
 
 **Condition:** Cannot establish database connection
 
-**Throws:** `Error with code 'ECONNREFUSED', 'ETIMEDOUT', etc.`
+**Throws:** Error with code 'ECONNREFUSED', 'ETIMEDOUT', etc.
 
 **Required Handling:**
 
@@ -183,15 +183,15 @@ Caller MUST handle connection failures. Implement retry with exponential backoff
 
 **Condition:** Caller forgets to release client back to pool
 
-**Throws:** `No error thrown, but pool becomes exhausted over time`
+**Throws:** No error thrown, but pool becomes exhausted over time
 
 **Required Handling:**
 
-Caller MUST ALWAYS release clients in a finally block: ``` const client = await pool.connect(); try {
+Caller MUST ALWAYS release clients in a finally block: ``` const client = await pool.connect(); try 
   await client.query(...);
-} finally {
+ finally 
   client.release();
-} ``` CRITICAL: This is the #1 production bug (affects 30% of mid-sized projects). Failure to release causes pool exhaustion and application hangs. Silent failure until complete outage.
+ ``` CRITICAL: This is the #1 production bug (affects 30% of mid-sized projects). Failure to release causes pool exhaustion and application hangs. Silent failure until complete outage.
 
 
 📖 [Source](https://github.com/brianc/node-postgres/issues/1882)
@@ -202,7 +202,7 @@ Known gotchas and sharp edges:
 
 **⚠️ WARNING - pool-query-for-transactions**
 
-COMMON: Using pool.query() for BEGIN/COMMIT/ROLLBACK. Each pool.query() might use a different client, breaking transactions. WRONG: await pool.query('BEGIN'); await pool.query(...); await pool.query('COMMIT'); CORRECT: const client = await pool.connect(); try { await client.query('BEGIN'); ... } ... Transactions MUST use a dedicated client from pool.connect().
+COMMON: Using pool.query() for BEGIN/COMMIT/ROLLBACK. Each pool.query() might use a different client, breaking transactions. WRONG: await pool.query('BEGIN'); await pool.query(...); await pool.query('COMMIT'); CORRECT: const client = await pool.connect(); try  await client.query('BEGIN'); ...  ... Transactions MUST use a dedicated client from pool.connect().
 
 
 📖 [Source](https://node-postgres.com/features/transactions)

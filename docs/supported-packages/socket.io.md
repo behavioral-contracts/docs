@@ -1,5 +1,5 @@
 ---
-title: socket.io
+title: "socket.io"
 ---
 
 # socket.io
@@ -41,7 +41,7 @@ What happens **after** calling this function:
 
 **Condition:** emit fails due to disconnected client or serialization error
 
-**Throws:** `Error may be thrown or silently fail`
+**Throws:** Error may be thrown or silently fail
 
 **Required Handling:**
 
@@ -69,7 +69,7 @@ What happens **after** calling this function:
 
 **Condition:** async operation within event handler throws
 
-**Throws:** `Unhandled promise rejection crashes server`
+**Throws:** Unhandled promise rejection crashes server
 
 **Required Handling:**
 

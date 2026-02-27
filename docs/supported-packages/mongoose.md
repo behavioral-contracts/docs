@@ -1,5 +1,5 @@
 ---
-title: mongoose
+title: "mongoose"
 ---
 
 # mongoose
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Database connection failed or was interrupted
 
-**Throws:** `MongooseError or MongoError`
+**Throws:** MongooseError or MongoError
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST wrap in try-catch or use .catch(). Handle connection errors separate
 
 **Condition:** Query parameter cannot be cast to expected type
 
-**Throws:** `CastError`
+**Throws:** CastError
 
 **Required Handling:**
 
@@ -81,7 +81,7 @@ What happens **after** calling this function:
 
 **Condition:** Database connection failed
 
-**Throws:** `MongooseError or MongoError`
+**Throws:** MongooseError or MongoError
 
 **Required Handling:**
 
@@ -93,7 +93,7 @@ Caller MUST wrap in try-catch or use .catch() to handle connection errors
 
 **Condition:** Query parameter casting failed
 
-**Throws:** `CastError`
+**Throws:** CastError
 
 **Required Handling:**
 
@@ -120,7 +120,7 @@ What happens **after** calling this function:
 
 **Condition:** Provided ID is not a valid ObjectId format
 
-**Throws:** `CastError with kind: 'ObjectId'`
+**Throws:** CastError with kind: 'ObjectId'
 
 **Required Handling:**
 
@@ -133,7 +133,7 @@ Caller MUST wrap in try-catch or use .catch(). Common when user input is passed 
 
 **Condition:** Database connection failed
 
-**Throws:** `MongooseError`
+**Throws:** MongooseError
 
 **Required Handling:**
 
@@ -160,7 +160,7 @@ What happens **after** calling this function:
 
 **Condition:** Document validation failed (missing required fields, wrong types, custom validators)
 
-**Throws:** `ValidationError with errors object containing field-specific ValidatorErrors`
+**Throws:** ValidationError with errors object containing field-specific ValidatorErrors
 
 **Required Handling:**
 
@@ -173,7 +173,7 @@ Caller MUST wrap in try-catch or use .catch(). Check error.name === 'ValidationE
 
 **Condition:** Unique constraint violation (E11000 error)
 
-**Throws:** `MongoError with code: 11000`
+**Throws:** MongoError with code: 11000
 
 **Required Handling:**
 
@@ -186,7 +186,7 @@ Caller MUST wrap in try-catch and check error.code === 11000. This is NOT a Vali
 
 **Condition:** Database connection failed
 
-**Throws:** `MongooseError`
+**Throws:** MongooseError
 
 **Required Handling:**
 
@@ -213,7 +213,7 @@ What happens **after** calling this function:
 
 **Condition:** One or more documents fail validation
 
-**Throws:** `ValidationError`
+**Throws:** ValidationError
 
 **Required Handling:**
 
@@ -225,7 +225,7 @@ Caller MUST wrap in try-catch. Default behavior stops on first error; use ordere
 
 **Condition:** Duplicate key constraint violation
 
-**Throws:** `MongoError with code: 11000`
+**Throws:** MongoError with code: 11000
 
 **Required Handling:**
 
@@ -252,7 +252,7 @@ What happens **after** calling this function:
 
 **Condition:** Update violates validation rules
 
-**Throws:** `ValidationError`
+**Throws:** ValidationError
 
 **Required Handling:**
 
@@ -264,7 +264,7 @@ Caller MUST wrap in try-catch to handle validation errors
 
 **Condition:** Update value cannot be cast to schema type
 
-**Throws:** `CastError`
+**Throws:** CastError
 
 **Required Handling:**
 
@@ -276,7 +276,7 @@ Caller MUST wrap in try-catch to handle type errors
 
 **Condition:** Database connection failed
 
-**Throws:** `MongooseError`
+**Throws:** MongooseError
 
 **Required Handling:**
 
@@ -303,11 +303,11 @@ What happens **after** calling this function:
 
 **Condition:** Malicious update payload exploits prototype pollution vulnerability
 
-**Throws:** `May not throw - vulnerability allows arbitrary code execution`
+**Throws:** May not throw - vulnerability allows arbitrary code execution
 
 **Required Handling:**
 
-Caller MUST wrap in try-catch. CRITICAL: Ensure mongoose version >= 5.13.20, 6.4.6, or 7.3.1 to patch CVE-2023-3696. Validate and sanitize all update payloads from user input.
+Caller MUST wrap in try-catch. CRITICAL: Ensure mongoose version = 5.13.20, 6.4.6, or 7.3.1 to patch CVE-2023-3696. Validate and sanitize all update payloads from user input.
 
 
 📖 [Source](https://security.snyk.io/vuln/SNYK-JS-MONGOOSE-5777721)
@@ -316,7 +316,7 @@ Caller MUST wrap in try-catch. CRITICAL: Ensure mongoose version >= 5.13.20, 6.4
 
 **Condition:** Update violates validation rules
 
-**Throws:** `ValidationError`
+**Throws:** ValidationError
 
 **Required Handling:**
 
@@ -328,7 +328,7 @@ Caller MUST wrap in try-catch
 
 **Condition:** Invalid ObjectId or type casting failure
 
-**Throws:** `CastError`
+**Throws:** CastError
 
 **Required Handling:**
 
@@ -355,7 +355,7 @@ What happens **after** calling this function:
 
 **Condition:** Vulnerable to prototype pollution attacks
 
-**Throws:** `May not throw - allows RCE`
+**Throws:** May not throw - allows RCE
 
 **Required Handling:**
 
@@ -367,7 +367,7 @@ Caller MUST wrap in try-catch and validate input. Upgrade mongoose to patched ve
 
 **Condition:** Update violates validation
 
-**Throws:** `ValidationError`
+**Throws:** ValidationError
 
 **Required Handling:**
 
@@ -394,7 +394,7 @@ What happens **after** calling this function:
 
 **Condition:** Database connection failed
 
-**Throws:** `MongooseError`
+**Throws:** MongooseError
 
 **Required Handling:**
 
@@ -421,7 +421,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid ObjectId format
 
-**Throws:** `CastError`
+**Throws:** CastError
 
 **Required Handling:**
 
@@ -433,7 +433,7 @@ Caller MUST wrap in try-catch
 
 **Condition:** Database connection failed
 
-**Throws:** `MongooseError`
+**Throws:** MongooseError
 
 **Required Handling:**
 
@@ -460,7 +460,7 @@ What happens **after** calling this function:
 
 **Condition:** Document validation failed
 
-**Throws:** `ValidationError with errors object`
+**Throws:** ValidationError with errors object
 
 **Required Handling:**
 
@@ -473,7 +473,7 @@ Caller MUST wrap in try-catch. Most common error when saving documents. Inspect 
 
 **Condition:** Unique constraint violation
 
-**Throws:** `MongoError with code: 11000`
+**Throws:** MongoError with code: 11000
 
 **Required Handling:**
 
@@ -486,7 +486,7 @@ Caller MUST wrap in try-catch and check error.code === 11000. Common when saving
 
 **Condition:** Database connection failed
 
-**Throws:** `MongooseError`
+**Throws:** MongooseError
 
 **Required Handling:**
 
@@ -513,7 +513,7 @@ What happens **after** calling this function:
 
 **Condition:** Query execution failed
 
-**Throws:** `MongooseError, CastError, or ValidationError depending on failure type`
+**Throws:** MongooseError, CastError, or ValidationError depending on failure type
 
 **Required Handling:**
 
@@ -541,7 +541,7 @@ What happens **after** calling this function:
 
 **Condition:** No documents match the query
 
-**Throws:** `DocumentNotFoundError`
+**Throws:** DocumentNotFoundError
 
 **Required Handling:**
 
@@ -569,7 +569,7 @@ What happens **after** calling this function:
 
 **Condition:** Cannot connect to MongoDB (network, auth, or invalid connection string)
 
-**Throws:** `MongooseError or MongoError`
+**Throws:** MongooseError or MongoError
 
 **Required Handling:**
 
@@ -597,7 +597,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid pipeline stage or aggregation failure
 
-**Throws:** `MongooseError or MongoError`
+**Throws:** MongooseError or MongoError
 
 **Required Handling:**
 
@@ -624,7 +624,7 @@ What happens **after** calling this function:
 
 **Condition:** Database connection failed
 
-**Throws:** `MongooseError`
+**Throws:** MongooseError
 
 **Required Handling:**
 

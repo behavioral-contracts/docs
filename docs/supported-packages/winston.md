@@ -1,5 +1,5 @@
 ---
-title: winston
+title: "winston"
 ---
 
 # winston
@@ -40,7 +40,9 @@ What happens **after** calling this function:
 
 **Condition:** transport fails (file write error, network error, permission denied)
 
-**Returns:** logger instance that silently fails without error listener
+**Returns:**
+
+logger instance that silently fails without error listener
 
 **Required Handling:**
 
@@ -67,7 +69,9 @@ What happens **after** calling this function:
 
 **Condition:** transport fails during log write (file system full, network down, permissions)
 
-**Returns:** void (operation may fail silently)
+**Returns:**
+
+void (operation may fail silently)
 
 **Required Handling:**
 

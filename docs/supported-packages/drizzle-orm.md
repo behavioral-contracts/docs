@@ -1,5 +1,5 @@
 ---
-title: drizzle-orm
+title: "drizzle-orm"
 ---
 
 # drizzle-orm
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** query fails (connection lost, timeout, invalid column, SQL syntax error)
 
-**Throws:** `Error with database-specific error details`
+**Throws:** Error with database-specific error details
 
 **Required Handling:**
 
@@ -67,7 +67,7 @@ What happens **after** calling this function:
 
 **Condition:** insert violates constraint (unique, foreign key, not null, check constraint)
 
-**Throws:** `Error with constraint violation details and database error code`
+**Throws:** Error with constraint violation details and database error code
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ What happens **after** calling this function:
 
 **Condition:** update violates constraint or fails (unique, foreign key, connection lost)
 
-**Throws:** `Error with constraint violation or connection error details`
+**Throws:** Error with constraint violation or connection error details
 
 **Required Handling:**
 
@@ -121,7 +121,7 @@ What happens **after** calling this function:
 
 **Condition:** delete violates foreign key constraint (referenced by other tables)
 
-**Throws:** `Error with foreign key constraint violation details`
+**Throws:** Error with foreign key constraint violation details
 
 **Required Handling:**
 

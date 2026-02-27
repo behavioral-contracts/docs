@@ -1,5 +1,5 @@
 ---
-title: @google-cloud/storage
+title: "@google-cloud/storage"
 ---
 
 # @google-cloud/storage

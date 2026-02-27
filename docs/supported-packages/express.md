@@ -1,5 +1,5 @@
 ---
-title: express
+title: "express"
 ---
 
 # express
@@ -45,7 +45,7 @@ What happens **after** calling this function:
 app.post, etc.) and contains await expressions without try-catch blocks
 
 
-**Throws:** `UnhandledPromiseRejection`
+**Throws:** UnhandledPromiseRejection
 
 **Required Handling:**
 
@@ -55,14 +55,14 @@ use the express-async-errors package or upgrade to Express 5.x for automatic
 promise rejection handling.
 
 Example:
-app.get('/path', async (req, res, next) => {
-  try {
+app.get('/path', async (req, res, next) = 
+  try 
     const data = await asyncOperation();
     res.json(data);
-  } catch (err) {
+   catch (err) 
     next(err); // Forward to error handler
-  }
-});
+  
+);
 
 
 📖 [Source](https://expressjs.com/en/guide/error-handling.html)
@@ -90,7 +90,7 @@ What happens **after** calling this function:
 without try-catch blocks
 
 
-**Throws:** `UnhandledPromiseRejection`
+**Throws:** UnhandledPromiseRejection
 
 **Required Handling:**
 
@@ -98,14 +98,14 @@ Must wrap async operations in try-catch blocks and call next(err) to forward
 errors to error-handling middleware. Alternatively, use express-async-errors.
 
 Example:
-app.use(async (req, res, next) => {
-  try {
+app.use(async (req, res, next) = 
+  try 
     await authenticateUser(req);
     next(); // Continue to next middleware
-  } catch (err) {
+   catch (err) 
     next(err); // Forward to error handler
-  }
-});
+  
+);
 
 
 📖 [Source](https://expressjs.com/en/guide/error-handling.html)
@@ -115,7 +115,7 @@ app.use(async (req, res, next) => {
 **Condition:** When defining error-handling middleware
 
 
-**Throws:** `N/A`
+**Throws:** N/A
 
 **Required Handling:**
 
@@ -124,10 +124,10 @@ Error-handling middleware must be defined with exactly 4 parameters
 middleware must be defined AFTER all other middleware and routes.
 
 Example:
-app.use((err, req, res, next) => {
+app.use((err, req, res, next) = 
   console.error(err.stack);
   res.status(500).send('Something broke!');
-});
+);
 
 
 📖 [Source](https://expressjs.com/en/guide/error-handling.html)
@@ -155,7 +155,7 @@ What happens **after** calling this function:
 expressions without try-catch blocks
 
 
-**Throws:** `UnhandledPromiseRejection`
+**Throws:** UnhandledPromiseRejection
 
 **Required Handling:**
 
@@ -164,14 +164,14 @@ Same requirements as app.METHOD route handlers.
 
 Example:
 const router = express.Router();
-router.get('/users', async (req, res, next) => {
-  try {
+router.get('/users', async (req, res, next) = 
+  try 
     const users = await User.findAll();
     res.json(users);
-  } catch (err) {
+   catch (err) 
     next(err);
-  }
-});
+  
+);
 
 
 📖 [Source](https://expressjs.com/en/guide/error-handling.html)
@@ -198,7 +198,7 @@ What happens **after** calling this function:
 expressions without try-catch blocks
 
 
-**Throws:** `UnhandledPromiseRejection`
+**Throws:** UnhandledPromiseRejection
 
 **Required Handling:**
 

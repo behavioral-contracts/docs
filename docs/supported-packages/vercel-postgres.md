@@ -1,5 +1,5 @@
 ---
-title: @vercel/postgres
+title: "@vercel/postgres"
 ---
 
 # @vercel/postgres
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL query fails due to syntax error, connection issue, or constraint violation
 
-**Throws:** `Database error with error code and message`
+**Throws:** Database error with error code and message
 
 **Required Handling:**
 
@@ -67,7 +67,7 @@ What happens **after** calling this function:
 
 **Condition:** Query fails due to connection issue or SQL error
 
-**Throws:** `Database error`
+**Throws:** Database error
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ What happens **after** calling this function:
 
 **Condition:** Client obtained from pool is not released
 
-**Throws:** `Connection pool exhaustion on subsequent queries`
+**Throws:** Connection pool exhaustion on subsequent queries
 
 **Required Handling:**
 

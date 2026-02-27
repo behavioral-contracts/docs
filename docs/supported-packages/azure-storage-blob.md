@@ -1,5 +1,5 @@
 ---
-title: @azure/storage-blob
+title: "@azure/storage-blob"
 ---
 
 # @azure/storage-blob

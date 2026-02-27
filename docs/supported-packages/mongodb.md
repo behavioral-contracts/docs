@@ -1,5 +1,5 @@
 ---
-title: mongodb
+title: "mongodb"
 ---
 
 # mongodb
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error, authentication failure, or server selection timeout
 
-**Throws:** `MongoNetworkError, MongoServerSelectionError, MongoNetworkTimeoutError, or MongoError`
+**Throws:** MongoNetworkError, MongoServerSelectionError, MongoNetworkTimeoutError, or MongoError
 
 **Required Handling:**
 
@@ -68,7 +68,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error, timeout, or invalid query syntax
 
-**Throws:** `MongoServerError, MongoNetworkError, or MongoError`
+**Throws:** MongoServerError, MongoNetworkError, or MongoError
 
 **Required Handling:**
 
@@ -96,7 +96,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error, timeout, or invalid query
 
-**Throws:** `MongoServerError, MongoNetworkError, or MongoError`
+**Throws:** MongoServerError, MongoNetworkError, or MongoError
 
 **Required Handling:**
 
@@ -124,7 +124,7 @@ What happens **after** calling this function:
 
 **Condition:** Document violates unique index constraint
 
-**Throws:** `MongoServerError with error.code === 11000`
+**Throws:** MongoServerError with error.code === 11000
 
 **Required Handling:**
 
@@ -152,7 +152,7 @@ What happens **after** calling this function:
 
 **Condition:** One or more documents failed to insert
 
-**Throws:** `MongoBulkWriteError with details of failed operations`
+**Throws:** MongoBulkWriteError with details of failed operations
 
 **Required Handling:**
 
@@ -180,7 +180,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error, invalid update operation, or write concern failure
 
-**Throws:** `MongoServerError, MongoWriteConcernError, or MongoError`
+**Throws:** MongoServerError, MongoWriteConcernError, or MongoError
 
 **Required Handling:**
 
@@ -208,7 +208,7 @@ What happens **after** calling this function:
 
 **Condition:** Update operation failed or write concern not satisfied
 
-**Throws:** `MongoServerError, MongoWriteConcernError, or MongoError`
+**Throws:** MongoServerError, MongoWriteConcernError, or MongoError
 
 **Required Handling:**
 
@@ -236,7 +236,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error or write concern failure
 
-**Throws:** `MongoServerError, MongoWriteConcernError, or MongoError`
+**Throws:** MongoServerError, MongoWriteConcernError, or MongoError
 
 **Required Handling:**
 
@@ -264,7 +264,7 @@ What happens **after** calling this function:
 
 **Condition:** Delete operation failed or write concern not satisfied
 
-**Throws:** `MongoServerError, MongoWriteConcernError, or MongoError`
+**Throws:** MongoServerError, MongoWriteConcernError, or MongoError
 
 **Required Handling:**
 
@@ -292,7 +292,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid pipeline stage, network error, or timeout
 
-**Throws:** `MongoServerError, MongoNetworkError, or MongoError`
+**Throws:** MongoServerError, MongoNetworkError, or MongoError
 
 **Required Handling:**
 
@@ -320,7 +320,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error, timeout, or invalid filter
 
-**Throws:** `MongoServerError, MongoNetworkError, or MongoError`
+**Throws:** MongoServerError, MongoNetworkError, or MongoError
 
 **Required Handling:**
 
@@ -348,7 +348,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid index options, duplicate index name, or insufficient permissions
 
-**Throws:** `MongoServerError or MongoError`
+**Throws:** MongoServerError or MongoError
 
 **Required Handling:**
 
@@ -376,7 +376,7 @@ What happens **after** calling this function:
 
 **Condition:** Collection does not exist, insufficient permissions, or network error
 
-**Throws:** `MongoServerError or MongoError`
+**Throws:** MongoServerError or MongoError
 
 **Required Handling:**
 
@@ -404,7 +404,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid collection name or database not connected
 
-**Throws:** `MongoError`
+**Throws:** MongoError
 
 **Required Handling:**
 
@@ -432,7 +432,7 @@ What happens **after** calling this function:
 
 **Condition:** One or more operations failed
 
-**Throws:** `MongoBulkWriteError with details of failed operations`
+**Throws:** MongoBulkWriteError with details of failed operations
 
 **Required Handling:**
 

@@ -1,5 +1,5 @@
 ---
-title: typescript
+title: "typescript"
 ---
 
 # typescript
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** file does not exist at the specified path
 
-**Throws:** `Error with code ENOENT (file not found)`
+**Throws:** Error with code ENOENT (file not found)
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST wrap ts.sys.readFile() in a try-catch block to handle file-not-found
 
 **Condition:** insufficient permissions to read the file
 
-**Throws:** `Error with code EACCES (permission denied)`
+**Throws:** Error with code EACCES (permission denied)
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ Caller MUST wrap ts.sys.readFile() in a try-catch block to handle permission err
 
 **Condition:** file contains invalid encoding or binary data read as text
 
-**Throws:** `Error or returns corrupted string data`
+**Throws:** Error or returns corrupted string data
 
 **Required Handling:**
 
@@ -104,7 +104,7 @@ What happens **after** calling this function:
 
 **Condition:** directory does not exist at the specified path
 
-**Throws:** `Error with code ENOENT (directory not found)`
+**Throws:** Error with code ENOENT (directory not found)
 
 **Required Handling:**
 
@@ -117,7 +117,7 @@ Caller MUST wrap ts.sys.readDirectory() in a try-catch block to handle directory
 
 **Condition:** insufficient permissions to read the directory
 
-**Throws:** `Error with code EACCES (permission denied)`
+**Throws:** Error with code EACCES (permission denied)
 
 **Required Handling:**
 
@@ -130,7 +130,7 @@ Caller MUST wrap ts.sys.readDirectory() in a try-catch block to handle permissio
 
 **Condition:** directory contains circular symbolic links
 
-**Throws:** `Error with code ELOOP (too many symbolic links)`
+**Throws:** Error with code ELOOP (too many symbolic links)
 
 **Required Handling:**
 
@@ -168,7 +168,7 @@ What happens **after** calling this function:
 
 **Condition:** insufficient permissions to write to the file or directory
 
-**Throws:** `Error with code EACCES (permission denied)`
+**Throws:** Error with code EACCES (permission denied)
 
 **Required Handling:**
 
@@ -181,7 +181,7 @@ Caller MUST wrap ts.sys.writeFile() in a try-catch block to handle permission er
 
 **Condition:** parent directory does not exist
 
-**Throws:** `Error with code ENOENT (directory not found)`
+**Throws:** Error with code ENOENT (directory not found)
 
 **Required Handling:**
 
@@ -194,7 +194,7 @@ Caller MUST either: 1. Wrap ts.sys.writeFile() in a try-catch and handle ENOENT,
 
 **Condition:** insufficient disk space
 
-**Throws:** `Error with code ENOSPC (no space left on device)`
+**Throws:** Error with code ENOSPC (no space left on device)
 
 **Required Handling:**
 
@@ -207,7 +207,7 @@ Caller SHOULD wrap ts.sys.writeFile() in a try-catch to handle disk-full errors,
 
 **Condition:** filesystem is mounted read-only
 
-**Throws:** `Error with code EROFS (read-only file system)`
+**Throws:** Error with code EROFS (read-only file system)
 
 **Required Handling:**
 
@@ -235,7 +235,7 @@ What happens **after** calling this function:
 
 **Condition:** source file specified in rootNames does not exist
 
-**Throws:** `May throw Error or return program with diagnostics`
+**Throws:** May throw Error or return program with diagnostics
 
 **Required Handling:**
 
@@ -248,7 +248,7 @@ Caller SHOULD wrap ts.createProgram() in a try-catch AND check ts.getPreEmitDiag
 
 **Condition:** compiler options are invalid or incompatible
 
-**Throws:** `May throw Error or return program with diagnostics`
+**Throws:** May throw Error or return program with diagnostics
 
 **Required Handling:**
 
@@ -261,7 +261,9 @@ Caller SHOULD validate compiler options before passing to ts.createProgram() or 
 
 **Condition:** program created successfully but contains compilation errors
 
-**Returns:** Program object with errors accessible via getPreEmitDiagnostics()
+**Returns:**
+
+Program object with errors accessible via getPreEmitDiagnostics()
 
 **Required Handling:**
 
@@ -299,7 +301,7 @@ What happens **after** calling this function:
 
 **Condition:** custom getSourceFile implementation encounters file system errors
 
-**Throws:** `Depends on custom implementation - may throw or return undefined`
+**Throws:** Depends on custom implementation - may throw or return undefined
 
 **Required Handling:**
 

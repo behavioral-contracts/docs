@@ -1,5 +1,5 @@
 ---
-title: express-async-errors
+title: "express-async-errors"
 ---
 
 # express-async-errors

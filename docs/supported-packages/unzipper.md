@@ -1,5 +1,5 @@
 ---
-title: unzipper
+title: "unzipper"
 ---
 
 # unzipper
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Any error condition
 
-**Throws:** `Error`
+**Throws:** Error
 
 **Required Handling:**
 

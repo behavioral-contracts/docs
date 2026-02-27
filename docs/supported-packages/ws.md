@@ -1,5 +1,5 @@
 ---
-title: ws
+title: "ws"
 ---
 
 # ws
@@ -40,11 +40,11 @@ What happens **after** calling this function:
 
 **Condition:** WebSocket instance created without error event handler
 
-**Throws:** `Emits 'error' event that crashes process if not handled`
+**Throws:** Emits 'error' event that crashes process if not handled
 
 **Required Handling:**
 
-Caller MUST attach error event handler immediately after creating WebSocket. Without error handler, unhandled 'error' events crash the entire Node.js process. CRITICAL: This is the #1 production bug (60% of codebases). Always add: ws.on('error', (error) => { handle_error(error); })
+Caller MUST attach error event handler immediately after creating WebSocket. Without error handler, unhandled 'error' events crash the entire Node.js process. CRITICAL: This is the #1 production bug (60% of codebases). Always add: ws.on('error', (error) =  handle_error(error); )
 
 
 📖 [Source](https://github.com/websockets/ws/issues/246)
@@ -53,7 +53,7 @@ Caller MUST attach error event handler immediately after creating WebSocket. Wit
 
 **Condition:** Connection fails (network error, DNS failure, timeout, handshake failure)
 
-**Throws:** `Emits 'error' event with Error object`
+**Throws:** Emits 'error' event with Error object
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ Caller MUST handle connection errors via error event handler. Common errors: ECO
 
 **Condition:** WebSocket protocol violation (invalid frames, reserved bits set)
 
-**Throws:** `Emits 'error' event and closes connection with code 1002`
+**Throws:** Emits 'error' event and closes connection with code 1002
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ Caller MUST handle protocol errors. Usually indicates server or client implement
 
 **Condition:** Connection closes but no close event handler attached
 
-**Throws:** `Emits 'close' event with code and reason`
+**Throws:** Emits 'close' event with code and reason
 
 **Required Handling:**
 
@@ -125,11 +125,11 @@ What happens **after** calling this function:
 
 **Condition:** send() called before connection is open (readyState !== OPEN)
 
-**Throws:** `Error: WebSocket is not open: readyState X (CONNECTING|CLOSING|CLOSED)`
+**Throws:** Error: WebSocket is not open: readyState X (CONNECTING|CLOSING|CLOSED)
 
 **Required Handling:**
 
-Caller MUST check readyState before sending OR send only in open event. VERY COMMON BUG (50% of codebases): Sending immediately after new WebSocket(). CORRECT: ws.on('open', () => { ws.send(data); }) CORRECT: if (ws.readyState === WebSocket.OPEN) { ws.send(data); } WRONG: ws.send(data); // Immediately after new WebSocket() - crashes!
+Caller MUST check readyState before sending OR send only in open event. VERY COMMON BUG (50% of codebases): Sending immediately after new WebSocket(). CORRECT: ws.on('open', () =  ws.send(data); ) CORRECT: if (ws.readyState === WebSocket.OPEN)  ws.send(data);  WRONG: ws.send(data); // Immediately after new WebSocket() - crashes!
 
 
 📖 [Source](https://github.com/websockets/ws/issues/1170)
@@ -138,11 +138,11 @@ Caller MUST check readyState before sending OR send only in open event. VERY COM
 
 **Condition:** Send buffer full (bufferedAmount exceeds threshold)
 
-**Throws:** `Does NOT throw, but causes memory exhaustion and OOM crashes`
+**Throws:** Does NOT throw, but causes memory exhaustion and OOM crashes
 
 **Required Handling:**
 
-Caller MUST check bufferedAmount before sending in high-throughput scenarios. If bufferedAmount > threshold (e.g., 1 MB), pause sending. Wait for drain event before resuming. WITHOUT backpressure handling: memory leak, OOM crash. Example: if (ws.bufferedAmount > 1024*1024) { pause_sending(); }
+Caller MUST check bufferedAmount before sending in high-throughput scenarios. If bufferedAmount  threshold (e.g., 1 MB), pause sending. Wait for drain event before resuming. WITHOUT backpressure handling: memory leak, OOM crash. Example: if (ws.bufferedAmount  1024*1024)  pause_sending(); 
 
 
 📖 [Source](https://skylinecodes.substack.com/p/backpressure-in-websocket-streams)
@@ -151,7 +151,7 @@ Caller MUST check bufferedAmount before sending in high-throughput scenarios. If
 
 **Condition:** Message size exceeds maxPayload
 
-**Throws:** `RangeError: Invalid WebSocket frame: payload length > maxPayload`
+**Throws:** RangeError: Invalid WebSocket frame: payload length  maxPayload
 
 **Required Handling:**
 
@@ -166,11 +166,11 @@ Known gotchas and sharp edges:
 
 **⚠️ WARNING - broadcasting-without-readystate-check**
 
-COMMON: Broadcasting to all clients without checking readyState. Results in errors when sending to closing/closed connections. ALWAYS check: wss.clients.forEach(client => {
-  if (client.readyState === WebSocket.OPEN) {
+COMMON: Broadcasting to all clients without checking readyState. Results in errors when sending to closing/closed connections. ALWAYS check: wss.clients.forEach(client = 
+  if (client.readyState === WebSocket.OPEN) 
     client.send(data);
-  }
-}); Without check: errors thrown for every closed connection.
+  
+); Without check: errors thrown for every closed connection.
 
 
 📖 [Source](https://github.com/websockets/ws/blob/master/doc/ws.md#how-to-broadcast-a-message-to-all-clients)
@@ -194,7 +194,7 @@ What happens **after** calling this function:
 
 **Condition:** Server error (port in use, permission denied, etc.)
 
-**Throws:** `Emits 'error' event on server`
+**Throws:** Emits 'error' event on server
 
 **Required Handling:**
 
@@ -207,7 +207,7 @@ Caller MUST attach error event handler to server. Common errors: EADDRINUSE (por
 
 **Condition:** Client error before connection established (handshake failure)
 
-**Throws:** `Emits 'wsClientError' event on server`
+**Throws:** Emits 'wsClientError' event on server
 
 **Required Handling:**
 
@@ -220,15 +220,15 @@ Caller SHOULD handle wsClientError for errors during handshake. Prevents crashes
 
 **Condition:** Server accepts connections without origin validation
 
-**Throws:** `Does NOT throw, but allows cross-origin attacks`
+**Throws:** Does NOT throw, but allows cross-origin attacks
 
 **Required Handling:**
 
-Caller MUST validate origin in production via verifyClient callback. WITHOUT validation: any website can connect to your WebSocket server. SECURITY RISK: Cross-Site WebSocket Hijacking (CSWSH). Example: new WebSocketServer({
-  verifyClient: (info) => {
+Caller MUST validate origin in production via verifyClient callback. WITHOUT validation: any website can connect to your WebSocket server. SECURITY RISK: Cross-Site WebSocket Hijacking (CSWSH). Example: new WebSocketServer(
+  verifyClient: (info) = 
     return allowedOrigins.includes(info.origin);
-  }
-});
+  
+);
 
 
 📖 [Source](https://owasp.org/www-community/vulnerabilities/Cross-Site_WebSocket_Hijacking)
@@ -239,14 +239,14 @@ Known gotchas and sharp edges:
 
 **ℹ️ INFO - no-maxpayload-limit**
 
-SECURITY: Not configuring maxPayload allows DoS via large messages. Default 100 MiB is often too high for production. ALWAYS configure: new WebSocketServer({ maxPayload: 10 * 1024 * 1024 }) Set to appropriate limit for your use case (e.g., 10 MB). Prevents CVE-2016-10542 style attacks.
+SECURITY: Not configuring maxPayload allows DoS via large messages. Default 100 MiB is often too high for production. ALWAYS configure: new WebSocketServer( maxPayload: 10 * 1024 * 1024 ) Set to appropriate limit for your use case (e.g., 10 MB). Prevents CVE-2016-10542 style attacks.
 
 
 📖 [Source](https://nvd.nist.gov/vuln/detail/CVE-2016-10542)
 
 **ℹ️ INFO - memory-leak-event-listeners**
 
-COMMON: Not removing event listeners on connection close. Each connection adds listeners, but they're never removed. Results in memory leak as listener count grows unbounded. ALWAYS: ws.on('close', () => { ws.removeAllListeners(); }); Alternatively, use once() for one-time events.
+COMMON: Not removing event listeners on connection close. Each connection adds listeners, but they're never removed. Results in memory leak as listener count grows unbounded. ALWAYS: ws.on('close', () =  ws.removeAllListeners(); ); Alternatively, use once() for one-time events.
 
 
 📖 [Source](https://github.com/websockets/ws/issues/1334)
@@ -270,7 +270,7 @@ What happens **after** calling this function:
 
 **Condition:** Connection closes (gracefully or abnormally)
 
-**Throws:** `Emits 'close' event with code and reason`
+**Throws:** Emits 'close' event with code and reason
 
 **Required Handling:**
 

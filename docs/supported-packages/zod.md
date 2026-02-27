@@ -1,5 +1,5 @@
 ---
-title: zod
+title: "zod"
 ---
 
 # zod
@@ -42,7 +42,7 @@ What happens **after** calling this function:
 
 **Condition:** When input data does not match the schema definition
 
-**Throws:** `ZodError`
+**Throws:** ZodError
 
 **Required Handling:**
 
@@ -56,7 +56,7 @@ ZodError contains detailed validation failure information in the 'issues' array.
 
 **Condition:** When type coercion fails (e.g., z.coerce.date() receives invalid date string)
 
-**Throws:** `ZodError`
+**Throws:** ZodError
 
 **Required Handling:**
 
@@ -86,7 +86,7 @@ What happens **after** calling this function:
 
 **Condition:** When input data does not match the schema definition or async refinements fail
 
-**Throws:** `ZodError`
+**Throws:** ZodError
 
 **Required Handling:**
 
@@ -100,7 +100,7 @@ Handle rejected promises appropriately.
 
 **Condition:** When custom async refinement validation fails
 
-**Throws:** `ZodError`
+**Throws:** ZodError
 
 **Required Handling:**
 
@@ -115,7 +115,7 @@ contain details about which refinements failed.
 ### `safeParse()`
 
 Validates data against a schema synchronously without throwing. Returns a
-discriminated union with {success: true, data} or {success: false, error}.
+discriminated union with success: true, data or success: false, error.
 
 
 **Import:**
@@ -131,7 +131,7 @@ What happens **after** calling this function:
 
 **Condition:** When validation completes (success or failure)
 
-**Throws:** `never`
+**Throws:** never
 
 **Required Handling:**
 
@@ -146,7 +146,7 @@ TypeScript discriminated unions enforce this at compile time.
 ### `safeParseAsync()`
 
 Validates data against a schema asynchronously without throwing. Returns a
-promise of discriminated union with {success: true, data} or {success: false, error}.
+promise of discriminated union with success: true, data or success: false, error.
 
 
 **Import:**
@@ -162,7 +162,7 @@ What happens **after** calling this function:
 
 **Condition:** When async validation completes (success or failure)
 
-**Throws:** `never`
+**Throws:** never
 
 **Required Handling:**
 

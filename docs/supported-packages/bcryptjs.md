@@ -1,5 +1,5 @@
 ---
-title: bcryptjs
+title: "bcryptjs"
 ---
 
 # bcryptjs
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** password is not a string or Buffer, or salt is invalid type
 
-**Throws:** `Error: Illegal arguments: [actual_type], [actual_type]`
+**Throws:** Error: Illegal arguments: [actual_type], [actual_type]
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST wrap bcrypt.hash() in try-catch block or use .catch() handler. Type 
 
 **Condition:** salt parameter is not a string, number, or valid salt format
 
-**Throws:** `Error: Invalid salt version or Illegal arguments`
+**Throws:** Error: Invalid salt version or Illegal arguments
 
 **Required Handling:**
 
@@ -64,13 +64,13 @@ Caller MUST handle errors from invalid salt parameter. Use genSalt() to generate
 
 **🔴 ERROR - hash-rounds-out-of-range**
 
-**Condition:** salt rounds < 4 or > 31
+**Condition:** salt rounds  4 or  31
 
-**Throws:** `Error: Rounds out of range (4-31)`
+**Throws:** Error: Rounds out of range (4-31)
 
 **Required Handling:**
 
-Caller MUST validate salt rounds are between 4 and 31. Production systems should use rounds >= 12 for adequate security.
+Caller MUST validate salt rounds are between 4 and 31. Production systems should use rounds = 12 for adequate security.
 
 
 📖 [Source](https://github.com/kelektiv/node.bcrypt.js/issues/898)
@@ -79,7 +79,7 @@ Caller MUST validate salt rounds are between 4 and 31. Production systems should
 
 **Condition:** internal hashing operation fails
 
-**Throws:** `Error`
+**Throws:** Error
 
 **Required Handling:**
 
@@ -101,7 +101,7 @@ Passwords longer than 72 bytes (UTF-8 encoded) are silently truncated. This is a
 
 **⚠️ WARNING - low-salt-rounds**
 
-Using salt rounds < 12 provides inadequate protection against modern hardware attacks. Recommended minimum is 12 for 2026 (increases over time).
+Using salt rounds  12 provides inadequate protection against modern hardware attacks. Recommended minimum is 12 for 2026 (increases over time).
 
 
 📖 [Source](https://github.com/kelektiv/node.bcrypt.js/issues/437)
@@ -125,7 +125,7 @@ What happens **after** calling this function:
 
 **Condition:** password or hash parameter is not a string
 
-**Throws:** `Error: Illegal arguments: [actual_type], [actual_type]`
+**Throws:** Error: Illegal arguments: [actual_type], [actual_type]
 
 **Required Handling:**
 
@@ -138,11 +138,11 @@ Caller MUST wrap bcrypt.compare() in try-catch or use .catch() handler. Type err
 
 **Condition:** hash parameter is not a valid bcrypt hash format
 
-**Throws:** `Error: Invalid hash provided or hash is not a valid bcrypt hash`
+**Throws:** Error: Invalid hash provided or hash is not a valid bcrypt hash
 
 **Required Handling:**
 
-Caller MUST handle errors from malformed hash values. Database corruption, string truncation (VARCHAR < 60), or encoding issues can cause invalid hashes. This is the #1 production authentication bug.
+Caller MUST handle errors from malformed hash values. Database corruption, string truncation (VARCHAR  60), or encoding issues can cause invalid hashes. This is the #1 production authentication bug.
 
 
 📖 [Source](https://github.com/kelektiv/node.bcrypt.js/issues/1037)
@@ -151,7 +151,7 @@ Caller MUST handle errors from malformed hash values. Database corruption, strin
 
 **Condition:** internal comparison operation fails
 
-**Throws:** `Error`
+**Throws:** Error
 
 **Required Handling:**
 
@@ -195,9 +195,9 @@ What happens **after** calling this function:
 
 **🔴 ERROR - gensalt-invalid-rounds**
 
-**Condition:** rounds parameter < 4 or > 31
+**Condition:** rounds parameter  4 or  31
 
-**Throws:** `Error: Rounds out of range (4-31)`
+**Throws:** Error: Rounds out of range (4-31)
 
 **Required Handling:**
 
@@ -210,7 +210,7 @@ Caller MUST wrap genSalt() in try-catch or use .catch() handler when rounds para
 
 **Condition:** rounds parameter is not a number
 
-**Throws:** `Error: Illegal arguments: [actual_type]`
+**Throws:** Error: Illegal arguments: [actual_type]
 
 **Required Handling:**
 
@@ -223,7 +223,7 @@ Caller MUST validate rounds is a number. Common error when reading from environm
 
 **Condition:** random number generator fails (browser context without setRandomFallback)
 
-**Throws:** `Error: Secure random number generator not available`
+**Throws:** Error: Secure random number generator not available
 
 **Required Handling:**
 

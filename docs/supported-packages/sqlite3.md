@@ -1,5 +1,5 @@
 ---
-title: sqlite3
+title: "sqlite3"
 ---
 
 # sqlite3
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL syntax error
 
-**Throws:** `Error with message containing 'SQLITE_ERROR' or syntax details`
+**Throws:** Error with message containing 'SQLITE_ERROR' or syntax details
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST validate SQL syntax before execution. DO NOT retry - indicates SQL s
 
 **Condition:** Unique constraint, foreign key, or NOT NULL violation
 
-**Throws:** `Error with 'SQLITE_CONSTRAINT' code`
+**Throws:** Error with 'SQLITE_CONSTRAINT' code
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ Caller MUST handle constraint violations: - UNIQUE constraint: error.message con
 
 **Condition:** Database is locked by another process or transaction
 
-**Throws:** `Error with 'SQLITE_BUSY' code`
+**Throws:** Error with 'SQLITE_BUSY' code
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ Caller MUST handle database locked errors. SQLite uses file-level locking. Imple
 
 **Condition:** Table does not exist
 
-**Throws:** `Error with message 'no such table'`
+**Throws:** Error with message 'no such table'
 
 **Required Handling:**
 
@@ -92,7 +92,7 @@ Caller MUST verify table exists before executing queries. DO NOT retry - indicat
 
 **Condition:** Disk is full or quota exceeded
 
-**Throws:** `Error with 'SQLITE_FULL' code`
+**Throws:** Error with 'SQLITE_FULL' code
 
 **Required Handling:**
 
@@ -120,7 +120,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL syntax error
 
-**Throws:** `Error with 'SQLITE_ERROR' or syntax message`
+**Throws:** Error with 'SQLITE_ERROR' or syntax message
 
 **Required Handling:**
 
@@ -133,7 +133,7 @@ Caller MUST validate SQL syntax. DO NOT retry - fix SQL syntax.
 
 **Condition:** Database is locked
 
-**Throws:** `Error with 'SQLITE_BUSY' code`
+**Throws:** Error with 'SQLITE_BUSY' code
 
 **Required Handling:**
 
@@ -161,7 +161,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL syntax error
 
-**Throws:** `Error with 'SQLITE_ERROR' or syntax message`
+**Throws:** Error with 'SQLITE_ERROR' or syntax message
 
 **Required Handling:**
 
@@ -174,7 +174,7 @@ Caller MUST validate SQL syntax. DO NOT retry - fix SQL syntax.
 
 **Condition:** Database is locked
 
-**Throws:** `Error with 'SQLITE_BUSY' code`
+**Throws:** Error with 'SQLITE_BUSY' code
 
 **Required Handling:**
 
@@ -187,7 +187,7 @@ Caller MUST handle database locked errors. Implement retry with exponential back
 
 **Condition:** Out of memory for large result sets
 
-**Throws:** `Error with 'SQLITE_NOMEM' code`
+**Throws:** Error with 'SQLITE_NOMEM' code
 
 **Required Handling:**
 
@@ -215,7 +215,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL syntax error in any statement
 
-**Throws:** `Error with 'SQLITE_ERROR' or syntax message`
+**Throws:** Error with 'SQLITE_ERROR' or syntax message
 
 **Required Handling:**
 
@@ -228,7 +228,7 @@ Caller MUST validate SQL syntax. exec() does not support parameterized queries. 
 
 **Condition:** Constraint violation in any statement
 
-**Throws:** `Error with 'SQLITE_CONSTRAINT' code`
+**Throws:** Error with 'SQLITE_CONSTRAINT' code
 
 **Required Handling:**
 
@@ -256,7 +256,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL syntax error in statement
 
-**Throws:** `Error with 'SQLITE_ERROR' or syntax message`
+**Throws:** Error with 'SQLITE_ERROR' or syntax message
 
 **Required Handling:**
 
@@ -271,21 +271,21 @@ Known gotchas and sharp edges:
 
 **⚠️ WARNING - callback-error-ignored**
 
-MOST COMMON BUG (30-40% of codebases): Callback error parameter not checked. Results in silent failures, data corruption, and application crashes. WRONG: db.run(sql, (err) => { console.log('Done'); }); // Ignores err! CORRECT: db.run(sql, (err) => { if (err) throw err; console.log('Done'); }); This is the #1 cause of silent data corruption in SQLite apps.
+MOST COMMON BUG (30-40% of codebases): Callback error parameter not checked. Results in silent failures, data corruption, and application crashes. WRONG: db.run(sql, (err) =  console.log('Done'); ); // Ignores err! CORRECT: db.run(sql, (err) =  if (err) throw err; console.log('Done'); ); This is the #1 cause of silent data corruption in SQLite apps.
 
 
 📖 [Source](https://github.com/TryGhost/node-sqlite3/issues/796)
 
 **⚠️ WARNING - sql-injection-string-concatenation**
 
-CRITICAL SECURITY: Using string concatenation instead of prepared statements. WRONG: db.run(`INSERT INTO users VALUES ('${username}', '${password}')`); CORRECT: db.run('INSERT INTO users VALUES (?, ?)', [username, password]); NEVER use exec() with user input - it doesn't support parameters. This is the #1 security vulnerability in SQLite apps.
+CRITICAL SECURITY: Using string concatenation instead of prepared statements. WRONG: db.run(`INSERT INTO users VALUES ('$username', '$password')`); CORRECT: db.run('INSERT INTO users VALUES (?, ?)', [username, password]); NEVER use exec() with user input - it doesn't support parameters. This is the #1 security vulnerability in SQLite apps.
 
 
 📖 [Source](https://www.sqlite.org/lang_expr.html#varparam)
 
 **⚠️ WARNING - transaction-rollback-missing**
 
-COMMON: BEGIN TRANSACTION without proper ROLLBACK on error. Results in partial writes and data corruption. ALWAYS wrap transactions: BEGIN -> operations -> COMMIT or ROLLBACK on error. Consider using serialize() to ensure order.
+COMMON: BEGIN TRANSACTION without proper ROLLBACK on error. Results in partial writes and data corruption. ALWAYS wrap transactions: BEGIN - operations - COMMIT or ROLLBACK on error. Consider using serialize() to ensure order.
 
 
 📖 [Source](https://www.sqlite.org/lang_transaction.html)

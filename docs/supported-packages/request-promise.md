@@ -1,5 +1,5 @@
 ---
-title: request-promise
+title: "request-promise"
 ---
 
 # request-promise
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** non-2xx HTTP status codes (4xx, 5xx) when options.simple=true (default)
 
-**Throws:** `Promise rejection with StatusCodeError containing statusCode, body, options, response`
+**Throws:** Promise rejection with StatusCodeError containing statusCode, body, options, response
 
 **Required Handling:**
 
@@ -52,7 +52,7 @@ Use try-catch (async/await) or .catch() (promises) to handle HTTP errors
 
 **Condition:** network failures (ENOTFOUND, ECONNREFUSED, ETIMEDOUT), DNS errors, connection refused
 
-**Throws:** `Promise rejection with RequestError containing cause (original error), options, response`
+**Throws:** Promise rejection with RequestError containing cause (original error), options, response
 
 **Required Handling:**
 
@@ -64,7 +64,7 @@ Use try-catch (async/await) or .catch() (promises) to handle network failures
 
 **Condition:** response transformation failures (e.g., JSON parsing errors)
 
-**Throws:** `Promise rejection with TransformError containing cause (transform error), options, response`
+**Throws:** Promise rejection with TransformError containing cause (transform error), options, response
 
 **Required Handling:**
 
@@ -91,7 +91,7 @@ What happens **after** calling this function:
 
 **Condition:** non-2xx HTTP status codes (4xx, 5xx) when options.simple=true (default)
 
-**Throws:** `Promise rejection with StatusCodeError containing statusCode, body, options, response`
+**Throws:** Promise rejection with StatusCodeError containing statusCode, body, options, response
 
 **Required Handling:**
 
@@ -103,7 +103,7 @@ Use try-catch (async/await) or .catch() (promises) to handle HTTP errors
 
 **Condition:** network failures (ENOTFOUND, ECONNREFUSED, ETIMEDOUT), DNS errors, connection refused
 
-**Throws:** `Promise rejection with RequestError containing cause (original error), options, response`
+**Throws:** Promise rejection with RequestError containing cause (original error), options, response
 
 **Required Handling:**
 
@@ -115,7 +115,7 @@ Use try-catch (async/await) or .catch() (promises) to handle network failures
 
 **Condition:** response transformation failures (e.g., JSON parsing errors)
 
-**Throws:** `Promise rejection with TransformError containing cause (transform error), options, response`
+**Throws:** Promise rejection with TransformError containing cause (transform error), options, response
 
 **Required Handling:**
 
@@ -142,7 +142,7 @@ What happens **after** calling this function:
 
 **Condition:** non-2xx HTTP status codes (4xx, 5xx) when options.simple=true (default)
 
-**Throws:** `Promise rejection with StatusCodeError containing statusCode, body, options, response`
+**Throws:** Promise rejection with StatusCodeError containing statusCode, body, options, response
 
 **Required Handling:**
 
@@ -154,7 +154,7 @@ Use try-catch (async/await) or .catch() (promises) to handle HTTP errors
 
 **Condition:** network failures (ENOTFOUND, ECONNREFUSED, ETIMEDOUT), DNS errors, connection refused
 
-**Throws:** `Promise rejection with RequestError containing cause (original error), options, response`
+**Throws:** Promise rejection with RequestError containing cause (original error), options, response
 
 **Required Handling:**
 
@@ -166,7 +166,7 @@ Use try-catch (async/await) or .catch() (promises) to handle network failures
 
 **Condition:** response transformation failures (e.g., JSON parsing errors)
 
-**Throws:** `Promise rejection with TransformError containing cause (transform error), options, response`
+**Throws:** Promise rejection with TransformError containing cause (transform error), options, response
 
 **Required Handling:**
 
@@ -193,7 +193,7 @@ What happens **after** calling this function:
 
 **Condition:** non-2xx HTTP status codes (4xx, 5xx) when options.simple=true (default)
 
-**Throws:** `Promise rejection with StatusCodeError containing statusCode, body, options, response`
+**Throws:** Promise rejection with StatusCodeError containing statusCode, body, options, response
 
 **Required Handling:**
 
@@ -205,7 +205,7 @@ Use try-catch (async/await) or .catch() (promises) to handle HTTP errors
 
 **Condition:** network failures (ENOTFOUND, ECONNREFUSED, ETIMEDOUT), DNS errors, connection refused
 
-**Throws:** `Promise rejection with RequestError containing cause (original error), options, response`
+**Throws:** Promise rejection with RequestError containing cause (original error), options, response
 
 **Required Handling:**
 
@@ -217,7 +217,7 @@ Use try-catch (async/await) or .catch() (promises) to handle network failures
 
 **Condition:** response transformation failures (e.g., JSON parsing errors)
 
-**Throws:** `Promise rejection with TransformError containing cause (transform error), options, response`
+**Throws:** Promise rejection with TransformError containing cause (transform error), options, response
 
 **Required Handling:**
 
@@ -244,7 +244,7 @@ What happens **after** calling this function:
 
 **Condition:** non-2xx HTTP status codes (4xx, 5xx) when options.simple=true (default)
 
-**Throws:** `Promise rejection with StatusCodeError containing statusCode, body, options, response`
+**Throws:** Promise rejection with StatusCodeError containing statusCode, body, options, response
 
 **Required Handling:**
 
@@ -256,7 +256,7 @@ Use try-catch (async/await) or .catch() (promises) to handle HTTP errors
 
 **Condition:** network failures (ENOTFOUND, ECONNREFUSED, ETIMEDOUT), DNS errors, connection refused
 
-**Throws:** `Promise rejection with RequestError containing cause (original error), options, response`
+**Throws:** Promise rejection with RequestError containing cause (original error), options, response
 
 **Required Handling:**
 
@@ -268,7 +268,7 @@ Use try-catch (async/await) or .catch() (promises) to handle network failures
 
 **Condition:** response transformation failures (e.g., JSON parsing errors)
 
-**Throws:** `Promise rejection with TransformError containing cause (transform error), options, response`
+**Throws:** Promise rejection with TransformError containing cause (transform error), options, response
 
 **Required Handling:**
 
@@ -295,7 +295,7 @@ What happens **after** calling this function:
 
 **Condition:** non-2xx HTTP status codes (4xx, 5xx) when options.simple=true (default)
 
-**Throws:** `Promise rejection with StatusCodeError containing statusCode, body, options, response`
+**Throws:** Promise rejection with StatusCodeError containing statusCode, body, options, response
 
 **Required Handling:**
 
@@ -307,7 +307,7 @@ Use try-catch (async/await) or .catch() (promises) to handle HTTP errors
 
 **Condition:** network failures (ENOTFOUND, ECONNREFUSED, ETIMEDOUT), DNS errors, connection refused
 
-**Throws:** `Promise rejection with RequestError containing cause (original error), options, response`
+**Throws:** Promise rejection with RequestError containing cause (original error), options, response
 
 **Required Handling:**
 
@@ -319,7 +319,7 @@ Use try-catch (async/await) or .catch() (promises) to handle network failures
 
 **Condition:** response transformation failures (e.g., JSON parsing errors)
 
-**Throws:** `Promise rejection with TransformError containing cause (transform error), options, response`
+**Throws:** Promise rejection with TransformError containing cause (transform error), options, response
 
 **Required Handling:**
 
@@ -346,7 +346,7 @@ What happens **after** calling this function:
 
 **Condition:** non-2xx HTTP status codes (4xx, 5xx) when options.simple=true (default)
 
-**Throws:** `Promise rejection with StatusCodeError containing statusCode, body, options, response`
+**Throws:** Promise rejection with StatusCodeError containing statusCode, body, options, response
 
 **Required Handling:**
 
@@ -358,7 +358,7 @@ Use try-catch (async/await) or .catch() (promises) to handle HTTP errors
 
 **Condition:** network failures (ENOTFOUND, ECONNREFUSED, ETIMEDOUT), DNS errors, connection refused
 
-**Throws:** `Promise rejection with RequestError containing cause (original error), options, response`
+**Throws:** Promise rejection with RequestError containing cause (original error), options, response
 
 **Required Handling:**
 
@@ -370,7 +370,7 @@ Use try-catch (async/await) or .catch() (promises) to handle network failures
 
 **Condition:** response transformation failures (e.g., JSON parsing errors)
 
-**Throws:** `Promise rejection with TransformError containing cause (transform error), options, response`
+**Throws:** Promise rejection with TransformError containing cause (transform error), options, response
 
 **Required Handling:**
 

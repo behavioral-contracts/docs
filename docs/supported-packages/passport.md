@@ -1,5 +1,5 @@
 ---
-title: passport
+title: "passport"
 ---
 
 # passport
@@ -40,11 +40,13 @@ What happens **after** calling this function:
 
 **Condition:** authentication fails (invalid credentials, missing user, strategy error)
 
-**Returns:** middleware that may call callback with error or fail object
+**Returns:**
+
+middleware that may call callback with error or fail object
 
 **Required Handling:**
 
-Caller MUST handle authentication failures in callback or error middleware. Use custom callback (req, res, next) => passport.authenticate('strategy', (err, user, info) => {...}) to handle errors, missing users, and validation failures.
+Caller MUST handle authentication failures in callback or error middleware. Use custom callback (req, res, next) = passport.authenticate('strategy', (err, user, info) = ...) to handle errors, missing users, and validation failures.
 
 📖 [Source](https://www.passportjs.org/docs/authenticate/)
 
@@ -52,7 +54,9 @@ Caller MUST handle authentication failures in callback or error middleware. Use 
 
 **Condition:** strategy encounters error (database down, network timeout, invalid configuration)
 
-**Returns:** middleware that calls callback with error as first argument
+**Returns:**
+
+middleware that calls callback with error as first argument
 
 **Required Handling:**
 

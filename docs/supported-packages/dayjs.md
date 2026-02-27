@@ -1,5 +1,5 @@
 ---
-title: dayjs
+title: "dayjs"
 ---
 
 # dayjs
@@ -40,11 +40,13 @@ What happens **after** calling this function:
 
 **Condition:** input string is not a valid date format
 
-**Returns:** Invalid Day.js object (dayjs().isValid() returns false)
+**Returns:**
+
+Invalid Day.js object (dayjs().isValid() returns false)
 
 **Required Handling:**
 
-Caller MUST check isValid() before using the Day.js object. Invalid Day.js objects can cause incorrect date calculations, display issues, or NaN values propagating through the application. Use pattern: const d = dayjs(input); if (!d.isValid()) { /* handle error */ }
+Caller MUST check isValid() before using the Day.js object. Invalid Day.js objects can cause incorrect date calculations, display issues, or NaN values propagating through the application. Use pattern: const d = dayjs(input); if (!d.isValid())  /* handle error */ 
 
 
 📖 [Source](https://day.js.org/docs/en/parse/string)
@@ -68,11 +70,13 @@ What happens **after** calling this function:
 
 **Condition:** input string is not a valid date format
 
-**Returns:** Invalid Day.js object (dayjs().isValid() returns false)
+**Returns:**
+
+Invalid Day.js object (dayjs().isValid() returns false)
 
 **Required Handling:**
 
-Caller MUST check isValid() after parsing. Invalid UTC dates can cause timezone calculation errors and data corruption. Use pattern: const d = dayjs.utc(input); if (!d.isValid()) { /* handle error */ }
+Caller MUST check isValid() after parsing. Invalid UTC dates can cause timezone calculation errors and data corruption. Use pattern: const d = dayjs.utc(input); if (!d.isValid())  /* handle error */ 
 
 
 📖 [Source](https://day.js.org/docs/en/plugin/utc)
@@ -96,7 +100,9 @@ What happens **after** calling this function:
 
 **Condition:** format string is user-controlled or very long
 
-**Returns:** Formatted string (but may cause ReDoS with malicious input)
+**Returns:**
+
+Formatted string (but may cause ReDoS with malicious input)
 
 **Required Handling:**
 

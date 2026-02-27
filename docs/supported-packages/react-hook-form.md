@@ -1,5 +1,5 @@
 ---
-title: react-hook-form
+title: "react-hook-form"
 ---
 
 # react-hook-form
@@ -42,7 +42,7 @@ What happens **after** calling this function:
 without try-catch wrapping
 
 
-**Throws:** `UnhandledPromiseRejection`
+**Throws:** UnhandledPromiseRejection
 
 **Required Handling:**
 
@@ -51,19 +51,19 @@ MUST wrap async operations in try-catch within onSubmit callback.
 handleSubmit does NOT catch errors thrown inside onSubmit - errors will become unhandled promise rejections.
 
 Correct pattern:
-  const onSubmit = async (data) => {
-    try {
+  const onSubmit = async (data) = 
+    try 
       await apiCall(data);
       // success handling
-    } catch (error) {
+     catch (error) 
       // error handling (toast, setError, etc.)
-    }
-  };
+    
+  ;
 
 Incorrect pattern:
-  const onSubmit = async (data) => {
+  const onSubmit = async (data) = 
     await apiCall(data);  // ❌ No error handling
-  };
+  ;
 
 
 📖 [Source](https://react-hook-form.com/docs/useform/handlesubmit)
@@ -74,7 +74,7 @@ Incorrect pattern:
 only logs to console, or doesn't call setError/toast/user feedback mechanisms
 
 
-**Throws:** `N/A (silent failure - users unaware of submission failure)`
+**Throws:** N/A (silent failure - users unaware of submission failure)
 
 **Required Handling:**
 
@@ -91,22 +91,22 @@ Note: Backend logging code, utility functions, and non-form code should NOT trig
 This is specifically for user-facing form submission error handling.
 
 Incorrect patterns (in onSubmit callbacks):
-  catch (error) { }                           // ❌ Empty catch
-  catch (error) { console.log(error); }       // ❌ Only logs (no user feedback)
-  catch (error) { /* TODO: handle */ }        // ❌ No implementation
+  catch (error)                             // ❌ Empty catch
+  catch (error)  console.log(error);        // ❌ Only logs (no user feedback)
+  catch (error)  /* TODO: handle */         // ❌ No implementation
 
 Correct patterns (in onSubmit callbacks):
-  catch (error) {
+  catch (error) 
     toast.error('Failed to submit form');     // ✅ User feedback
-    setError('root', { message: error.message });
-  }
+    setError('root',  message: error.message );
+  
 
 Acceptable patterns (outside form contexts - should NOT trigger):
   // Logging code
-  catch (error) { console.error('Log failed:', error); }  // ✅ OK for loggers
+  catch (error)  console.error('Log failed:', error);   // ✅ OK for loggers
 
   // Backend/API code
-  catch (error) { logger.error(error); }                  // ✅ OK for servers
+  catch (error)  logger.error(error);                   // ✅ OK for servers
 
 
 📖 [Source](https://react-hook-form.com/advanced-usage)
@@ -116,30 +116,30 @@ Acceptable patterns (outside form contexts - should NOT trigger):
 **Condition:** Server/API returns validation errors but setError() is not called to display them to users
 
 
-**Throws:** `N/A (validation feedback missing)`
+**Throws:** N/A (validation feedback missing)
 
 **Required Handling:**
 
 MUST use setError() to display server validation errors to users.
 
 When your API returns field-specific errors:
-  const onSubmit = async (data) => {
-    try {
+  const onSubmit = async (data) = 
+    try 
       const response = await api.submit(data);
-    } catch (error) {
-      if (error.validationErrors) {
-        Object.entries(error.validationErrors).forEach(([field, message]) => {
-          setError(field, { type: 'manual', message });
-        });
-      }
-    }
-  };
+     catch (error) 
+      if (error.validationErrors) 
+        Object.entries(error.validationErrors).forEach(([field, message]) = 
+          setError(field,  type: 'manual', message );
+        );
+      
+    
+  ;
 
 For global/form-level errors:
-  setError('root.serverError', {
+  setError('root.serverError', 
     type: '400',
     message: 'Server validation failed'
-  });
+  );
 
 
 📖 [Source](https://react-hook-form.com/docs/useform/seterror)
@@ -163,7 +163,7 @@ What happens **after** calling this function:
 
 **Condition:** useFormContext() called in component tree without FormProvider wrapper
 
-**Throws:** `TypeError`
+**Throws:** TypeError
 
 **Required Handling:**
 
@@ -172,28 +172,28 @@ MUST wrap your form with FormProvider component before using useFormContext in c
 useFormContext returns null when FormProvider is missing, causing TypeError when accessing properties.
 
 Correct pattern:
-  import { useForm, FormProvider, useFormContext } from 'react-hook-form';
+  import  useForm, FormProvider, useFormContext  from 'react-hook-form';
 
-  function ParentForm() {
+  function ParentForm() 
     const methods = useForm();
     return (
-      <FormProvider {...methods}>
-        <form>
-          <NestedComponent />
-        </form>
-      </FormProvider>
+      FormProvider ...methods
+        form
+          NestedComponent /
+        /form
+      /FormProvider
     );
-  }
+  
 
-  function NestedComponent() {
-    const { control, formState } = useFormContext(); // ✅ Safe
-    return <input />;
-  }
+  function NestedComponent() 
+    const  control, formState  = useFormContext(); // ✅ Safe
+    return input /;
+  
 
 Incorrect pattern:
-  function NestedComponent() {
-    const { control } = useFormContext(); // ❌ Crashes if no provider
-  }
+  function NestedComponent() 
+    const  control  = useFormContext(); // ❌ Crashes if no provider
+  
 
 
 📖 [Source](https://react-hook-form.com/docs/useformcontext)
@@ -203,7 +203,7 @@ Incorrect pattern:
 **Condition:** Destructuring properties from useFormContext without null check when FormProvider might be missing
 
 
-**Throws:** `TypeError (Cannot destructure property 'X' of 'Object(...)' as it is null)`
+**Throws:** TypeError (Cannot destructure property 'X' of 'Object(...)' as it is null)
 
 **Required Handling:**
 
@@ -211,13 +211,13 @@ Check for null before accessing useFormContext properties, or ensure FormProvide
 
 Defensive pattern:
   const methods = useFormContext();
-  if (!methods) {
+  if (!methods) 
     throw new Error('Component must be used within FormProvider');
-  }
-  const { control, formState } = methods;
+  
+  const  control, formState  = methods;
 
 Or add runtime validation:
-  const { control } = useFormContext() ?? {};
+  const  control  = useFormContext() ?? ;
   if (!control) return null; // or throw error
 
 
@@ -243,7 +243,7 @@ What happens **after** calling this function:
 **Condition:** Field array operations (append, remove, update) fail due to validation errors but error is not handled
 
 
-**Throws:** `ValidationError`
+**Throws:** ValidationError
 
 **Required Handling:**
 
@@ -253,16 +253,16 @@ Field array operations respect validation rules. If adding/removing fields viola
 validation (e.g., min/max array length), handle appropriately.
 
 Example:
-  const { append, fields } = useFieldArray({ name: 'items', control });
+  const  append, fields  = useFieldArray( name: 'items', control );
 
-  const handleAdd = () => {
-    try {
-      append({ name: '', value: '' });
-    } catch (error) {
+  const handleAdd = () = 
+    try 
+      append( name: '', value: '' );
+     catch (error) 
       // Handle validation error
       toast.error('Cannot add more items');
-    }
-  };
+    
+  ;
 
 
 📖 [Source](https://react-hook-form.com/docs/usefieldarray)

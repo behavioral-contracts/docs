@@ -1,5 +1,5 @@
 ---
-title: mocha
+title: "mocha"
 ---
 
 # mocha
@@ -40,11 +40,11 @@ What happens **after** calling this function:
 
 **Condition:** test function is async or returns a Promise that rejects
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
-Test functions that return promises or use async/await MUST handle rejections. Without proper error handling, unhandled promise rejections in tests cause test failures to be reported incorrectly or crash the test runner. Use pattern: it('test', async () => { try { await operation(); } catch (e) { throw e; } }) or rely on Mocha's built-in async handling.
+Test functions that return promises or use async/await MUST handle rejections. Without proper error handling, unhandled promise rejections in tests cause test failures to be reported incorrectly or crash the test runner. Use pattern: it('test', async () =  try  await operation();  catch (e)  throw e;  ) or rely on Mocha's built-in async handling.
 
 
 📖 [Source](https://mochajs.org/#asynchronous-code)
@@ -68,7 +68,7 @@ What happens **after** calling this function:
 
 **Condition:** hook function is async or returns a Promise that rejects
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -96,7 +96,7 @@ What happens **after** calling this function:
 
 **Condition:** hook function is async or returns a Promise that rejects
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -124,7 +124,7 @@ What happens **after** calling this function:
 
 **Condition:** hook function is async or returns a Promise that rejects
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -152,7 +152,7 @@ What happens **after** calling this function:
 
 **Condition:** hook function is async or returns a Promise that rejects
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -165,11 +165,11 @@ AfterEach hooks that return promises MUST handle rejections properly. Unhandled 
 
 **Condition:** hook has async cleanup (server.close(), db.disconnect()) but doesn't await it
 
-**Throws:** `Mocha hangs, won't exit (requires --exit flag)`
+**Throws:** Mocha hangs, won't exit (requires --exit flag)
 
 **Required Handling:**
 
-AfterEach hooks with async cleanup MUST await completion or return promises. Common mistake: afterEach(() => { server.close(); }) instead of afterEach(async () => { await server.close(); }). Unclosed resources (servers, database connections, file handles) prevent Mocha from exiting. Frequency: 25-35% of resource cleanup bugs.
+AfterEach hooks with async cleanup MUST await completion or return promises. Common mistake: afterEach(() =  server.close(); ) instead of afterEach(async () =  await server.close(); ). Unclosed resources (servers, database connections, file handles) prevent Mocha from exiting. Frequency: 25-35% of resource cleanup bugs.
 
 
 📖 [Source](https://www.mindfulchase.com/explore/troubleshooting-tips/testing-frameworks/troubleshooting-mocha-flaky-tests,-async-bugs,-and-ci-failures.html)
@@ -193,11 +193,11 @@ What happens **after** calling this function:
 
 **Condition:** describe() callback is async or contains await
 
-**Throws:** `Undefined behavior - async code in describe not awaited`
+**Throws:** Undefined behavior - async code in describe not awaited
 
 **Required Handling:**
 
-describe() callbacks MUST be synchronous. Mocha does NOT await async code in describe blocks. Common mistake: describe('Suite', async () => { const data = await fetchData(); ... }) - data will be undefined. Use before() hook for async setup: before(async () => { data = await fetchData(); }). Frequency: 15-20% of suite setup bugs.
+describe() callbacks MUST be synchronous. Mocha does NOT await async code in describe blocks. Common mistake: describe('Suite', async () =  const data = await fetchData(); ... ) - data will be undefined. Use before() hook for async setup: before(async () =  data = await fetchData(); ). Frequency: 15-20% of suite setup bugs.
 
 
 📖 [Source](https://mochajs.org/next/features/asynchronous-code/)

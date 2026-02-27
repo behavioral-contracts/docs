@@ -1,5 +1,5 @@
 ---
-title: square
+title: "square"
 ---
 
 # square
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid request parameters (missing required fields, invalid values)
 
-**Throws:** `SquareError with 4xx statusCode`
+**Throws:** SquareError with 4xx statusCode
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST catch SquareError and validate request parameters. Check err.body an
 
 **Condition:** Invalid or expired access token
 
-**Throws:** `SquareError with statusCode 401`
+**Throws:** SquareError with statusCode 401
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ Caller MUST NOT retry. This indicates invalid credentials. Log error and alert o
 
 **Condition:** Too many API requests
 
-**Throws:** `SquareError with statusCode 429`
+**Throws:** SquareError with statusCode 429
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ Caller MUST implement exponential backoff retry logic. SDK automatically retries
 
 **Condition:** Payment method declined or card verification failed
 
-**Throws:** `SquareError with statusCode 422 and payment-specific error codes`
+**Throws:** SquareError with statusCode 422 and payment-specific error codes
 
 **Required Handling:**
 
@@ -92,7 +92,7 @@ Caller MUST handle payment failures gracefully. Check err.errors array for speci
 
 **Condition:** Idempotency key already used with different parameters
 
-**Throws:** `SquareError with statusCode 409`
+**Throws:** SquareError with statusCode 409
 
 **Required Handling:**
 
@@ -105,7 +105,7 @@ Caller MUST generate a new idempotency key. This indicates duplicate request wit
 
 **Condition:** Square server error
 
-**Throws:** `SquareError with 5xx statusCode`
+**Throws:** SquareError with 5xx statusCode
 
 **Required Handling:**
 
@@ -118,7 +118,7 @@ Caller MUST implement retry with exponential backoff. SDK automatically retries 
 
 **Condition:** Network connectivity issue or timeout
 
-**Throws:** `SquareError with statusCode 408 or connection error`
+**Throws:** SquareError with statusCode 408 or connection error
 
 **Required Handling:**
 
@@ -146,7 +146,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid request parameters
 
-**Throws:** `SquareError with 4xx statusCode`
+**Throws:** SquareError with 4xx statusCode
 
 **Required Handling:**
 
@@ -158,7 +158,7 @@ Validate request parameters. DO NOT retry without fixing issues.
 
 **Condition:** Invalid credentials
 
-**Throws:** `SquareError with statusCode 401`
+**Throws:** SquareError with statusCode 401
 
 **Required Handling:**
 
@@ -170,7 +170,7 @@ DO NOT retry. Alert operations team.
 
 **Condition:** Rate limit exceeded
 
-**Throws:** `SquareError with statusCode 429`
+**Throws:** SquareError with statusCode 429
 
 **Required Handling:**
 
@@ -182,7 +182,7 @@ Implement exponential backoff
 
 **Condition:** Payment declined
 
-**Throws:** `SquareError with statusCode 422`
+**Throws:** SquareError with statusCode 422
 
 **Required Handling:**
 
@@ -194,7 +194,7 @@ Handle gracefully, allow user to update payment method
 
 **Condition:** Network error
 
-**Throws:** `SquareError with statusCode 408 or connection error`
+**Throws:** SquareError with statusCode 408 or connection error
 
 **Required Handling:**
 
@@ -221,7 +221,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid order data
 
-**Throws:** `SquareError with 4xx statusCode`
+**Throws:** SquareError with 4xx statusCode
 
 **Required Handling:**
 
@@ -234,7 +234,7 @@ Validate order line items, prices, and location_id. Check err.errors array for s
 
 **Condition:** Invalid credentials
 
-**Throws:** `SquareError with statusCode 401`
+**Throws:** SquareError with statusCode 401
 
 **Required Handling:**
 
@@ -246,7 +246,7 @@ DO NOT retry. Check API credentials.
 
 **Condition:** Rate limit exceeded
 
-**Throws:** `SquareError with statusCode 429`
+**Throws:** SquareError with statusCode 429
 
 **Required Handling:**
 
@@ -258,7 +258,7 @@ Implement exponential backoff
 
 **Condition:** Network error
 
-**Throws:** `SquareError`
+**Throws:** SquareError
 
 **Required Handling:**
 
@@ -285,7 +285,7 @@ What happens **after** calling this function:
 
 **Condition:** Order ID does not exist
 
-**Throws:** `SquareError with statusCode 404`
+**Throws:** SquareError with statusCode 404
 
 **Required Handling:**
 
@@ -297,7 +297,7 @@ Handle missing order gracefully. DO NOT retry.
 
 **Condition:** Order version mismatch (concurrent update)
 
-**Throws:** `SquareError with 409 statusCode`
+**Throws:** SquareError with 409 statusCode
 
 **Required Handling:**
 
@@ -310,7 +310,7 @@ Retrieve latest order version and retry with correct version. This prevents over
 
 **Condition:** Invalid credentials
 
-**Throws:** `SquareError with statusCode 401`
+**Throws:** SquareError with statusCode 401
 
 **Required Handling:**
 
@@ -322,7 +322,7 @@ DO NOT retry. Check credentials.
 
 **Condition:** Rate limit exceeded
 
-**Throws:** `SquareError with statusCode 429`
+**Throws:** SquareError with statusCode 429
 
 **Required Handling:**
 
@@ -349,7 +349,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid customer data
 
-**Throws:** `SquareError with 4xx statusCode`
+**Throws:** SquareError with 4xx statusCode
 
 **Required Handling:**
 
@@ -361,7 +361,7 @@ Validate customer fields. Check err.errors for details.
 
 **Condition:** Customer with same email or phone already exists
 
-**Throws:** `SquareError with statusCode 409`
+**Throws:** SquareError with statusCode 409
 
 **Required Handling:**
 
@@ -374,7 +374,7 @@ Handle duplicate gracefully. Either retrieve existing customer or update existin
 
 **Condition:** Invalid credentials
 
-**Throws:** `SquareError with statusCode 401`
+**Throws:** SquareError with statusCode 401
 
 **Required Handling:**
 
@@ -386,7 +386,7 @@ DO NOT retry. Check credentials.
 
 **Condition:** Rate limit exceeded
 
-**Throws:** `SquareError with statusCode 429`
+**Throws:** SquareError with statusCode 429
 
 **Required Handling:**
 
@@ -413,7 +413,7 @@ What happens **after** calling this function:
 
 **Condition:** Customer ID does not exist
 
-**Throws:** `SquareError with statusCode 404`
+**Throws:** SquareError with statusCode 404
 
 **Required Handling:**
 
@@ -425,7 +425,7 @@ Handle missing customer gracefully. DO NOT retry.
 
 **Condition:** Invalid credentials
 
-**Throws:** `SquareError with statusCode 401`
+**Throws:** SquareError with statusCode 401
 
 **Required Handling:**
 
@@ -437,7 +437,7 @@ DO NOT retry. Check credentials.
 
 **Condition:** Rate limit exceeded
 
-**Throws:** `SquareError with statusCode 429`
+**Throws:** SquareError with statusCode 429
 
 **Required Handling:**
 
@@ -464,7 +464,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid credentials
 
-**Throws:** `SquareError with statusCode 401`
+**Throws:** SquareError with statusCode 401
 
 **Required Handling:**
 
@@ -476,7 +476,7 @@ DO NOT retry. Check credentials.
 
 **Condition:** Rate limit exceeded
 
-**Throws:** `SquareError with statusCode 429`
+**Throws:** SquareError with statusCode 429
 
 **Required Handling:**
 
@@ -488,7 +488,7 @@ Implement exponential backoff
 
 **Condition:** Network error
 
-**Throws:** `SquareError with statusCode 408 or connection error`
+**Throws:** SquareError with statusCode 408 or connection error
 
 **Required Handling:**
 
@@ -515,7 +515,7 @@ What happens **after** calling this function:
 
 **Condition:** Order ID does not exist
 
-**Throws:** `SquareError with statusCode 404`
+**Throws:** SquareError with statusCode 404
 
 **Required Handling:**
 
@@ -527,7 +527,7 @@ Handle missing order gracefully. DO NOT retry.
 
 **Condition:** Invalid credentials
 
-**Throws:** `SquareError with statusCode 401`
+**Throws:** SquareError with statusCode 401
 
 **Required Handling:**
 
@@ -539,7 +539,7 @@ DO NOT retry. Check credentials.
 
 **Condition:** Rate limit exceeded
 
-**Throws:** `SquareError with statusCode 429`
+**Throws:** SquareError with statusCode 429
 
 **Required Handling:**
 
@@ -551,7 +551,7 @@ Implement exponential backoff
 
 **Condition:** Network error
 
-**Throws:** `SquareError`
+**Throws:** SquareError
 
 **Required Handling:**
 
@@ -578,7 +578,7 @@ What happens **after** calling this function:
 
 **Condition:** Payment ID does not exist
 
-**Throws:** `SquareError with statusCode 404`
+**Throws:** SquareError with statusCode 404
 
 **Required Handling:**
 
@@ -590,7 +590,7 @@ Handle missing payment gracefully. DO NOT retry.
 
 **Condition:** Invalid credentials
 
-**Throws:** `SquareError with statusCode 401`
+**Throws:** SquareError with statusCode 401
 
 **Required Handling:**
 
@@ -602,7 +602,7 @@ DO NOT retry. Check credentials.
 
 **Condition:** Rate limit exceeded
 
-**Throws:** `SquareError with statusCode 429`
+**Throws:** SquareError with statusCode 429
 
 **Required Handling:**
 
@@ -614,7 +614,7 @@ Implement exponential backoff
 
 **Condition:** Network error
 
-**Throws:** `SquareError`
+**Throws:** SquareError
 
 **Required Handling:**
 
@@ -641,7 +641,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid request parameters
 
-**Throws:** `SquareError with 4xx statusCode`
+**Throws:** SquareError with 4xx statusCode
 
 **Required Handling:**
 
@@ -653,7 +653,7 @@ Validate request parameters. DO NOT retry without fixing issues.
 
 **Condition:** Invalid credentials
 
-**Throws:** `SquareError with statusCode 401`
+**Throws:** SquareError with statusCode 401
 
 **Required Handling:**
 
@@ -665,7 +665,7 @@ DO NOT retry. Check credentials.
 
 **Condition:** Rate limit exceeded
 
-**Throws:** `SquareError with statusCode 429`
+**Throws:** SquareError with statusCode 429
 
 **Required Handling:**
 
@@ -677,7 +677,7 @@ Implement exponential backoff
 
 **Condition:** Network error
 
-**Throws:** `SquareError`
+**Throws:** SquareError
 
 **Required Handling:**
 

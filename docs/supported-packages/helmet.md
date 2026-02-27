@@ -1,5 +1,5 @@
 ---
-title: helmet
+title: "helmet"
 ---
 
 # helmet
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** configuration object is invalid
 
-**Throws:** `TypeError for malformed configuration (e.g., invalid CSP directives, misspelled options)`
+**Throws:** TypeError for malformed configuration (e.g., invalid CSP directives, misspelled options)
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST wrap helmet() calls in try-catch to prevent server crash on invalid 
 
 **Condition:** CSP directive contains unquoted special keywords
 
-**Throws:** `TypeError for keywords like 'self', 'none', 'unsafe-inline' without quotes`
+**Throws:** TypeError for keywords like 'self', 'none', 'unsafe-inline' without quotes
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ CSP keywords MUST be wrapped in single quotes: "'self'", "'none'", "'unsafe-inli
 
 **Condition:** contentSecurityPolicy contains invalid directive name
 
-**Throws:** `TypeError or silent failure for invalid directive names`
+**Throws:** TypeError or silent failure for invalid directive names
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ Only use valid CSP directive names: defaultSrc, scriptSrc, styleSrc, imgSrc, con
 
 **Condition:** strictTransportSecurity contains misspelled 'includeSubDomains' option
 
-**Throws:** `TypeError for 'includeSubdomains' (lowercase d), 'include_sub_domains' (snake_case), etc.`
+**Throws:** TypeError for 'includeSubdomains' (lowercase d), 'include_sub_domains' (snake_case), etc.
 
 **Required Handling:**
 
@@ -92,7 +92,7 @@ HSTS option MUST be spelled exactly as 'includeSubDomains' (camelCase with capit
 
 **Condition:** helmet is imported incorrectly (CommonJS/ESM mismatch)
 
-**Throws:** `TypeError: helmet is not a function`
+**Throws:** TypeError: helmet is not a function
 
 **Required Handling:**
 
@@ -145,7 +145,7 @@ Setting security middleware to false removes protection entirely
 
 ### `contentSecurityPolicy()`
 
-Sets Content-Security-Policy header to prevent XSS attacks (deprecated in v5+, use helmet({ contentSecurityPolicy }) instead)
+Sets Content-Security-Policy header to prevent XSS attacks (deprecated in v5+, use helmet( contentSecurityPolicy ) instead)
 
 **Import:**
 ```typescript
@@ -160,11 +160,11 @@ What happens **after** calling this function:
 
 **Condition:** using helmet.contentSecurityPolicy() in helmet 5.x+
 
-**Throws:** `TypeError or undefined behavior due to breaking API changes`
+**Throws:** TypeError or undefined behavior due to breaking API changes
 
 **Required Handling:**
 
-helmet 5.x+ requires CSP configuration through main helmet() function. Old API: helmet.contentSecurityPolicy({ directives: { ... } }) New API: helmet({ contentSecurityPolicy: { directives: { ... } } })
+helmet 5.x+ requires CSP configuration through main helmet() function. Old API: helmet.contentSecurityPolicy( directives:  ...  ) New API: helmet( contentSecurityPolicy:  directives:  ...   )
 
 
 📖 [Source](https://github.com/helmetjs/helmet/blob/main/CHANGELOG.md)
@@ -173,7 +173,7 @@ helmet 5.x+ requires CSP configuration through main helmet() function. Old API: 
 
 ### `strictTransportSecurity()`
 
-Sets Strict-Transport-Security header to enforce HTTPS (deprecated in v5+, use helmet({ strictTransportSecurity }) instead)
+Sets Strict-Transport-Security header to enforce HTTPS (deprecated in v5+, use helmet( strictTransportSecurity ) instead)
 
 **Import:**
 ```typescript
@@ -188,11 +188,11 @@ What happens **after** calling this function:
 
 **Condition:** using helmet.strictTransportSecurity() in helmet 5.x+
 
-**Throws:** `TypeError or undefined behavior due to breaking API changes`
+**Throws:** TypeError or undefined behavior due to breaking API changes
 
 **Required Handling:**
 
-helmet 5.x+ requires HSTS configuration through main helmet() function. Old API: helmet.hsts({ maxAge: 31536000 }) New API: helmet({ strictTransportSecurity: { maxAge: 31536000 } })
+helmet 5.x+ requires HSTS configuration through main helmet() function. Old API: helmet.hsts( maxAge: 31536000 ) New API: helmet( strictTransportSecurity:  maxAge: 31536000  )
 
 
 📖 [Source](https://github.com/helmetjs/helmet/blob/main/CHANGELOG.md)

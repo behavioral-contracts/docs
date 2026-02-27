@@ -1,5 +1,5 @@
 ---
-title: @hapi/hapi
+title: "@hapi/hapi"
 ---
 
 # @hapi/hapi
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** route handler throws error or promise rejects (database error, validation error)
 
-**Throws:** `Error causing 500 Internal Server Error response if not handled`
+**Throws:** Error causing 500 Internal Server Error response if not handled
 
 **Required Handling:**
 
@@ -67,7 +67,7 @@ What happens **after** calling this function:
 
 **Condition:** server fails to start (port in use, invalid configuration, plugin error)
 
-**Throws:** `Error with startup failure details`
+**Throws:** Error with startup failure details
 
 **Required Handling:**
 

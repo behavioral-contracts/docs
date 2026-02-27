@@ -1,5 +1,5 @@
 ---
-title: yup
+title: "yup"
 ---
 
 # yup
@@ -40,11 +40,11 @@ What happens **after** calling this function:
 
 **Condition:** data fails validation against the schema
 
-**Throws:** `Promise rejection with ValidationError`
+**Throws:** Promise rejection with ValidationError
 
 **Required Handling:**
 
-Caller MUST wrap validate() in try-catch or use .catch() handler. Without error handling, validation failures cause unhandled promise rejections that crash the application or lead to silent failures. Use pattern: try { const value = await schema.validate(data); } catch (error) { /* handle */ }
+Caller MUST wrap validate() in try-catch or use .catch() handler. Without error handling, validation failures cause unhandled promise rejections that crash the application or lead to silent failures. Use pattern: try  const value = await schema.validate(data);  catch (error)  /* handle */ 
 
 
 📖 [Source](https://github.com/jquense/yup#schemavalidatevalue-options-promise)
@@ -68,11 +68,11 @@ What happens **after** calling this function:
 
 **Condition:** data fails validation against the schema
 
-**Throws:** `ValidationError`
+**Throws:** ValidationError
 
 **Required Handling:**
 
-Caller MUST wrap validateSync() in try-catch block. Without error handling, validation failures throw uncaught exceptions that crash the application. Invalid data will not be caught, leading to data corruption or security vulnerabilities. Use pattern: try { const value = schema.validateSync(data); } catch (error) { /* handle */ }
+Caller MUST wrap validateSync() in try-catch block. Without error handling, validation failures throw uncaught exceptions that crash the application. Invalid data will not be caught, leading to data corruption or security vulnerabilities. Use pattern: try  const value = schema.validateSync(data);  catch (error)  /* handle */ 
 
 
 📖 [Source](https://github.com/jquense/yup#schemavalidatesyncvalue-options-any)
@@ -96,7 +96,7 @@ What happens **after** calling this function:
 
 **Condition:** data at the specified path fails validation
 
-**Throws:** `Promise rejection with ValidationError`
+**Throws:** Promise rejection with ValidationError
 
 **Required Handling:**
 
@@ -124,7 +124,7 @@ What happens **after** calling this function:
 
 **Condition:** data at the specified path fails validation
 
-**Throws:** `ValidationError`
+**Throws:** ValidationError
 
 **Required Handling:**
 

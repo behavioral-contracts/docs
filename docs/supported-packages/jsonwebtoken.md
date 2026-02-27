@@ -1,5 +1,5 @@
 ---
-title: jsonwebtoken
+title: "jsonwebtoken"
 ---
 
 # jsonwebtoken
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** token's exp claim is before current time
 
-**Throws:** `TokenExpiredError: jwt expired`
+**Throws:** TokenExpiredError: jwt expired
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST wrap jwt.verify() in try-catch block or use callback error-first pat
 
 **Condition:** token's nbf claim is after current time
 
-**Throws:** `NotBeforeError: jwt not active`
+**Throws:** NotBeforeError: jwt not active
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ Caller MUST handle NotBeforeError. Token is valid but not yet active. Either rej
 
 **Condition:** token signature does not match expected value
 
-**Throws:** `JsonWebTokenError: invalid signature`
+**Throws:** JsonWebTokenError: invalid signature
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ Caller MUST handle JsonWebTokenError for invalid signatures. This indicates tamp
 
 **Condition:** token structure is invalid (not 3 parts, invalid base64, etc.)
 
-**Throws:** `JsonWebTokenError: jwt malformed`
+**Throws:** JsonWebTokenError: jwt malformed
 
 **Required Handling:**
 
@@ -92,7 +92,7 @@ Caller MUST handle JsonWebTokenError for malformed tokens. Invalid structure ind
 
 **Condition:** token algorithm not in options.algorithms whitelist
 
-**Throws:** `JsonWebTokenError: invalid algorithm`
+**Throws:** JsonWebTokenError: invalid algorithm
 
 **Required Handling:**
 
@@ -105,7 +105,7 @@ Caller MUST handle algorithm mismatch errors. This prevents CVE-2015-9235 algori
 
 **Condition:** token aud claim does not match options.audience
 
-**Throws:** `JsonWebTokenError: jwt audience invalid. expected: [expected]`
+**Throws:** JsonWebTokenError: jwt audience invalid. expected: [expected]
 
 **Required Handling:**
 
@@ -118,7 +118,7 @@ Caller MUST handle audience validation errors when using options.audience. Audie
 
 **Condition:** token iss claim does not match options.issuer
 
-**Throws:** `JsonWebTokenError: jwt issuer invalid. expected: [expected]`
+**Throws:** JsonWebTokenError: jwt issuer invalid. expected: [expected]
 
 **Required Handling:**
 
@@ -131,7 +131,7 @@ Caller MUST handle issuer validation errors when using options.issuer. Issuer mi
 
 **Condition:** secretOrPublicKey parameter is undefined or empty
 
-**Throws:** `JsonWebTokenError: secret or public key must be provided`
+**Throws:** JsonWebTokenError: secret or public key must be provided
 
 **Required Handling:**
 
@@ -146,16 +146,16 @@ Known gotchas and sharp edges:
 
 **⚠️ WARNING - algorithm-confusion-cve-2015-9235**
 
-CRITICAL: Always specify algorithms option in jwt.verify() to prevent CVE-2015-9235 algorithm confusion attack. Without algorithms whitelist, attacker can change RS256 (asymmetric) to HS256 (symmetric) and use public key as HMAC secret, bypassing signature verification. Vulnerable: jwt.verify(token, publicKey) Secure: jwt.verify(token, publicKey, { algorithms: ['RS256'] })
+CRITICAL: Always specify algorithms option in jwt.verify() to prevent CVE-2015-9235 algorithm confusion attack. Without algorithms whitelist, attacker can change RS256 (asymmetric) to HS256 (symmetric) and use public key as HMAC secret, bypassing signature verification. Vulnerable: jwt.verify(token, publicKey) Secure: jwt.verify(token, publicKey,  algorithms: ['RS256'] )
 
 
 📖 [Source](https://nvd.nist.gov/vuln/detail/CVE-2015-9235)
 
 **⚠️ WARNING - callback-error-handling**
 
-When using callback-style jwt.verify(token, secret, callback), MUST check err parameter before using decoded value. Common mistake: jwt.verify(token, secret, (err, decoded) => {
+When using callback-style jwt.verify(token, secret, callback), MUST check err parameter before using decoded value. Common mistake: jwt.verify(token, secret, (err, decoded) = 
   console.log(decoded.userId); // BUG: decoded undefined if error\!
-}); Correct pattern: Check err first, return early if error exists.
+); Correct pattern: Check err first, return early if error exists.
 
 
 📖 [Source](https://github.com/auth0/node-jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback)
@@ -179,7 +179,7 @@ What happens **after** calling this function:
 
 **Condition:** payload is not a plain object, string, or buffer
 
-**Throws:** `Error: Expected 'payload' to be a plain object, Buffer, or string`
+**Throws:** Error: Expected 'payload' to be a plain object, Buffer, or string
 
 **Required Handling:**
 
@@ -192,7 +192,7 @@ Caller MUST validate payload type before calling jwt.sign() or wrap in try-catch
 
 **Condition:** secretOrPrivateKey is undefined, null, or empty
 
-**Throws:** `Error: secretOrPrivateKey must have a value`
+**Throws:** Error: secretOrPrivateKey must have a value
 
 **Required Handling:**
 
@@ -205,7 +205,7 @@ Caller MUST ensure secret exists before calling jwt.sign(). Missing secret indic
 
 **Condition:** options.algorithm is invalid or unsupported
 
-**Throws:** `Error: 'algorithm' must be a valid string enum value`
+**Throws:** Error: 'algorithm' must be a valid string enum value
 
 **Required Handling:**
 
@@ -218,7 +218,7 @@ Caller MUST validate algorithm option. Common mistake: typo in algorithm name (e
 
 **Condition:** options.expiresIn is invalid format
 
-**Throws:** `Error: invalid expiresIn option`
+**Throws:** Error: invalid expiresIn option
 
 **Required Handling:**
 
@@ -231,7 +231,7 @@ Caller MUST validate expiresIn format. Accepts seconds (number) or time span str
 
 **Condition:** options.expiresIn provided but payload already has exp property
 
-**Throws:** `Error: Bad 'options.expiresIn' option the payload already has an 'exp' property`
+**Throws:** Error: Bad 'options.expiresIn' option the payload already has an 'exp' property
 
 **Required Handling:**
 

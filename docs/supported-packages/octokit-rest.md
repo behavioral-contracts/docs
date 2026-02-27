@@ -1,5 +1,5 @@
 ---
-title: @octokit/rest
+title: "@octokit/rest"
 ---
 
 # @octokit/rest
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.repos.get() called without try-catch
 
-**Throws:** `RequestError with status 404 (not found), 403 (forbidden), 401 (unauthorized)`
+**Throws:** RequestError with status 404 (not found), 403 (forbidden), 401 (unauthorized)
 
 **Required Handling:**
 
@@ -68,7 +68,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.repos.create() called without try-catch
 
-**Throws:** `RequestError with status 422 (validation failed), 403 (forbidden), 401 (unauthorized)`
+**Throws:** RequestError with status 422 (validation failed), 403 (forbidden), 401 (unauthorized)
 
 **Required Handling:**
 
@@ -96,7 +96,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.repos.update() called without try-catch
 
-**Throws:** `RequestError with status 404 (not found), 403 (forbidden), 422 (validation failed)`
+**Throws:** RequestError with status 404 (not found), 403 (forbidden), 422 (validation failed)
 
 **Required Handling:**
 
@@ -124,7 +124,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.repos.delete() called without try-catch
 
-**Throws:** `RequestError with status 404 (not found), 403 (forbidden), 401 (unauthorized)`
+**Throws:** RequestError with status 404 (not found), 403 (forbidden), 401 (unauthorized)
 
 **Required Handling:**
 
@@ -152,7 +152,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.git.getRef() called without try-catch
 
-**Throws:** `RequestError with status 404 (ref not found), 403 (forbidden), 401 (unauthorized)`
+**Throws:** RequestError with status 404 (ref not found), 403 (forbidden), 401 (unauthorized)
 
 **Required Handling:**
 
@@ -180,7 +180,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.git.createRef() called without try-catch
 
-**Throws:** `RequestError with status 422 (ref already exists), 404 (repo not found), 403 (forbidden)`
+**Throws:** RequestError with status 422 (ref already exists), 404 (repo not found), 403 (forbidden)
 
 **Required Handling:**
 
@@ -208,7 +208,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.pulls.create() called without try-catch
 
-**Throws:** `RequestError with status 422 (validation failed), 403 (forbidden), 404 (repo not found)`
+**Throws:** RequestError with status 422 (validation failed), 403 (forbidden), 404 (repo not found)
 
 **Required Handling:**
 
@@ -236,7 +236,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.pulls.merge() called without try-catch
 
-**Throws:** `RequestError with status 405 (not mergeable), 404 (not found), 403 (forbidden)`
+**Throws:** RequestError with status 405 (not mergeable), 404 (not found), 403 (forbidden)
 
 **Required Handling:**
 
@@ -264,7 +264,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.pulls.list() called without try-catch
 
-**Throws:** `RequestError with status 404 (repo not found), 403 (forbidden), 422 (invalid params)`
+**Throws:** RequestError with status 404 (repo not found), 403 (forbidden), 422 (invalid params)
 
 **Required Handling:**
 
@@ -292,7 +292,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.issues.create() called without try-catch
 
-**Throws:** `RequestError with status 422 (validation failed), 403 (forbidden), 404 (repo not found), 410 (issues disabled)`
+**Throws:** RequestError with status 422 (validation failed), 403 (forbidden), 404 (repo not found), 410 (issues disabled)
 
 **Required Handling:**
 
@@ -320,7 +320,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.issues.update() called without try-catch
 
-**Throws:** `RequestError with status 404 (not found), 403 (forbidden), 422 (validation failed), 410 (issues disabled)`
+**Throws:** RequestError with status 404 (not found), 403 (forbidden), 422 (validation failed), 410 (issues disabled)
 
 **Required Handling:**
 
@@ -348,7 +348,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.issues.list() called without try-catch
 
-**Throws:** `RequestError with status 404 (repo not found), 403 (forbidden), 422 (invalid params)`
+**Throws:** RequestError with status 404 (repo not found), 403 (forbidden), 422 (invalid params)
 
 **Required Handling:**
 
@@ -376,7 +376,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.repos.createOrUpdateFileContents() called without try-catch
 
-**Throws:** `RequestError with status 404 (repo/branch not found), 409 (conflict), 422 (validation failed)`
+**Throws:** RequestError with status 404 (repo/branch not found), 409 (conflict), 422 (validation failed)
 
 **Required Handling:**
 
@@ -404,7 +404,7 @@ What happens **after** calling this function:
 
 **Condition:** octokit.repos.getContent() called without try-catch
 
-**Throws:** `RequestError with status 404 (not found), 403 (forbidden), 403 (too large)`
+**Throws:** RequestError with status 404 (not found), 403 (forbidden), 403 (too large)
 
 **Required Handling:**
 

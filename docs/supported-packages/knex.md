@@ -1,5 +1,5 @@
 ---
-title: knex
+title: "knex"
 ---
 
 # knex
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** query fails (syntax error, connection lost, timeout, invalid table/column)
 
-**Throws:** `Error with query details and database-specific error code`
+**Throws:** Error with query details and database-specific error code
 
 **Required Handling:**
 
@@ -67,7 +67,7 @@ What happens **after** calling this function:
 
 **Condition:** insert violates constraint (unique, foreign key, not null, type mismatch)
 
-**Throws:** `Error with constraint violation details and database error code`
+**Throws:** Error with constraint violation details and database error code
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ What happens **after** calling this function:
 
 **Condition:** query within transaction fails (constraint violation, deadlock, connection lost)
 
-**Throws:** `Error causing automatic rollback if unhandled`
+**Throws:** Error causing automatic rollback if unhandled
 
 **Required Handling:**
 

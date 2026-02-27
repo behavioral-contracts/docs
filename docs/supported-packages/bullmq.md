@@ -1,5 +1,5 @@
 ---
-title: bullmq
+title: "bullmq"
 ---
 
 # bullmq
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Redis connection fails or is down during add operation
 
-**Throws:** `Error with Redis connection failure details`
+**Throws:** Error with Redis connection failure details
 
 **Required Handling:**
 
@@ -67,7 +67,7 @@ What happens **after** calling this function:
 
 **Condition:** Redis connection fails during bulk operation
 
-**Throws:** `Error causing partial or complete bulk operation failure`
+**Throws:** Error causing partial or complete bulk operation failure
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ What happens **after** calling this function:
 
 **Condition:** job processing throws error or promise rejects
 
-**Throws:** `Error causing job to fail and trigger retry logic if configured`
+**Throws:** Error causing job to fail and trigger retry logic if configured
 
 **Required Handling:**
 
@@ -121,7 +121,7 @@ What happens **after** calling this function:
 
 **Condition:** connection close operation fails (timeout, Redis error)
 
-**Throws:** `Error during connection cleanup`
+**Throws:** Error during connection cleanup
 
 **Required Handling:**
 

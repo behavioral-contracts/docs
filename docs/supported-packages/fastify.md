@@ -1,5 +1,5 @@
 ---
-title: fastify
+title: "fastify"
 ---
 
 # fastify
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** async route handler throws error or promise rejects (database error, validation error)
 
-**Throws:** `Error causing 500 Internal Server Error if no error handler is configured`
+**Throws:** Error causing 500 Internal Server Error if no error handler is configured
 
 **Required Handling:**
 

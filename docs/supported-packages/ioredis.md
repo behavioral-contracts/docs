@@ -1,5 +1,5 @@
 ---
-title: ioredis
+title: "ioredis"
 ---
 
 # ioredis
@@ -40,11 +40,11 @@ What happens **after** calling this function:
 
 **Condition:** Redis instance created without error event listener
 
-**Throws:** `Errors emitted as events, not exceptions - silent failures`
+**Throws:** Errors emitted as events, not exceptions - silent failures
 
 **Required Handling:**
 
-Caller MUST attach an error listener immediately after creating Redis instance: `redis.on('error', (err) => logger.error(err))`. Without this listener, connection errors are silently logged to console and may crash the application.
+Caller MUST attach an error listener immediately after creating Redis instance: `redis.on('error', (err) = logger.error(err))`. Without this listener, connection errors are silently logged to console and may crash the application.
 
 
 📖 [Source](https://github.com/redis/ioredis#error-handling)
@@ -53,7 +53,7 @@ Caller MUST attach an error listener immediately after creating Redis instance: 
 
 **Condition:** Connection fails (ECONNREFUSED, ETIMEDOUT, ECONNRESET, ENOTFOUND, EPIPE, EAI_AGAIN)
 
-**Throws:** `Error event emitted with connection error`
+**Throws:** Error event emitted with connection error
 
 **Required Handling:**
 
@@ -91,7 +91,7 @@ What happens **after** calling this function:
 
 **Condition:** Command promise rejected without catch handler
 
-**Throws:** `UnhandledPromiseRejectionWarning - will crash in future Node.js versions`
+**Throws:** UnhandledPromiseRejectionWarning - will crash in future Node.js versions
 
 **Required Handling:**
 
@@ -104,7 +104,7 @@ Caller MUST use try-catch (async/await) or .catch() on all Redis commands. Comma
 
 **Condition:** Command exceeds timeout (default: no timeout)
 
-**Throws:** `MaxRetriesPerRequestError or CommandTimeoutError`
+**Throws:** MaxRetriesPerRequestError or CommandTimeoutError
 
 **Required Handling:**
 
@@ -132,7 +132,7 @@ What happens **after** calling this function:
 
 **Condition:** Command promise rejected without catch handler
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -160,7 +160,7 @@ What happens **after** calling this function:
 
 **Condition:** Pipeline exec() results not checked for errors
 
-**Throws:** `Individual command errors silently included in results array`
+**Throws:** Individual command errors silently included in results array
 
 **Required Handling:**
 
@@ -173,7 +173,7 @@ Caller MUST check each result in pipeline.exec() return value. Format: [[null, '
 
 **Condition:** Pipeline exec() promise rejected without catch
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -201,7 +201,7 @@ What happens **after** calling this function:
 
 **Condition:** WATCH violation causes exec() to return null, not checked
 
-**Throws:** `null return value indicates transaction was aborted`
+**Throws:** null return value indicates transaction was aborted
 
 **Required Handling:**
 
@@ -214,7 +214,7 @@ Caller MUST check if exec() returns null after using WATCH. Null indicates a wat
 
 **Condition:** EXECABORT error in transaction not handled
 
-**Throws:** `EXECABORT error if queued command fails validation`
+**Throws:** EXECABORT error if queued command fails validation
 
 **Required Handling:**
 
@@ -242,7 +242,7 @@ What happens **after** calling this function:
 
 **Condition:** Non-pub/sub commands used on subscriber connection
 
-**Throws:** `Error: Connection in subscriber mode, only subscriber commands allowed`
+**Throws:** Error: Connection in subscriber mode, only subscriber commands allowed
 
 **Required Handling:**
 
@@ -280,7 +280,7 @@ What happens **after** calling this function:
 
 **Condition:** Blocking command without timeout parameter
 
-**Throws:** `Command may block indefinitely, causing resource leak`
+**Throws:** Command may block indefinitely, causing resource leak
 
 **Required Handling:**
 
@@ -308,7 +308,7 @@ What happens **after** calling this function:
 
 **Condition:** connect() promise rejected without catch
 
-**Throws:** `UnhandledPromiseRejectionWarning on connection failure`
+**Throws:** UnhandledPromiseRejectionWarning on connection failure
 
 **Required Handling:**
 
@@ -336,7 +336,7 @@ What happens **after** calling this function:
 
 **Condition:** Key exists but is not a hash
 
-**Throws:** `ReplyError with message containing 'WRONGTYPE'`
+**Throws:** ReplyError with message containing 'WRONGTYPE'
 
 **Required Handling:**
 
@@ -349,7 +349,7 @@ Caller MUST catch WRONGTYPE errors for hash operations. This indicates key is no
 
 **Condition:** Command promise rejected without catch handler
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -377,7 +377,7 @@ What happens **after** calling this function:
 
 **Condition:** Key exists but is not a hash
 
-**Throws:** `ReplyError with message containing 'WRONGTYPE'`
+**Throws:** ReplyError with message containing 'WRONGTYPE'
 
 **Required Handling:**
 
@@ -390,7 +390,7 @@ Caller MUST catch WRONGTYPE errors. Key exists with different type - DO NOT retr
 
 **Condition:** Command promise rejected without catch handler
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -418,7 +418,7 @@ What happens **after** calling this function:
 
 **Condition:** Key exists but is not a hash
 
-**Throws:** `ReplyError with message containing 'WRONGTYPE'`
+**Throws:** ReplyError with message containing 'WRONGTYPE'
 
 **Required Handling:**
 
@@ -431,7 +431,7 @@ Caller MUST catch WRONGTYPE errors. Key is not a hash - DO NOT retry.
 
 **Condition:** Command promise rejected without catch handler
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -459,7 +459,7 @@ What happens **after** calling this function:
 
 **Condition:** Key exists but is not a list
 
-**Throws:** `ReplyError with message containing 'WRONGTYPE'`
+**Throws:** ReplyError with message containing 'WRONGTYPE'
 
 **Required Handling:**
 
@@ -472,7 +472,7 @@ Caller MUST catch WRONGTYPE errors. Key exists with different type - DO NOT retr
 
 **Condition:** Command promise rejected without catch handler
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -500,7 +500,7 @@ What happens **after** calling this function:
 
 **Condition:** Key exists but is not a list
 
-**Throws:** `ReplyError with message containing 'WRONGTYPE'`
+**Throws:** ReplyError with message containing 'WRONGTYPE'
 
 **Required Handling:**
 
@@ -513,7 +513,7 @@ Caller MUST catch WRONGTYPE errors. Key exists with different type - DO NOT retr
 
 **Condition:** Command promise rejected without catch handler
 
-**Throws:** `UnhandledPromiseRejectionWarning`
+**Throws:** UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -541,7 +541,7 @@ What happens **after** calling this function:
 
 **Condition:** Publish fails (connection lost, etc.)
 
-**Throws:** `Network error or UnhandledPromiseRejectionWarning`
+**Throws:** Network error or UnhandledPromiseRejectionWarning
 
 **Required Handling:**
 
@@ -569,7 +569,7 @@ What happens **after** calling this function:
 
 **Condition:** Lua script has syntax or runtime error
 
-**Throws:** `ReplyError with script error details`
+**Throws:** ReplyError with script error details
 
 **Required Handling:**
 
@@ -582,7 +582,7 @@ Caller MUST catch Lua script errors. Script syntax errors should NOT be retried 
 
 **Condition:** Lua script exceeds execution time limit
 
-**Throws:** `ReplyError with timeout message`
+**Throws:** ReplyError with timeout message
 
 **Required Handling:**
 

@@ -1,5 +1,5 @@
 ---
-title: firebase-admin
+title: "firebase-admin"
 ---
 
 # firebase-admin
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** ID token has expired
 
-**Throws:** `FirebaseAuthError with code 'auth/id-token-expired'`
+**Throws:** FirebaseAuthError with code 'auth/id-token-expired'
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST catch and handle expired token errors. Return 401 Unauthorized to cl
 
 **Condition:** ID token is invalid (malformed, wrong project, revoked)
 
-**Throws:** `FirebaseAuthError with code 'auth/argument-error' or 'auth/id-token-revoked'`
+**Throws:** FirebaseAuthError with code 'auth/argument-error' or 'auth/id-token-revoked'
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ Caller MUST validate token format and handle invalid tokens. Check error.code to
 
 **Condition:** Network request to Firebase Auth service failed
 
-**Throws:** `FirebaseAuthError or generic Error`
+**Throws:** FirebaseAuthError or generic Error
 
 **Required Handling:**
 
@@ -104,7 +104,7 @@ What happens **after** calling this function:
 
 **Condition:** Email address is already in use
 
-**Throws:** `FirebaseAuthError with code 'auth/email-already-exists'`
+**Throws:** FirebaseAuthError with code 'auth/email-already-exists'
 
 **Required Handling:**
 
@@ -117,7 +117,7 @@ Caller MUST check if error.code === 'auth/email-already-exists'. Return user-fri
 
 **Condition:** Email format is invalid
 
-**Throws:** `FirebaseAuthError with code 'auth/invalid-email'`
+**Throws:** FirebaseAuthError with code 'auth/invalid-email'
 
 **Required Handling:**
 
@@ -130,7 +130,7 @@ Caller SHOULD validate email format before calling createUser. Use email validat
 
 **Condition:** Provided UID is already in use (when specifying custom UID)
 
-**Throws:** `FirebaseAuthError with code 'auth/uid-already-exists'`
+**Throws:** FirebaseAuthError with code 'auth/uid-already-exists'
 
 **Required Handling:**
 
@@ -143,7 +143,7 @@ If using custom UIDs, generate unique values. Catch this error and either genera
 
 **Condition:** Password is too weak or doesn't meet requirements
 
-**Throws:** `FirebaseAuthError with code 'auth/invalid-password'`
+**Throws:** FirebaseAuthError with code 'auth/invalid-password'
 
 **Required Handling:**
 
@@ -171,7 +171,7 @@ What happens **after** calling this function:
 
 **Condition:** No user record found for the given UID
 
-**Throws:** `FirebaseAuthError with code 'auth/user-not-found'`
+**Throws:** FirebaseAuthError with code 'auth/user-not-found'
 
 **Required Handling:**
 
@@ -184,7 +184,7 @@ Caller MUST handle user-not-found errors. DO NOT assume user exists - always cat
 
 **Condition:** UID format is invalid
 
-**Throws:** `FirebaseAuthError with code 'auth/invalid-uid'`
+**Throws:** FirebaseAuthError with code 'auth/invalid-uid'
 
 **Required Handling:**
 
@@ -212,7 +212,7 @@ What happens **after** calling this function:
 
 **Condition:** No user record found for the given UID
 
-**Throws:** `FirebaseAuthError with code 'auth/user-not-found'`
+**Throws:** FirebaseAuthError with code 'auth/user-not-found'
 
 **Required Handling:**
 
@@ -225,7 +225,7 @@ Caller MUST handle user-not-found errors. Decide whether to create user or retur
 
 **Condition:** New email address is already in use by another user
 
-**Throws:** `FirebaseAuthError with code 'auth/email-already-exists'`
+**Throws:** FirebaseAuthError with code 'auth/email-already-exists'
 
 **Required Handling:**
 
@@ -253,7 +253,7 @@ What happens **after** calling this function:
 
 **Condition:** No user record found for the given UID
 
-**Throws:** `FirebaseAuthError with code 'auth/user-not-found'`
+**Throws:** FirebaseAuthError with code 'auth/user-not-found'
 
 **Required Handling:**
 
@@ -281,7 +281,7 @@ What happens **after** calling this function:
 
 **Condition:** No user record with the given email
 
-**Throws:** `FirebaseAuthError with code 'auth/user-not-found'`
+**Throws:** FirebaseAuthError with code 'auth/user-not-found'
 
 **Required Handling:**
 
@@ -309,7 +309,7 @@ What happens **after** calling this function:
 
 **Condition:** No user record found
 
-**Throws:** `FirebaseAuthError with code 'auth/user-not-found'`
+**Throws:** FirebaseAuthError with code 'auth/user-not-found'
 
 **Required Handling:**
 
@@ -322,7 +322,7 @@ Verify user exists before setting claims.
 
 **Condition:** Claims object exceeds 1000 bytes or uses reserved keys
 
-**Throws:** `FirebaseAuthError with code 'auth/invalid-claims'`
+**Throws:** FirebaseAuthError with code 'auth/invalid-claims'
 
 **Required Handling:**
 
@@ -350,7 +350,7 @@ What happens **after** calling this function:
 
 **Condition:** Security rules deny read access
 
-**Throws:** `Error with code 'PERMISSION_DENIED' (gRPC code 7)`
+**Throws:** Error with code 'PERMISSION_DENIED' (gRPC code 7)
 
 **Required Handling:**
 
@@ -363,7 +363,9 @@ Caller MUST handle permission errors. Check Firestore security rules. Admin SDK 
 
 **Condition:** Document does not exist
 
-**Returns:** DocumentSnapshot with exists: false
+**Returns:**
+
+DocumentSnapshot with exists: false
 
 **Required Handling:**
 
@@ -376,7 +378,7 @@ Caller MUST check snapshot.exists before accessing data. Use snapshot.exists or 
 
 **Condition:** Operation timed out
 
-**Throws:** `Error with code 'DEADLINE_EXCEEDED' (gRPC code 4)`
+**Throws:** Error with code 'DEADLINE_EXCEEDED' (gRPC code 4)
 
 **Required Handling:**
 
@@ -404,7 +406,7 @@ What happens **after** calling this function:
 
 **Condition:** Security rules deny write access
 
-**Throws:** `Error with code 'PERMISSION_DENIED' (gRPC code 7)`
+**Throws:** Error with code 'PERMISSION_DENIED' (gRPC code 7)
 
 **Required Handling:**
 
@@ -417,7 +419,7 @@ Check Firestore security rules and service account permissions.
 
 **Condition:** Write quota exceeded or rate limit hit
 
-**Throws:** `Error with code 'RESOURCE_EXHAUSTED' (gRPC code 8)`
+**Throws:** Error with code 'RESOURCE_EXHAUSTED' (gRPC code 8)
 
 **Required Handling:**
 
@@ -445,7 +447,7 @@ What happens **after** calling this function:
 
 **Condition:** Transaction aborted due to contention
 
-**Throws:** `Error with code 'ABORTED' (gRPC code 10)`
+**Throws:** Error with code 'ABORTED' (gRPC code 10)
 
 **Required Handling:**
 
@@ -458,7 +460,7 @@ Caller SHOULD retry with exponential backoff and jitter. Occurs when multiple tr
 
 **Condition:** Write quota exceeded
 
-**Throws:** `Error with code 'RESOURCE_EXHAUSTED'`
+**Throws:** Error with code 'RESOURCE_EXHAUSTED'
 
 **Required Handling:**
 
@@ -486,7 +488,7 @@ What happens **after** calling this function:
 
 **Condition:** Document to update does not exist
 
-**Throws:** `Error with code 'NOT_FOUND' (gRPC code 5)`
+**Throws:** Error with code 'NOT_FOUND' (gRPC code 5)
 
 **Required Handling:**
 
@@ -499,7 +501,7 @@ Caller MUST handle not-found errors. Use set() with merge: true if you want to c
 
 **Condition:** Transaction contention
 
-**Throws:** `Error with code 'ABORTED'`
+**Throws:** Error with code 'ABORTED'
 
 **Required Handling:**
 
@@ -526,7 +528,7 @@ What happens **after** calling this function:
 
 **Condition:** Security rules deny delete access
 
-**Throws:** `Error with code 'PERMISSION_DENIED'`
+**Throws:** Error with code 'PERMISSION_DENIED'
 
 **Required Handling:**
 
@@ -553,7 +555,7 @@ What happens **after** calling this function:
 
 **Condition:** Device token is invalid, expired, or unregistered
 
-**Throws:** `FirebaseMessagingError with code 'messaging/invalid-recipient'`
+**Throws:** FirebaseMessagingError with code 'messaging/invalid-recipient'
 
 **Required Handling:**
 
@@ -566,7 +568,7 @@ Caller MUST remove invalid tokens from database. Check error code and error.code
 
 **Condition:** Message payload is malformed or exceeds size limits
 
-**Throws:** `FirebaseMessagingError with code 'messaging/invalid-argument'`
+**Throws:** FirebaseMessagingError with code 'messaging/invalid-argument'
 
 **Required Handling:**
 
@@ -579,7 +581,7 @@ Validate message structure before sending. Check payload size limits (4KB for da
 
 **Condition:** FCM rate limit exceeded
 
-**Throws:** `FirebaseMessagingError with code 'messaging/quota-exceeded'`
+**Throws:** FirebaseMessagingError with code 'messaging/quota-exceeded'
 
 **Required Handling:**
 
@@ -607,7 +609,9 @@ What happens **after** calling this function:
 
 **Condition:** Some tokens succeeded, some failed
 
-**Returns:** BatchResponse with failureCount > 0
+**Returns:**
+
+BatchResponse with failureCount  0
 
 **Required Handling:**
 
@@ -620,7 +624,7 @@ Caller MUST check response.failureCount and response.responses array. Each respo
 
 **Condition:** Invalid tokens or payload
 
-**Throws:** `FirebaseMessagingError`
+**Throws:** FirebaseMessagingError
 
 **Required Handling:**
 
@@ -647,7 +651,7 @@ What happens **after** calling this function:
 
 **Condition:** Topic name is invalid or doesn't exist
 
-**Throws:** `FirebaseMessagingError with code 'messaging/invalid-argument'`
+**Throws:** FirebaseMessagingError with code 'messaging/invalid-argument'
 
 **Required Handling:**
 
@@ -675,7 +679,7 @@ What happens **after** calling this function:
 
 **Condition:** Database rules deny read access
 
-**Throws:** `Error with code 'PERMISSION_DENIED'`
+**Throws:** Error with code 'PERMISSION_DENIED'
 
 **Required Handling:**
 
@@ -688,7 +692,7 @@ Check Realtime Database rules. Admin SDK bypasses rules by default - if seeing t
 
 **Condition:** Network connection failed
 
-**Throws:** `Error`
+**Throws:** Error
 
 **Required Handling:**
 
@@ -716,7 +720,7 @@ What happens **after** calling this function:
 
 **Condition:** Database rules deny write access
 
-**Throws:** `Error with code 'PERMISSION_DENIED'`
+**Throws:** Error with code 'PERMISSION_DENIED'
 
 **Required Handling:**
 
@@ -743,7 +747,7 @@ What happens **after** calling this function:
 
 **Condition:** Database rules deny write access
 
-**Throws:** `Error with code 'PERMISSION_DENIED'`
+**Throws:** Error with code 'PERMISSION_DENIED'
 
 **Required Handling:**
 
@@ -770,7 +774,7 @@ What happens **after** calling this function:
 
 **Condition:** Database rules deny delete access
 
-**Throws:** `Error with code 'PERMISSION_DENIED'`
+**Throws:** Error with code 'PERMISSION_DENIED'
 
 **Required Handling:**
 

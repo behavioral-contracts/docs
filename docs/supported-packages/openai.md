@@ -1,5 +1,5 @@
 ---
-title: openai
+title: "openai"
 ---
 
 # openai
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid or missing API key (401)
 
-**Throws:** `AuthenticationError with status 401`
+**Throws:** AuthenticationError with status 401
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST NOT retry with the same API key. Verify API key is correct and not r
 
 **Condition:** Rate limit exceeded - RPM, TPM, RPD, TPD, or IPM (429)
 
-**Throws:** `RateLimitError with status 429`
+**Throws:** RateLimitError with status 429
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ Caller MUST implement exponential backoff retry logic. Check rate limit headers 
 
 **Condition:** OpenAI server error (500, 502, 503)
 
-**Throws:** `APIError with status >= 500`
+**Throws:** APIError with status = 500
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ Caller SHOULD treat as transient failure and retry with exponential backoff. SDK
 
 **Condition:** Request timeout (default 10 minutes)
 
-**Throws:** `APIConnectionTimeoutError`
+**Throws:** APIConnectionTimeoutError
 
 **Required Handling:**
 
@@ -92,7 +92,7 @@ Caller SHOULD retry with exponential backoff. SDK automatically retries.
 
 **Condition:** Invalid parameters (e.g., model not found, invalid temperature, file too large)
 
-**Throws:** `BadRequestError with status 400`
+**Throws:** BadRequestError with status 400
 
 **Required Handling:**
 
@@ -120,7 +120,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid API key (401)
 
-**Throws:** `AuthenticationError`
+**Throws:** AuthenticationError
 
 **Required Handling:**
 
@@ -132,7 +132,7 @@ Verify API key, DO NOT retry. Alert operations.
 
 **Condition:** Image generation rate limit exceeded (429) - measured in IPM (images per minute)
 
-**Throws:** `RateLimitError`
+**Throws:** RateLimitError
 
 **Required Handling:**
 
@@ -145,7 +145,7 @@ Implement exponential backoff. Image generation has different rate limits than t
 
 **Condition:** Prompt violates content policy
 
-**Throws:** `BadRequestError with content policy violation message`
+**Throws:** BadRequestError with content policy violation message
 
 **Required Handling:**
 
@@ -158,7 +158,7 @@ DO NOT retry with same prompt. Return user-friendly error about content policy.
 
 **Condition:** Server error (500+)
 
-**Throws:** `APIError`
+**Throws:** APIError
 
 **Required Handling:**
 

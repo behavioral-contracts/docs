@@ -1,5 +1,5 @@
 ---
-title: @nestjs/common
+title: "@nestjs/common"
 ---
 
 # @nestjs/common
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** constructor throws error during dependency injection (connection failure, initialization error)
 
-**Throws:** `Error that prevents application startup`
+**Throws:** Error that prevents application startup
 
 **Required Handling:**
 
@@ -67,7 +67,7 @@ What happens **after** calling this function:
 
 **Condition:** async route handler throws error or promise rejects
 
-**Throws:** `Error propagated to exception filter or default error handler`
+**Throws:** Error propagated to exception filter or default error handler
 
 **Required Handling:**
 

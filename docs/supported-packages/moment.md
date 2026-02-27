@@ -1,5 +1,5 @@
 ---
-title: moment
+title: "moment"
 ---
 
 # moment
@@ -40,11 +40,13 @@ What happens **after** calling this function:
 
 **Condition:** input string is not a valid date format
 
-**Returns:** Invalid moment object (moment.isValid() returns false)
+**Returns:**
+
+Invalid moment object (moment.isValid() returns false)
 
 **Required Handling:**
 
-Caller MUST check isValid() before using the moment object. Invalid moment objects can cause incorrect date calculations, display issues, or NaN values propagating through the application. Use pattern: const m = moment(input); if (!m.isValid()) { /* handle error */ }
+Caller MUST check isValid() before using the moment object. Invalid moment objects can cause incorrect date calculations, display issues, or NaN values propagating through the application. Use pattern: const m = moment(input); if (!m.isValid())  /* handle error */ 
 
 
 📖 [Source](https://momentjs.com/docs/#/parsing/string/)
@@ -68,11 +70,13 @@ What happens **after** calling this function:
 
 **Condition:** input string is not a valid date format
 
-**Returns:** Invalid moment object (moment.isValid() returns false)
+**Returns:**
+
+Invalid moment object (moment.isValid() returns false)
 
 **Required Handling:**
 
-Caller MUST check isValid() after parsing. Invalid UTC moments can cause timezone calculation errors and data corruption. Use pattern: const m = moment.utc(input); if (!m.isValid()) { /* handle error */ }
+Caller MUST check isValid() after parsing. Invalid UTC moments can cause timezone calculation errors and data corruption. Use pattern: const m = moment.utc(input); if (!m.isValid())  /* handle error */ 
 
 
 📖 [Source](https://momentjs.com/docs/#/parsing/utc/)

@@ -1,5 +1,5 @@
 ---
-title: date-fns
+title: "date-fns"
 ---
 
 # date-fns
@@ -40,7 +40,9 @@ What happens **after** calling this function:
 
 **Condition:** input string is malformed or doesn't match format string
 
-**Returns:** Invalid Date object (isNaN(date) returns true)
+**Returns:**
+
+Invalid Date object (isNaN(date) returns true)
 
 **Required Handling:**
 
@@ -67,7 +69,9 @@ What happens **after** calling this function:
 
 **Condition:** input Date object is Invalid Date (isNaN returns true)
 
-**Returns:** string 'Invalid Date'
+**Returns:**
+
+string 'Invalid Date'
 
 **Required Handling:**
 

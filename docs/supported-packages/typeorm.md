@@ -1,5 +1,5 @@
 ---
-title: typeorm
+title: "typeorm"
 ---
 
 # typeorm
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** query fails (connection lost, invalid relation, timeout, syntax error)
 
-**Throws:** `QueryFailedError or connection error`
+**Throws:** QueryFailedError or connection error
 
 **Required Handling:**
 
@@ -67,7 +67,7 @@ What happens **after** calling this function:
 
 **Condition:** save violates constraint (unique, foreign key, validation, type mismatch)
 
-**Throws:** `QueryFailedError with constraint violation details`
+**Throws:** QueryFailedError with constraint violation details
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ What happens **after** calling this function:
 
 **Condition:** operation within transaction fails (constraint violation, deadlock, connection lost)
 
-**Throws:** `Error causing automatic rollback`
+**Throws:** Error causing automatic rollback
 
 **Required Handling:**
 

@@ -1,5 +1,5 @@
 ---
-title: node-fetch
+title: "node-fetch"
 ---
 
 # node-fetch
@@ -40,11 +40,11 @@ What happens **after** calling this function:
 
 **Condition:** network failure (DNS resolution failure, connection refused, timeout, etc.)
 
-**Throws:** `Promise rejection with FetchError (error.type='system', error.code like ENOTFOUND, ECONNREFUSED, ETIMEDOUT)`
+**Throws:** Promise rejection with FetchError (error.type='system', error.code like ENOTFOUND, ECONNREFUSED, ETIMEDOUT)
 
 **Required Handling:**
 
-Caller MUST use try-catch to handle Promise rejections from fetch(). Network-level failures (DNS errors, connection refused, timeouts) reject the Promise. CRITICAL: fetch() does NOT reject on HTTP 4xx/5xx status codes - those are successful responses that must be checked with response.ok. Recommended pattern: try { const res = await fetch(url); if (!res.ok) throw new Error(`HTTP ${res.status}`); } catch (error) { /* handle network errors */ }
+Caller MUST use try-catch to handle Promise rejections from fetch(). Network-level failures (DNS errors, connection refused, timeouts) reject the Promise. CRITICAL: fetch() does NOT reject on HTTP 4xx/5xx status codes - those are successful responses that must be checked with response.ok. Recommended pattern: try  const res = await fetch(url); if (!res.ok) throw new Error(`HTTP $res.status`);  catch (error)  /* handle network errors */ 
 
 
 📖 [Source](https://github.com/node-fetch/node-fetch/blob/main/docs/ERROR-HANDLING.md)

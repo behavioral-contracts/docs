@@ -1,5 +1,5 @@
 ---
-title: sinon
+title: "sinon"
 ---
 
 # sinon
@@ -40,11 +40,11 @@ What happens **after** calling this function:
 
 **Condition:** sinon.stub(obj, 'method') is called
 
-**Throws:** `TypeError: Attempted to wrap [method] which is already wrapped`
+**Throws:** TypeError: Attempted to wrap [method] which is already wrapped
 
 **Required Handling:**
 
-MUST call stub.restore() in afterEach or finally block to clean up stubs. Failure to restore causes "already wrapped" errors in subsequent tests. Best practice: Use sandboxes with sandbox.restore() in afterEach. Pattern: const sandbox = sinon.createSandbox(); afterEach(() => sandbox.restore());
+MUST call stub.restore() in afterEach or finally block to clean up stubs. Failure to restore causes "already wrapped" errors in subsequent tests. Best practice: Use sandboxes with sandbox.restore() in afterEach. Pattern: const sandbox = sinon.createSandbox(); afterEach(() = sandbox.restore());
 
 
 📖 [Source](https://github.com/sinonjs/sinon/issues/1673)
@@ -53,20 +53,20 @@ MUST call stub.restore() in afterEach or finally block to clean up stubs. Failur
 
 **Condition:** sinon.stub is called on non-existent or non-function property
 
-**Throws:** `TypeError: Attempted to wrap undefined property [name]`
+**Throws:** TypeError: Attempted to wrap undefined property [name]
 
 **Required Handling:**
 
-MUST verify property exists and is a function before stubbing. Pattern: if (typeof obj.method === 'function') { sinon.stub(obj, 'method'); }
+MUST verify property exists and is a function before stubbing. Pattern: if (typeof obj.method === 'function')  sinon.stub(obj, 'method'); 
 
 
 📖 [Source](https://github.com/sinonjs/sinon/issues/1762)
 
 **🔴 ERROR - stub-returns-arg-invalid-index**
 
-**Condition:** stub.returnsArg(index) is called with index >= argument count
+**Condition:** stub.returnsArg(index) is called with index = argument count
 
-**Throws:** `TypeError: index unavailable`
+**Throws:** TypeError: index unavailable
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ MUST ensure argument index exists before calling stub.returnsArg(index). Note: P
 
 **Condition:** stub.callsArg(index) is called with non-function argument
 
-**Throws:** `TypeError: index missing or not a function`
+**Throws:** TypeError: index missing or not a function
 
 **Required Handling:**
 
@@ -92,7 +92,7 @@ MUST verify argument at index is a function before calling stub.callsArg(index).
 
 **Condition:** stub.yields() is called but stub was never called with a function argument
 
-**Throws:** `Error: stub was never called with a function argument`
+**Throws:** Error: stub was never called with a function argument
 
 **Required Handling:**
 
@@ -120,11 +120,11 @@ What happens **after** calling this function:
 
 **Condition:** spy.firstCall is accessed when spy was never called
 
-**Throws:** `TypeError: Cannot read property 'args' of null`
+**Throws:** TypeError: Cannot read property 'args' of null
 
 **Required Handling:**
 
-MUST check spy.called before accessing spy.firstCall, spy.lastCall, or spy.getCall(n). Best practice: Use spy.calledWith(arg) instead of direct call access. Pattern: if (spy.called) { spy.firstCall.args }
+MUST check spy.called before accessing spy.firstCall, spy.lastCall, or spy.getCall(n). Best practice: Use spy.calledWith(arg) instead of direct call access. Pattern: if (spy.called)  spy.firstCall.args 
 
 
 📖 [Source](https://github.com/sinonjs/sinon/issues/1936)
@@ -133,11 +133,11 @@ MUST check spy.called before accessing spy.firstCall, spy.lastCall, or spy.getCa
 
 **Condition:** sinon.spy(obj, 'method') is called
 
-**Throws:** `TypeError: Attempted to wrap [method] which is already wrapped`
+**Throws:** TypeError: Attempted to wrap [method] which is already wrapped
 
 **Required Handling:**
 
-MUST call spy.restore() in afterEach or finally block. Use sandboxes for automatic cleanup: sandbox.spy(obj, 'method'); afterEach(() => sandbox.restore());
+MUST call spy.restore() in afterEach or finally block. Use sandboxes for automatic cleanup: sandbox.spy(obj, 'method'); afterEach(() = sandbox.restore());
 
 
 📖 [Source](https://github.com/sinonjs/sinon/issues/1775)
@@ -161,11 +161,11 @@ What happens **after** calling this function:
 
 **Condition:** mock.expects() is called but mock.verify() is never called
 
-**Throws:** `Silent failure - expectations not enforced`
+**Throws:** Silent failure - expectations not enforced
 
 **Required Handling:**
 
-MUST call mock.verify() or sandbox.verifyAndRestore() to enforce expectations. Without verification, tests pass even when expectations are not met. Pattern: afterEach(() => { mock.verify(); }) or sandbox.verifyAndRestore()
+MUST call mock.verify() or sandbox.verifyAndRestore() to enforce expectations. Without verification, tests pass even when expectations are not met. Pattern: afterEach(() =  mock.verify(); ) or sandbox.verifyAndRestore()
 
 
 📖 [Source](https://sinonjs.org/releases/latest/mocks/)
@@ -174,7 +174,7 @@ MUST call mock.verify() or sandbox.verifyAndRestore() to enforce expectations. W
 
 **Condition:** mock.verify() is called and expectations are not met
 
-**Throws:** `ExpectationError`
+**Throws:** ExpectationError
 
 **Required Handling:**
 
@@ -202,11 +202,11 @@ What happens **after** calling this function:
 
 **Condition:** sinon.useFakeTimers() is called
 
-**Throws:** `Test hangs, setTimeout/setInterval never fire in subsequent tests`
+**Throws:** Test hangs, setTimeout/setInterval never fire in subsequent tests
 
 **Required Handling:**
 
-MUST call clock.restore() in afterEach or finally block. Failure to restore causes timer pollution and test hangs. Pattern: let clock; beforeEach(() => clock = sinon.useFakeTimers()); afterEach(() => clock.restore());
+MUST call clock.restore() in afterEach or finally block. Failure to restore causes timer pollution and test hangs. Pattern: let clock; beforeEach(() = clock = sinon.useFakeTimers()); afterEach(() = clock.restore());
 
 
 📖 [Source](https://sinonjs.org/releases/latest/fake-timers/)
@@ -230,11 +230,11 @@ What happens **after** calling this function:
 
 **Condition:** sinon.createSandbox() is called
 
-**Throws:** `Test pollution, 'already wrapped' errors in subsequent tests`
+**Throws:** Test pollution, 'already wrapped' errors in subsequent tests
 
 **Required Handling:**
 
-MUST call sandbox.restore() in afterEach or finally block. Sandboxes simplify cleanup but still require explicit restoration. Pattern: const sandbox = sinon.createSandbox(); afterEach(() => sandbox.restore());
+MUST call sandbox.restore() in afterEach or finally block. Sandboxes simplify cleanup but still require explicit restoration. Pattern: const sandbox = sinon.createSandbox(); afterEach(() = sandbox.restore());
 
 
 📖 [Source](https://sinonjs.org/releases/latest/sandbox/)
@@ -258,7 +258,7 @@ What happens **after** calling this function:
 
 **Condition:** sinon.createStubInstance is called twice on same constructor without cleanup
 
-**Throws:** `TypeError: Attempted to wrap [method] which is already wrapped`
+**Throws:** TypeError: Attempted to wrap [method] which is already wrapped
 
 **Required Handling:**
 

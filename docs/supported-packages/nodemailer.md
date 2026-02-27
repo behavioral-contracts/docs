@@ -1,5 +1,5 @@
 ---
-title: nodemailer
+title: "nodemailer"
 ---
 
 # nodemailer
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Network connectivity issues (TCP connection failed, timeout, DNS failure)
 
-**Throws:** `Error with code: ECONNECTION, ETIMEDOUT, EDNS, ESOCKET`
+**Throws:** Error with code: ECONNECTION, ETIMEDOUT, EDNS, ESOCKET
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST catch connection errors. ECONNECTION: TCP connection failed or close
 
 **Condition:** SMTP authentication fails (wrong credentials, locked account, unsupported auth)
 
-**Throws:** `Error with code: EAUTH, ENOAUTH, EOAUTH2`
+**Throws:** Error with code: EAUTH, ENOAUTH, EOAUTH2
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ Caller MUST catch authentication errors. EAUTH: Invalid username/password, accou
 
 **Condition:** TLS/SSL certificate validation fails or STARTTLS fails
 
-**Throws:** `Error with code: ETLS, EREQUIRETLS`
+**Throws:** Error with code: ETLS, EREQUIRETLS
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ Caller MUST catch TLS errors. ETLS: Certificate validation failed, hostname mism
 
 **Condition:** Recipient email address is malformed or rejected
 
-**Throws:** `Error with code: EENVELOPE`
+**Throws:** Error with code: EENVELOPE
 
 **Required Handling:**
 
@@ -92,7 +92,7 @@ Caller MUST validate email addresses before sending. EENVELOPE: Invalid recipien
 
 **Condition:** Message content is invalid or attachments fail to load
 
-**Throws:** `Error with code: EMESSAGE, EFILEACCESS, EURLACCESS, EFETCH, ESTREAM`
+**Throws:** Error with code: EMESSAGE, EFILEACCESS, EURLACCESS, EFETCH, ESTREAM
 
 **Required Handling:**
 
@@ -105,7 +105,7 @@ Caller MUST validate message content and attachments. EMESSAGE: Invalid message 
 
 **Condition:** SMTP protocol violation or configuration error
 
-**Throws:** `Error with code: EPROTOCOL, ECONFIG, EMAXLIMIT`
+**Throws:** Error with code: EPROTOCOL, ECONFIG, EMAXLIMIT
 
 **Required Handling:**
 
@@ -134,7 +134,7 @@ SECURITY CRITICAL: Not sanitizing email addresses enables CVE-2021-23400. Attack
 
 **⚠️ WARNING - ignored-rejected-recipients**
 
-COMMON: Not checking info.rejected array causes silent partial failures. sendMail() succeeds even if some recipients were rejected. ALWAYS check: if (info.rejected.length > 0) { handle_partial_failure(); } Also check: info.rejectedErrors for detailed error per rejected recipient.
+COMMON: Not checking info.rejected array causes silent partial failures. sendMail() succeeds even if some recipients were rejected. ALWAYS check: if (info.rejected.length  0)  handle_partial_failure();  Also check: info.rejectedErrors for detailed error per rejected recipient.
 
 
 📖 [Source](https://github.com/nodemailer/nodemailer/issues/414)
@@ -172,7 +172,7 @@ What happens **after** calling this function:
 
 **Condition:** SMTP connection or authentication fails during verification
 
-**Throws:** `Error with code: ECONNECTION, EAUTH, ETLS, EDNS, ETIMEDOUT`
+**Throws:** Error with code: ECONNECTION, EAUTH, ETLS, EDNS, ETIMEDOUT
 
 **Required Handling:**
 
@@ -211,7 +211,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid transport configuration
 
-**Throws:** `Error with code: ECONFIG`
+**Throws:** Error with code: ECONFIG
 
 **Required Handling:**
 

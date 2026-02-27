@@ -1,5 +1,5 @@
 ---
-title: superagent
+title: "superagent"
 ---
 
 # superagent
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP 4xx/5xx errors
 
-**Throws:** `Error with status, response, timeout fields (Promise rejection)`
+**Throws:** Error with status, response, timeout fields (Promise rejection)
 
 **Required Handling:**
 
@@ -67,7 +67,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP 4xx/5xx errors
 
-**Throws:** `Error with status, response, timeout fields (Promise rejection)`
+**Throws:** Error with status, response, timeout fields (Promise rejection)
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP 4xx/5xx errors
 
-**Throws:** `Error with status, response, timeout fields (Promise rejection)`
+**Throws:** Error with status, response, timeout fields (Promise rejection)
 
 **Required Handling:**
 
@@ -121,7 +121,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP 4xx/5xx errors
 
-**Throws:** `Error with status, response, timeout fields (Promise rejection)`
+**Throws:** Error with status, response, timeout fields (Promise rejection)
 
 **Required Handling:**
 
@@ -148,7 +148,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP 4xx/5xx errors
 
-**Throws:** `Error with status, response, timeout fields (Promise rejection)`
+**Throws:** Error with status, response, timeout fields (Promise rejection)
 
 **Required Handling:**
 
@@ -175,7 +175,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP 4xx/5xx errors
 
-**Throws:** `Error with status, response, timeout fields (Promise rejection)`
+**Throws:** Error with status, response, timeout fields (Promise rejection)
 
 **Required Handling:**
 
@@ -202,7 +202,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP 4xx/5xx errors
 
-**Throws:** `Error with status, response, timeout fields (Promise rejection)`
+**Throws:** Error with status, response, timeout fields (Promise rejection)
 
 **Required Handling:**
 

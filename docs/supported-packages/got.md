@@ -1,5 +1,5 @@
 ---
-title: got
+title: "got"
 ---
 
 # got
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP errors
 
-**Throws:** `RequestError or HTTPError (Promise rejection)`
+**Throws:** RequestError or HTTPError (Promise rejection)
 
 **Required Handling:**
 
@@ -67,7 +67,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP errors
 
-**Throws:** `RequestError or HTTPError (Promise rejection)`
+**Throws:** RequestError or HTTPError (Promise rejection)
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP errors
 
-**Throws:** `RequestError or HTTPError (Promise rejection)`
+**Throws:** RequestError or HTTPError (Promise rejection)
 
 **Required Handling:**
 
@@ -121,7 +121,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP errors
 
-**Throws:** `RequestError or HTTPError (Promise rejection)`
+**Throws:** RequestError or HTTPError (Promise rejection)
 
 **Required Handling:**
 
@@ -148,7 +148,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP errors
 
-**Throws:** `RequestError or HTTPError (Promise rejection)`
+**Throws:** RequestError or HTTPError (Promise rejection)
 
 **Required Handling:**
 
@@ -175,7 +175,7 @@ What happens **after** calling this function:
 
 **Condition:** network failure, DNS error, timeout, connection refused, HTTP errors
 
-**Throws:** `RequestError or HTTPError (Promise rejection)`
+**Throws:** RequestError or HTTPError (Promise rejection)
 
 **Required Handling:**
 

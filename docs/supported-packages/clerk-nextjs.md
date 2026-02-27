@@ -1,5 +1,5 @@
 ---
-title: @clerk/nextjs
+title: "@clerk/nextjs"
 ---
 
 # @clerk/nextjs
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** auth() called without clerkMiddleware() configured in src/middleware.ts
 
-**Throws:** `Error: Clerk: auth() was called but Clerk can't detect usage of clerkMiddleware()`
+**Throws:** Error: Clerk: auth() was called but Clerk can't detect usage of clerkMiddleware()
 
 **Required Handling:**
 
@@ -53,11 +53,11 @@ MUST have clerkMiddleware() exported from src/middleware.ts with proper matcher 
 
 **Condition:** auth() result used without checking if userId exists
 
-**Throws:** `Runtime error when accessing properties of null/undefined user`
+**Throws:** Runtime error when accessing properties of null/undefined user
 
 **Required Handling:**
 
-MUST check auth().userId or auth().isAuthenticated before using authentication data. Pattern: `const { userId } = await auth(); if (!userId) return unauthorized();`
+MUST check auth().userId or auth().isAuthenticated before using authentication data. Pattern: `const  userId  = await auth(); if (!userId) return unauthorized();`
 
 
 📖 [Source](https://clerk.com/docs/reference/nextjs/app-router/auth#usage)
@@ -81,11 +81,11 @@ What happens **after** calling this function:
 
 **Condition:** currentUser() called multiple times in same request (Next.js 15+)
 
-**Throws:** `Rate limit exceeded: HTTP 422 (100 req/10s per IP)`
+**Throws:** Rate limit exceeded: HTTP 422 (100 req/10s per IP)
 
 **Required Handling:**
 
-SHOULD wrap currentUser() with React cache() to avoid multiple API calls per request. Pattern: `const getCachedUser = cache(async () => await currentUser());`
+SHOULD wrap currentUser() with React cache() to avoid multiple API calls per request. Pattern: `const getCachedUser = cache(async () = await currentUser());`
 
 
 📖 [Source](https://github.com/clerk/javascript/issues/4894)
@@ -94,7 +94,7 @@ SHOULD wrap currentUser() with React cache() to avoid multiple API calls per req
 
 **Condition:** currentUser() result used without null check
 
-**Throws:** `Runtime error accessing properties of null`
+**Throws:** Runtime error accessing properties of null
 
 **Required Handling:**
 
@@ -122,7 +122,7 @@ What happens **after** calling this function:
 
 **Condition:** clerkMiddleware defined but not exported from middleware.ts
 
-**Throws:** `Middleware never runs, auth() calls fail`
+**Throws:** Middleware never runs, auth() calls fail
 
 **Required Handling:**
 
@@ -135,11 +135,11 @@ MUST export clerkMiddleware() as default export from src/middleware.ts. Pattern:
 
 **Condition:** clerkMiddleware without matcher configuration
 
-**Throws:** `Middleware runs on static assets, causes 404 auth errors`
+**Throws:** Middleware runs on static assets, causes 404 auth errors
 
 **Required Handling:**
 
-SHOULD configure matcher to exclude static files and API routes that don't need auth. Pattern: `export const config = { matcher: ['/((?!.*\\..*|_next).*)', '/'] };`
+SHOULD configure matcher to exclude static files and API routes that don't need auth. Pattern: `export const config =  matcher: ['/((?!.*\\..*|_next).*)', '/'] ;`
 
 
 📖 [Source](https://clerk.com/docs/guides/development/custom-flows/error-handling)
@@ -163,7 +163,7 @@ What happens **after** calling this function:
 
 **Condition:** auth.protect() called without try-catch in route handler
 
-**Throws:** `Uncaught error causes 500 instead of proper 401/404`
+**Throws:** Uncaught error causes 500 instead of proper 401/404
 
 **Required Handling:**
 
@@ -191,7 +191,7 @@ What happens **after** calling this function:
 
 **Condition:** signIn.create() called without try-catch
 
-**Throws:** `ClerkAPIError with error codes (user_locked, form_param_missing, etc.)`
+**Throws:** ClerkAPIError with error codes (user_locked, form_param_missing, etc.)
 
 **Required Handling:**
 
@@ -204,7 +204,7 @@ MUST wrap signIn.create() in try-catch and handle ClerkAPIError. Check error.err
 
 **Condition:** user_locked error caught but lockout_expires_in_seconds not shown to user
 
-**Throws:** `Poor UX - user doesn't know when to retry`
+**Throws:** Poor UX - user doesn't know when to retry
 
 **Required Handling:**
 
@@ -232,7 +232,7 @@ What happens **after** calling this function:
 
 **Condition:** signUp.create() called without try-catch
 
-**Throws:** `ClerkAPIError with error codes (form_password_length_too_short, already_signed_in, etc.)`
+**Throws:** ClerkAPIError with error codes (form_password_length_too_short, already_signed_in, etc.)
 
 **Required Handling:**
 
@@ -260,7 +260,7 @@ What happens **after** calling this function:
 
 **Condition:** Clerk webhook endpoint processes payload without signature verification
 
-**Throws:** `Security vulnerability - accepts forged webhook events`
+**Throws:** Security vulnerability - accepts forged webhook events
 
 **Required Handling:**
 
@@ -273,7 +273,7 @@ MUST verify webhook signature using Webhook.verify() from svix library. Use CLER
 
 **Condition:** Webhook.verify() called without try-catch
 
-**Throws:** `Unhandled error on invalid signature causes 500 instead of 400`
+**Throws:** Unhandled error on invalid signature causes 500 instead of 400
 
 **Required Handling:**
 
@@ -301,7 +301,7 @@ What happens **after** calling this function:
 
 **Condition:** getToken() result used without null check
 
-**Throws:** `Runtime error when user not authenticated (returns null)`
+**Throws:** Runtime error when user not authenticated (returns null)
 
 **Required Handling:**
 
@@ -329,7 +329,7 @@ What happens **after** calling this function:
 
 **Condition:** setActive() called without try-catch
 
-**Throws:** `Error when session ID is invalid or session already active`
+**Throws:** Error when session ID is invalid or session already active
 
 **Required Handling:**
 
@@ -357,7 +357,7 @@ What happens **after** calling this function:
 
 **Condition:** useSignIn() used but errors not displayed to user
 
-**Throws:** `Silent failures - users don't know why sign-in failed`
+**Throws:** Silent failures - users don't know why sign-in failed
 
 **Required Handling:**
 
@@ -385,7 +385,7 @@ What happens **after** calling this function:
 
 **Condition:** useClerk() called outside ClerkProvider
 
-**Throws:** `Error: useClerk must be used within ClerkProvider`
+**Throws:** Error: useClerk must be used within ClerkProvider
 
 **Required Handling:**
 

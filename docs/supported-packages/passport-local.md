@@ -1,5 +1,5 @@
 ---
-title: passport-local
+title: "passport-local"
 ---
 
 # passport-local
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** verify callback is async or returns Promise
 
-**Throws:** `UnhandledPromiseRejection if async operations not wrapped in try-catch`
+**Throws:** UnhandledPromiseRejection if async operations not wrapped in try-catch
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ When the verify callback is async or returns a Promise, all async operations (da
 
 **Condition:** verify callback invoked
 
-**Throws:** `Request timeout if done() not called`
+**Throws:** Request timeout if done() not called
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ The verify callback MUST call the done() callback in all code paths. Patterns: d
 
 **Condition:** database query fails in verify callback
 
-**Throws:** `Database error`
+**Throws:** Database error
 
 **Required Handling:**
 
@@ -79,7 +79,9 @@ Errors from database queries (User.findOne, etc.) MUST be checked and propagated
 
 **Condition:** password comparison in verify callback
 
-**Returns:** boolean indicating password match
+**Returns:**
+
+boolean indicating password match
 
 **Required Handling:**
 
@@ -92,7 +94,9 @@ Password comparison SHOULD use constant-time functions like bcrypt.compare() ins
 
 **Condition:** authentication failure in verify callback
 
-**Returns:** done(null, false, { message })
+**Returns:**
+
+done(null, false,  message )
 
 **Required Handling:**
 
@@ -105,7 +109,9 @@ Different error messages for "user not found" vs "wrong password" enable user en
 
 **Condition:** authentication failure (invalid credentials)
 
-**Returns:** done(null, false)
+**Returns:**
+
+done(null, false)
 
 **Required Handling:**
 
@@ -133,7 +139,7 @@ What happens **after** calling this function:
 
 **Condition:** using passport-local with sessions
 
-**Throws:** `Session not persisted`
+**Throws:** Session not persisted
 
 **Required Handling:**
 

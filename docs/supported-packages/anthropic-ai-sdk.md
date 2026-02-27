@@ -1,5 +1,5 @@
 ---
-title: @anthropic-ai/sdk
+title: "@anthropic-ai/sdk"
 ---
 
 # @anthropic-ai/sdk
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** messages.create() called without try-catch or .catch() handler
 
-**Throws:** `APIError with error.status and error.message`
+**Throws:** APIError with error.status and error.message
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ What happens **after** calling this function:
 
 **Condition:** messages.stream() called without try-catch or .catch() handler
 
-**Throws:** `APIError, can occur mid-stream after initial 200 response`
+**Throws:** APIError, can occur mid-stream after initial 200 response
 
 **Required Handling:**
 

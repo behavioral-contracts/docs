@@ -1,5 +1,5 @@
 ---
-title: ajv
+title: "ajv"
 ---
 
 # ajv
@@ -40,11 +40,13 @@ What happens **after** calling this function:
 
 **Condition:** data fails validation against the JSON schema
 
-**Returns:** false (errors are stored in ajv.errors property)
+**Returns:**
+
+false (errors are stored in ajv.errors property)
 
 **Required Handling:**
 
-Caller MUST check the return value of validate() and handle the false case. When validate() returns false, ajv.errors contains validation error details. Without checking the return value, invalid data will pass through, leading to data corruption, business logic errors, or security vulnerabilities. Use pattern: if (!ajv.validate(schema, data)) { console.error(ajv.errors); }
+Caller MUST check the return value of validate() and handle the false case. When validate() returns false, ajv.errors contains validation error details. Without checking the return value, invalid data will pass through, leading to data corruption, business logic errors, or security vulnerabilities. Use pattern: if (!ajv.validate(schema, data))  console.error(ajv.errors); 
 
 
 📖 [Source](https://ajv.js.org/guide/getting-started.html#basic-data-validation)
@@ -68,11 +70,11 @@ What happens **after** calling this function:
 
 **Condition:** schema is invalid or malformed
 
-**Throws:** `Error (schema compilation error)`
+**Throws:** Error (schema compilation error)
 
 **Required Handling:**
 
-Caller MUST wrap compile() in try-catch when working with untrusted schemas. Invalid schemas cause compilation errors that crash the application. Use pattern: try { const validate = ajv.compile(schema); } catch (error) { /* handle */ }
+Caller MUST wrap compile() in try-catch when working with untrusted schemas. Invalid schemas cause compilation errors that crash the application. Use pattern: try  const validate = ajv.compile(schema);  catch (error)  /* handle */ 
 
 
 📖 [Source](https://ajv.js.org/guide/getting-started.html#basic-data-validation)
@@ -96,11 +98,13 @@ What happens **after** calling this function:
 
 **Condition:** schema is invalid according to meta-schema
 
-**Returns:** false (errors are stored in ajv.errors property)
+**Returns:**
+
+false (errors are stored in ajv.errors property)
 
 **Required Handling:**
 
-Caller MUST check the return value to determine if schema is valid. Without checking, invalid schemas may be used, causing unexpected validation behavior. Use pattern: if (!ajv.validateSchema(schema)) { console.error(ajv.errors); }
+Caller MUST check the return value to determine if schema is valid. Without checking, invalid schemas may be used, causing unexpected validation behavior. Use pattern: if (!ajv.validateSchema(schema))  console.error(ajv.errors); 
 
 
 📖 [Source](https://ajv.js.org/api.html#validateschema-schema-object-boolean)

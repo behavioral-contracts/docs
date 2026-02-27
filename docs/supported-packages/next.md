@@ -1,5 +1,5 @@
 ---
-title: next
+title: "next"
 ---
 
 # next
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** async operation in route handler throws
 
-**Throws:** `Unhandled error returns 500 with stack trace exposed`
+**Throws:** Unhandled error returns 500 with stack trace exposed
 
 **Required Handling:**
 

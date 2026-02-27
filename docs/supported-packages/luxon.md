@@ -1,5 +1,5 @@
 ---
-title: luxon
+title: "luxon"
 ---
 
 # luxon
@@ -40,11 +40,13 @@ What happens **after** calling this function:
 
 **Condition:** input string is not a valid ISO 8601 format
 
-**Returns:** Invalid DateTime object (dt.isValid is false, dt.invalidReason contains error)
+**Returns:**
+
+Invalid DateTime object (dt.isValid is false, dt.invalidReason contains error)
 
 **Required Handling:**
 
-Caller MUST check isValid property before using the DateTime object. Invalid DateTime objects contain error information in invalidReason and invalidExplanation. Without validation, invalid dates cause calculation errors, display issues, or data corruption. Use pattern: const dt = DateTime.fromISO(input); if (!dt.isValid) { console.error(dt.invalidReason); }
+Caller MUST check isValid property before using the DateTime object. Invalid DateTime objects contain error information in invalidReason and invalidExplanation. Without validation, invalid dates cause calculation errors, display issues, or data corruption. Use pattern: const dt = DateTime.fromISO(input); if (!dt.isValid)  console.error(dt.invalidReason); 
 
 
 📖 [Source](https://moment.github.io/luxon/api-docs/index.html#datetimefromiso)
@@ -68,11 +70,13 @@ What happens **after** calling this function:
 
 **Condition:** input string does not match the specified format
 
-**Returns:** Invalid DateTime object (dt.isValid is false, dt.invalidReason contains error)
+**Returns:**
+
+Invalid DateTime object (dt.isValid is false, dt.invalidReason contains error)
 
 **Required Handling:**
 
-Caller MUST check isValid property after parsing. Invalid DateTime objects indicate parsing failure but do not throw. Use pattern: const dt = DateTime.fromFormat(input, format); if (!dt.isValid) { /* handle */ }
+Caller MUST check isValid property after parsing. Invalid DateTime objects indicate parsing failure but do not throw. Use pattern: const dt = DateTime.fromFormat(input, format); if (!dt.isValid)  /* handle */ 
 
 
 📖 [Source](https://moment.github.io/luxon/api-docs/index.html#datetimefromformat)
@@ -96,11 +100,13 @@ What happens **after** calling this function:
 
 **Condition:** input string is not a valid SQL date format
 
-**Returns:** Invalid DateTime object (dt.isValid is false)
+**Returns:**
+
+Invalid DateTime object (dt.isValid is false)
 
 **Required Handling:**
 
-Caller MUST check isValid property. Invalid SQL dates can cause database query errors and data corruption. Use pattern: const dt = DateTime.fromSQL(input); if (!dt.isValid) { /* handle */ }
+Caller MUST check isValid property. Invalid SQL dates can cause database query errors and data corruption. Use pattern: const dt = DateTime.fromSQL(input); if (!dt.isValid)  /* handle */ 
 
 
 📖 [Source](https://moment.github.io/luxon/api-docs/index.html#datetimefromsql)
@@ -124,11 +130,13 @@ What happens **after** calling this function:
 
 **Condition:** input string is not a valid HTTP date format
 
-**Returns:** Invalid DateTime object (dt.isValid is false)
+**Returns:**
+
+Invalid DateTime object (dt.isValid is false)
 
 **Required Handling:**
 
-Caller MUST check isValid property. Invalid HTTP dates can cause caching errors and incorrect header processing. Use pattern: const dt = DateTime.fromHTTP(input); if (!dt.isValid) { /* handle */ }
+Caller MUST check isValid property. Invalid HTTP dates can cause caching errors and incorrect header processing. Use pattern: const dt = DateTime.fromHTTP(input); if (!dt.isValid)  /* handle */ 
 
 
 📖 [Source](https://moment.github.io/luxon/api-docs/index.html#datetimefromhttp)
@@ -152,11 +160,13 @@ What happens **after** calling this function:
 
 **Condition:** input string is not a valid RFC 2822 format
 
-**Returns:** Invalid DateTime object (dt.isValid is false)
+**Returns:**
+
+Invalid DateTime object (dt.isValid is false)
 
 **Required Handling:**
 
-Caller MUST check isValid property. Use pattern: const dt = DateTime.fromRFC2822(input); if (!dt.isValid) { /* handle */ }
+Caller MUST check isValid property. Use pattern: const dt = DateTime.fromRFC2822(input); if (!dt.isValid)  /* handle */ 
 
 
 📖 [Source](https://moment.github.io/luxon/api-docs/index.html#datetimefromrfc2822)
@@ -180,11 +190,13 @@ What happens **after** calling this function:
 
 **Condition:** object contains invalid date values (e.g., month 13, day 400)
 
-**Returns:** Invalid DateTime object (dt.isValid is false)
+**Returns:**
+
+Invalid DateTime object (dt.isValid is false)
 
 **Required Handling:**
 
-Caller MUST check isValid property. Invalid calendar values (February 30, 25:00, month 13) produce invalid DateTimes. Use pattern: const dt = DateTime.fromObject({year, month, day}); if (!dt.isValid) { /* handle */ }
+Caller MUST check isValid property. Invalid calendar values (February 30, 25:00, month 13) produce invalid DateTimes. Use pattern: const dt = DateTime.fromObject(year, month, day); if (!dt.isValid)  /* handle */ 
 
 
 📖 [Source](https://moment.github.io/luxon/api-docs/index.html#datetimefromobject)

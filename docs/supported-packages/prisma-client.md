@@ -1,5 +1,5 @@
 ---
-title: @prisma/client
+title: "@prisma/client"
 ---
 
 # @prisma/client
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Unique constraint violation (duplicate key)
 
-**Throws:** `PrismaClientKnownRequestError with code 'P2002'`
+**Throws:** PrismaClientKnownRequestError with code 'P2002'
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST catch P2002 errors and handle duplicate key violations gracefully. E
 
 **Condition:** Foreign key constraint violation
 
-**Throws:** `PrismaClientKnownRequestError with code 'P2003'`
+**Throws:** PrismaClientKnownRequestError with code 'P2003'
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ Caller MUST verify referenced record exists before creating. This indicates data
 
 **Condition:** Required field is missing from data
 
-**Throws:** `PrismaClientValidationError`
+**Throws:** PrismaClientValidationError
 
 **Required Handling:**
 
@@ -78,7 +78,7 @@ Validate data completeness before calling Prisma. This is a client-side error.
 
 **Condition:** Database connection failed
 
-**Throws:** `PrismaClientInitializationError or PrismaClientRustPanicError`
+**Throws:** PrismaClientInitializationError or PrismaClientRustPanicError
 
 **Required Handling:**
 
@@ -116,7 +116,7 @@ What happens **after** calling this function:
 
 **Condition:** Record to update does not exist
 
-**Throws:** `PrismaClientKnownRequestError with code 'P2025'`
+**Throws:** PrismaClientKnownRequestError with code 'P2025'
 
 **Required Handling:**
 
@@ -129,7 +129,7 @@ Caller MUST handle P2025 (record not found) errors. Decide whether to: 1. Create
 
 **Condition:** Update would violate unique constraint
 
-**Throws:** `PrismaClientKnownRequestError with code 'P2002'`
+**Throws:** PrismaClientKnownRequestError with code 'P2002'
 
 **Required Handling:**
 
@@ -141,7 +141,7 @@ Check if new value conflicts with existing record. DO NOT retry.
 
 **Condition:** Update would violate foreign key constraint
 
-**Throws:** `PrismaClientKnownRequestError with code 'P2003'`
+**Throws:** PrismaClientKnownRequestError with code 'P2003'
 
 **Required Handling:**
 
@@ -153,7 +153,7 @@ Verify referenced record exists. This indicates data integrity issue.
 
 **Condition:** Database connection failed
 
-**Throws:** `PrismaClientInitializationError`
+**Throws:** PrismaClientInitializationError
 
 **Required Handling:**
 
@@ -190,7 +190,7 @@ What happens **after** calling this function:
 
 **Condition:** Record to delete does not exist
 
-**Throws:** `PrismaClientKnownRequestError with code 'P2025'`
+**Throws:** PrismaClientKnownRequestError with code 'P2025'
 
 **Required Handling:**
 
@@ -203,7 +203,7 @@ Caller MUST handle P2025 errors. Decide if missing record is acceptable (idempot
 
 **Condition:** Cannot delete because of foreign key constraint (dependent records exist)
 
-**Throws:** `PrismaClientKnownRequestError with code 'P2003' or 'P2014'`
+**Throws:** PrismaClientKnownRequestError with code 'P2003' or 'P2014'
 
 **Required Handling:**
 
@@ -216,7 +216,7 @@ Caller MUST either: 1. Delete dependent records first (cascade delete), or 2. Re
 
 **Condition:** Database connection failed
 
-**Throws:** `PrismaClientInitializationError`
+**Throws:** PrismaClientInitializationError
 
 **Required Handling:**
 
@@ -253,7 +253,9 @@ What happens **after** calling this function:
 
 **Condition:** Record with specified ID does not exist
 
-**Returns:** null
+**Returns:**
+
+null
 
 **Required Handling:**
 
@@ -266,7 +268,7 @@ Caller MUST check if result is null before accessing properties. Code that assum
 
 **Condition:** Database connection failed
 
-**Throws:** `PrismaClientInitializationError`
+**Throws:** PrismaClientInitializationError
 
 **Required Handling:**
 
@@ -303,7 +305,7 @@ What happens **after** calling this function:
 
 **Condition:** Record with specified ID does not exist
 
-**Throws:** `PrismaClientKnownRequestError with code 'P2025'`
+**Throws:** PrismaClientKnownRequestError with code 'P2025'
 
 **Required Handling:**
 
@@ -316,7 +318,7 @@ Caller MUST catch P2025 errors when using findUniqueOrThrow. This method throws 
 
 **Condition:** Database connection failed
 
-**Throws:** `PrismaClientInitializationError`
+**Throws:** PrismaClientInitializationError
 
 **Required Handling:**
 
@@ -343,7 +345,7 @@ What happens **after** calling this function:
 
 **Condition:** Any operation in transaction fails
 
-**Throws:** `PrismaClientKnownRequestError (various codes) or PrismaClientUnknownRequestError`
+**Throws:** PrismaClientKnownRequestError (various codes) or PrismaClientUnknownRequestError
 
 **Required Handling:**
 
@@ -356,7 +358,7 @@ Caller MUST handle transaction failures. All operations are rolled back. Identif
 
 **Condition:** Transaction deadlock detected by database
 
-**Throws:** `PrismaClientKnownRequestError with code 'P2034'`
+**Throws:** PrismaClientKnownRequestError with code 'P2034'
 
 **Required Handling:**
 
@@ -369,7 +371,7 @@ Caller SHOULD implement retry logic for deadlock errors. Use exponential backoff
 
 **Condition:** Connection lost during transaction
 
-**Throws:** `PrismaClientInitializationError`
+**Throws:** PrismaClientInitializationError
 
 **Required Handling:**
 
@@ -382,7 +384,7 @@ Transaction is automatically rolled back. Retry entire transaction. Implement id
 
 **Condition:** Transaction exceeded max duration
 
-**Throws:** `PrismaClientKnownRequestError with code 'P2024'`
+**Throws:** PrismaClientKnownRequestError with code 'P2024'
 
 **Required Handling:**
 
@@ -420,7 +422,7 @@ What happens **after** calling this function:
 
 **Condition:** Unable to establish database connection
 
-**Throws:** `PrismaClientInitializationError`
+**Throws:** PrismaClientInitializationError
 
 **Required Handling:**
 
@@ -458,7 +460,7 @@ What happens **after** calling this function:
 
 **Condition:** Disconnecting while queries are pending
 
-**Throws:** `May throw errors for pending queries`
+**Throws:** May throw errors for pending queries
 
 **Required Handling:**
 

@@ -34,7 +34,7 @@ Run `npm run docs:generate-packages` to regenerate.
 | [bcryptjs](./bcryptjs.md) | `>=2.0.0` | 3 | 2026-02-26 |
 | [bull](./bull.md) | `>=3.0.0 <5.0.0` | 2 | 2026-02-27 |
 | [bullmq](./bullmq.md) | `>=5.0.0 <6.0.0` | 4 | 2026-02-27 |
-| [busboy](./busboy.md) | `>=1.0.0` | 0 | undefined |
+| [busboy](./busboy.md) | `>=1.0.0` | 1 | 2026-02-27 |
 | [cassandra-driver](./cassandra-driver.md) | `>=4.0.0 <5.0.0` | 6 | 2026-02-26 |
 | [chai](./chai.md) | `>=4.0.0 <6.0.0` | 3 | 2026-02-27 |
 | [cloudinary](./cloudinary.md) | `>=1.0.0 <3.0.0` | 4 | 2026-02-25 |
@@ -44,11 +44,11 @@ Run `npm run docs:generate-packages` to regenerate.
 | [discord.js](./discord.js.md) | `>=14.0.0` | 38 | 2026-02-27 |
 | [drizzle-orm](./drizzle-orm.md) | `>=0.45.0 <1.0.0` | 4 | 2026-02-25 |
 | [ethers](./ethers.md) | `>=6.0.0 <7.0.0` | 2 | 2026-02-25 |
-| [eventemitter2](./eventemitter2.md) | `>=6.0.0` | 0 | undefined |
+| [eventemitter2](./eventemitter2.md) | `>=6.0.0` | 1 | 2026-02-27 |
 | [express](./express.md) | `>=4.0.0 <6.0.0` | 4 | 2026-02-24 |
 | [fastify](./fastify.md) | `>=5.0.0 <6.0.0` | 1 | 2026-02-25 |
 | [firebase-admin](./firebase-admin.md) | `>=11.0.0 <14.0.0` | 19 | 2026-02-25 |
-| [formidable](./formidable.md) | `>=3.0.0` | 0 | undefined |
+| [formidable](./formidable.md) | `>=3.0.0` | 1 | 2026-02-27 |
 | [graphql](./graphql.md) | `>=16.0.0 <17.0.0` | 3 | 2026-02-26 |
 | [ioredis](./ioredis.md) | `>=4.27.8` | 15 | 2026-02-27 |
 | [joi](./joi.md) | `>=17.0.0 <19.0.0` | 4 | 2026-02-26 |
@@ -137,8 +137,8 @@ Run `npm run docs:generate-packages` to regenerate.
 
 - **Total Packages:** 100
 - **Production Ready:** 71
-- **Total Functions Covered:** 414
-- **Average Functions per Package:** 4.1
+- **Total Functions Covered:** 417
+- **Average Functions per Package:** 4.2
 
 ## Package Categories
 

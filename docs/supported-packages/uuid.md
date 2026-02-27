@@ -1,5 +1,5 @@
 ---
-title: uuid
+title: "uuid"
 ---
 
 # uuid
@@ -40,7 +40,9 @@ What happens **after** calling this function:
 
 **Condition:** called with valid or no arguments
 
-**Returns:** string containing valid UUID v4 format
+**Returns:**
+
+string containing valid UUID v4 format
 
 **Required Handling:**
 

@@ -1,5 +1,5 @@
 ---
-title: sequelize
+title: "sequelize"
 ---
 
 # sequelize
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Cannot connect to database (wrong credentials, host unreachable, etc.)
 
-**Throws:** `ConnectionError, ConnectionRefusedError, HostNotFoundError`
+**Throws:** ConnectionError, ConnectionRefusedError, HostNotFoundError
 
 **Required Handling:**
 
@@ -68,7 +68,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL syntax error
 
-**Throws:** `DatabaseError with original SQL error from underlying driver`
+**Throws:** DatabaseError with original SQL error from underlying driver
 
 **Required Handling:**
 
@@ -81,7 +81,7 @@ Caller MUST validate SQL syntax before execution. DO NOT retry - indicates SQL s
 
 **Condition:** Unique constraint, foreign key, or NOT NULL violation
 
-**Throws:** `UniqueConstraintError, ForeignKeyConstraintError, ValidationError`
+**Throws:** UniqueConstraintError, ForeignKeyConstraintError, ValidationError
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ Caller MUST handle constraint violations gracefully. UniqueConstraintError: extr
 
 **Condition:** Connection lost during query execution
 
-**Throws:** `ConnectionError, TimeoutError`
+**Throws:** ConnectionError, TimeoutError
 
 **Required Handling:**
 
@@ -122,7 +122,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error, timeout, or invalid query
 
-**Throws:** `DatabaseError, ConnectionError, TimeoutError`
+**Throws:** DatabaseError, ConnectionError, TimeoutError
 
 **Required Handling:**
 
@@ -150,7 +150,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error, timeout, or invalid query
 
-**Throws:** `DatabaseError, ConnectionError, TimeoutError`
+**Throws:** DatabaseError, ConnectionError, TimeoutError
 
 **Required Handling:**
 
@@ -178,7 +178,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error or timeout
 
-**Throws:** `DatabaseError, ConnectionError, TimeoutError`
+**Throws:** DatabaseError, ConnectionError, TimeoutError
 
 **Required Handling:**
 
@@ -206,7 +206,7 @@ What happens **after** calling this function:
 
 **Condition:** Unique constraint violation
 
-**Throws:** `UniqueConstraintError with fields and error.errors array`
+**Throws:** UniqueConstraintError with fields and error.errors array
 
 **Required Handling:**
 
@@ -219,7 +219,7 @@ Caller MUST catch unique constraint errors. Extract conflicting fields from erro
 
 **Condition:** Model validation fails (NOT NULL, data type, etc.)
 
-**Throws:** `ValidationError with error.errors array`
+**Throws:** ValidationError with error.errors array
 
 **Required Handling:**
 
@@ -232,7 +232,7 @@ Caller MUST validate data before insert. Check error.errors for list of validati
 
 **Condition:** Foreign key constraint violation
 
-**Throws:** `ForeignKeyConstraintError`
+**Throws:** ForeignKeyConstraintError
 
 **Required Handling:**
 
@@ -278,7 +278,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error, validation error, or constraint violation
 
-**Throws:** `DatabaseError, ValidationError, UniqueConstraintError`
+**Throws:** DatabaseError, ValidationError, UniqueConstraintError
 
 **Required Handling:**
 
@@ -306,7 +306,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error or foreign key constraint
 
-**Throws:** `DatabaseError, ForeignKeyConstraintError`
+**Throws:** DatabaseError, ForeignKeyConstraintError
 
 **Required Handling:**
 
@@ -334,7 +334,7 @@ What happens **after** calling this function:
 
 **Condition:** Deadlock, timeout, or constraint violation during transaction
 
-**Throws:** `DatabaseError, TimeoutError, UniqueConstraintError, etc.`
+**Throws:** DatabaseError, TimeoutError, UniqueConstraintError, etc.
 
 **Required Handling:**
 
@@ -349,7 +349,7 @@ Known gotchas and sharp edges:
 
 **⚠️ WARNING - missing-transaction-rollback**
 
-CRITICAL: Forgetting to rollback unmanaged transactions on error causes connection pool exhaustion. ALWAYS use try-catch-finally pattern: const t = await sequelize.transaction(); try { await operations(t); await t.commit(); } catch (e) { await t.rollback(); throw e; } RECOMMENDED: Use managed transactions (auto-rollback on error).
+CRITICAL: Forgetting to rollback unmanaged transactions on error causes connection pool exhaustion. ALWAYS use try-catch-finally pattern: const t = await sequelize.transaction(); try  await operations(t); await t.commit();  catch (e)  await t.rollback(); throw e;  RECOMMENDED: Use managed transactions (auto-rollback on error).
 
 
 📖 [Source](https://github.com/sequelize/sequelize/issues/3355)
@@ -380,7 +380,7 @@ What happens **after** calling this function:
 
 **Condition:** Schema mismatch, permission denied, or connection error
 
-**Throws:** `DatabaseError, ConnectionError`
+**Throws:** DatabaseError, ConnectionError
 
 **Required Handling:**
 
@@ -395,7 +395,7 @@ Known gotchas and sharp edges:
 
 **⚠️ WARNING - sync-production-danger**
 
-CATASTROPHIC: NEVER use sync() in production, especially sync({ force: true }). It drops and recreates tables, causing permanent data loss. Use migrations instead (Sequelize CLI: sequelize-cli). This is the #1 disaster scenario.
+CATASTROPHIC: NEVER use sync() in production, especially sync( force: true ). It drops and recreates tables, causing permanent data loss. Use migrations instead (Sequelize CLI: sequelize-cli). This is the #1 disaster scenario.
 
 
 📖 [Source](https://github.com/sequelize/sequelize/issues/2670)
@@ -419,7 +419,7 @@ What happens **after** calling this function:
 
 **Condition:** Network error, timeout, or invalid query
 
-**Throws:** `DatabaseError, ConnectionError, TimeoutError`
+**Throws:** DatabaseError, ConnectionError, TimeoutError
 
 **Required Handling:**
 

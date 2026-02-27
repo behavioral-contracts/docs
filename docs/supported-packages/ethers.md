@@ -1,5 +1,5 @@
 ---
-title: ethers
+title: "ethers"
 ---
 
 # ethers
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** RPC call fails (network down, rate limit, invalid address, node error)
 
-**Throws:** `Error with RPC error details and error code`
+**Throws:** Error with RPC error details and error code
 
 **Required Handling:**
 
@@ -67,7 +67,7 @@ What happens **after** calling this function:
 
 **Condition:** transaction fails (insufficient gas, nonce error, network error, reverted)
 
-**Throws:** `Error with transaction failure details (gas estimation, nonce, revert reason)`
+**Throws:** Error with transaction failure details (gas estimation, nonce, revert reason)
 
 **Required Handling:**
 

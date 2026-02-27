@@ -1,5 +1,5 @@
 ---
-title: tedious
+title: "tedious"
 ---
 
 # tedious
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Cannot connect (wrong credentials, server unreachable, etc.)
 
-**Throws:** `ConnectionError event with details`
+**Throws:** ConnectionError event with details
 
 **Required Handling:**
 
@@ -68,7 +68,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL syntax error
 
-**Throws:** `Error event on Request with error.number indicating syntax error`
+**Throws:** Error event on Request with error.number indicating syntax error
 
 **Required Handling:**
 
@@ -81,7 +81,7 @@ Caller MUST handle 'error' event on Request. SQL Server error numbers: - 102, 15
 
 **Condition:** Unique constraint, foreign key, or NOT NULL violation
 
-**Throws:** `Error event with error.number for constraint violations`
+**Throws:** Error event with error.number for constraint violations
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ Caller MUST handle constraint violations: - 2627: Unique constraint violation - 
 
 **Condition:** Connection lost during query execution
 
-**Throws:** `Error event with connection-related error codes`
+**Throws:** Error event with connection-related error codes
 
 **Required Handling:**
 
@@ -107,7 +107,7 @@ Caller MUST handle connection errors. Connection may be lost due to timeout or s
 
 **Condition:** Transaction deadlock detected
 
-**Throws:** `Error event with error.number = 1205`
+**Throws:** Error event with error.number = 1205
 
 **Required Handling:**
 
@@ -120,7 +120,7 @@ Caller MUST handle deadlock errors. Deadlocks are transient - implement retry lo
 
 **Condition:** Query execution timeout exceeded
 
-**Throws:** `Error event with ETIMEOUT code`
+**Throws:** Error event with ETIMEOUT code
 
 **Required Handling:**
 
@@ -148,7 +148,7 @@ What happens **after** calling this function:
 
 **Condition:** Stored procedure raises error or does not exist
 
-**Throws:** `Error event on Request with SQL Server error number`
+**Throws:** Error event on Request with SQL Server error number
 
 **Required Handling:**
 
@@ -161,7 +161,7 @@ Caller MUST handle 'error' event on Request. Error numbers: - 2812: Procedure no
 
 **Condition:** Connection lost during procedure call
 
-**Throws:** `Error event with connection-related error codes`
+**Throws:** Error event with connection-related error codes
 
 **Required Handling:**
 
@@ -189,7 +189,7 @@ What happens **after** calling this function:
 
 **Condition:** Cannot start transaction due to connection issues
 
-**Throws:** `Error event on Connection with transaction error details`
+**Throws:** Error event on Connection with transaction error details
 
 **Required Handling:**
 
@@ -202,7 +202,7 @@ Caller MUST handle 'error' event on Connection. Connection must be in LoggedIn s
 
 **Condition:** Attempting to begin transaction when one is already active
 
-**Throws:** `Error event indicating transaction already in progress`
+**Throws:** Error event indicating transaction already in progress
 
 **Required Handling:**
 
@@ -230,7 +230,7 @@ What happens **after** calling this function:
 
 **Condition:** Cannot commit transaction (constraint violation, business rule failure)
 
-**Throws:** `Error event on Connection with commit failure details`
+**Throws:** Error event on Connection with commit failure details
 
 **Required Handling:**
 
@@ -243,7 +243,7 @@ Caller MUST handle 'error' event on Connection. Commit can fail if deferred cons
 
 **Condition:** Attempting to commit when no transaction is active
 
-**Throws:** `Error event indicating no transaction to commit`
+**Throws:** Error event indicating no transaction to commit
 
 **Required Handling:**
 
@@ -271,7 +271,7 @@ What happens **after** calling this function:
 
 **Condition:** Cannot rollback transaction (connection lost)
 
-**Throws:** `Error event on Connection with rollback failure details`
+**Throws:** Error event on Connection with rollback failure details
 
 **Required Handling:**
 
@@ -284,7 +284,7 @@ Caller MUST handle 'error' event on Connection. Rollback rarely fails; if it doe
 
 **Condition:** Attempting to rollback when no transaction is active
 
-**Throws:** `Error event indicating no transaction to rollback`
+**Throws:** Error event indicating no transaction to rollback
 
 **Required Handling:**
 
@@ -312,7 +312,7 @@ What happens **after** calling this function:
 
 **Condition:** SQL syntax error or invalid statement
 
-**Throws:** `Error event on Request with SQL Server error details`
+**Throws:** Error event on Request with SQL Server error details
 
 **Required Handling:**
 
@@ -340,7 +340,7 @@ What happens **after** calling this function:
 
 **Condition:** Cannot unprepare statement (connection lost, invalid handle)
 
-**Throws:** `Error event on Request with error details`
+**Throws:** Error event on Request with error details
 
 **Required Handling:**
 

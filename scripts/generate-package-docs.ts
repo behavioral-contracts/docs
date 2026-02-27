@@ -85,11 +85,23 @@ function getSeverityBadge(severity: string): string {
   return badges[severity] || severity.toUpperCase();
 }
 
+/**
+ * Escape MDX special characters to prevent parsing errors
+ * For text with code snippets, wraps in HTML <code> tag
+ */
+function escapeMDX(text: string): string {
+  // If text contains curly braces or angle brackets, wrap in HTML code tag
+  if (/[{}<>]/.test(text)) {
+    return `<span>${text.replace(/\{/g, '&#123;').replace(/\}/g, '&#125;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</span>`;
+  }
+  return text;
+}
+
 function generatePackagePage(contract: Contract) {
   const packageSlug = contract.package.replace('@', '').replace('/', '-');
 
   let markdown = `---
-title: ${contract.package}
+title: "${contract.package}"
 ---
 
 # ${contract.package}
@@ -129,7 +141,7 @@ title: ${contract.package}
 
   for (const func of contract.functions) {
     markdown += `### \`${func.name}()\`\n\n`;
-    markdown += `${func.description}\n\n`;
+    markdown += `${func.description.replace(/[{}<>]/g, '')}\n\n`;
 
     // Import path
     markdown += `**Import:**\n`;
@@ -150,7 +162,7 @@ title: ${contract.package}
       markdown += `What must be true **before** calling this function:\n\n`;
       for (const pre of func.preconditions) {
         markdown += `**${getSeverityBadge(pre.severity)} - ${pre.id}**\n\n`;
-        markdown += `${pre.description}\n\n`;
+        markdown += `${pre.description.replace(/[{}<>]/g, '')}\n\n`;
         markdown += `📖 [Source](${pre.source})\n\n`;
       }
     }
@@ -161,16 +173,16 @@ title: ${contract.package}
       markdown += `What happens **after** calling this function:\n\n`;
       for (const post of func.postconditions) {
         markdown += `**${getSeverityBadge(post.severity)} - ${post.id}**\n\n`;
-        markdown += `**Condition:** ${post.condition}\n\n`;
+        markdown += `**Condition:** ${post.condition.replace(/[{}<>]/g, '')}\n\n`;
         if (post.returns) {
-          markdown += `**Returns:** ${post.returns}\n\n`;
+          markdown += `**Returns:**\n\n${post.returns.replace(/[{}<>]/g, '')}\n\n`;
         }
         if (post.throws) {
-          markdown += `**Throws:** \`${post.throws}\`\n\n`;
+          markdown += `**Throws:** ${post.throws.replace(/[{}<>]/g, '')}\n\n`;
         }
         if (post.required_handling) {
           markdown += `**Required Handling:**\n\n`;
-          markdown += `${post.required_handling}\n\n`;
+          markdown += `${post.required_handling.replace(/[{}<>]/g, '')}\n\n`;
         }
         markdown += `📖 [Source](${post.source})\n\n`;
       }
@@ -182,7 +194,7 @@ title: ${contract.package}
       markdown += `Known gotchas and sharp edges:\n\n`;
       for (const edge of func.edge_cases) {
         markdown += `**${getSeverityBadge(edge.severity)} - ${edge.id}**\n\n`;
-        markdown += `${edge.description}\n\n`;
+        markdown += `${edge.description.replace(/[{}<>]/g, '')}\n\n`;
         markdown += `📖 [Source](${edge.source})\n\n`;
       }
     }

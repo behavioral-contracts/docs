@@ -1,5 +1,5 @@
 ---
-title: twilio
+title: "twilio"
 ---
 
 # twilio
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** messages.create() called without try-catch or .catch() handler
 
-**Throws:** `RestException with error.code, error.status, and error.message`
+**Throws:** RestException with error.code, error.status, and error.message
 
 **Required Handling:**
 
@@ -90,7 +90,7 @@ What happens **after** calling this function:
 
 **Condition:** calls.create() called without try-catch or .catch() handler
 
-**Throws:** `RestException with error.code, error.status, and error.message`
+**Throws:** RestException with error.code, error.status, and error.message
 
 **Required Handling:**
 
@@ -118,7 +118,7 @@ What happens **after** calling this function:
 
 **Condition:** verifications.create() called without try-catch
 
-**Throws:** `RestException with error.code, error.status, and error.message`
+**Throws:** RestException with error.code, error.status, and error.message
 
 **Required Handling:**
 

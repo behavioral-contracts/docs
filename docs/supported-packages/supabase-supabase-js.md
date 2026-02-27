@@ -1,5 +1,5 @@
 ---
-title: @supabase/supabase-js
+title: "@supabase/supabase-js"
 ---
 
 # @supabase/supabase-js
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Password does not meet strength requirements
 
-**Throws:** `AuthApiError with error.message about password strength`
+**Throws:** AuthApiError with error.message about password strength
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST validate password strength before signup. Display user-friendly erro
 
 **Condition:** Email already registered
 
-**Throws:** `AuthApiError with error related to duplicate user`
+**Throws:** AuthApiError with error related to duplicate user
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ Caller MUST handle duplicate user gracefully. Provide clear error message to use
 
 **Condition:** Too many signup attempts (429)
 
-**Throws:** `AuthApiError with status 429`
+**Throws:** AuthApiError with status 429
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ Caller MUST handle rate limit errors gracefully. Implement exponential backoff. 
 
 **Condition:** Auth server degraded (500)
 
-**Throws:** `AuthApiError with status 500`
+**Throws:** AuthApiError with status 500
 
 **Required Handling:**
 
@@ -117,7 +117,7 @@ What happens **after** calling this function:
 
 **Condition:** Email or password incorrect
 
-**Throws:** `AuthApiError with error about invalid credentials`
+**Throws:** AuthApiError with error about invalid credentials
 
 **Required Handling:**
 
@@ -130,7 +130,7 @@ Caller MUST handle invalid credentials gracefully. DO NOT specify whether email 
 
 **Condition:** Too many login attempts (429)
 
-**Throws:** `AuthApiError with status 429`
+**Throws:** AuthApiError with status 429
 
 **Required Handling:**
 
@@ -143,7 +143,7 @@ Handle rate limit errors with user-friendly message. This often indicates potent
 
 **Condition:** User hasn't confirmed email
 
-**Throws:** `AuthApiError indicating email not confirmed`
+**Throws:** AuthApiError indicating email not confirmed
 
 **Required Handling:**
 
@@ -156,7 +156,7 @@ Redirect user to email confirmation flow. Provide option to resend confirmation 
 
 **Condition:** Auth server error (500)
 
-**Throws:** `AuthApiError with status 500`
+**Throws:** AuthApiError with status 500
 
 **Required Handling:**
 
@@ -183,7 +183,7 @@ What happens **after** calling this function:
 
 **Condition:** Table does not exist
 
-**Throws:** `Error indicating table not found`
+**Throws:** Error indicating table not found
 
 **Required Handling:**
 
@@ -211,7 +211,7 @@ What happens **after** calling this function:
 
 **Condition:** Row Level Security policy denies access (42501)
 
-**Throws:** `Error with code '42501' or status 403`
+**Throws:** Error with code '42501' or status 403
 
 **Required Handling:**
 
@@ -224,7 +224,7 @@ Caller MUST handle RLS policy violations gracefully. This indicates user doesn't
 
 **Condition:** Column-level RLS denies access to specific columns
 
-**Throws:** `Error with code '42501' when using select *`
+**Throws:** Error with code '42501' when using select *
 
 **Required Handling:**
 
@@ -237,7 +237,7 @@ Avoid using select * if column-level RLS is configured. Explicitly select only c
 
 **Condition:** Database connection failed
 
-**Throws:** `Network or connection error`
+**Throws:** Network or connection error
 
 **Required Handling:**
 
@@ -281,7 +281,7 @@ What happens **after** calling this function:
 
 **Condition:** RLS policy denies insert permission (42501)
 
-**Throws:** `Error with code '42501'`
+**Throws:** Error with code '42501'
 
 **Required Handling:**
 
@@ -294,7 +294,7 @@ Ensure RLS policies allow INSERT for user's role. Check if user is authenticated
 
 **Condition:** Unique constraint violated (23505)
 
-**Throws:** `Error with code '23505'`
+**Throws:** Error with code '23505'
 
 **Required Handling:**
 
@@ -307,7 +307,7 @@ Handle duplicate key violations gracefully. Check if record already exists befor
 
 **Condition:** Foreign key constraint violated (23503)
 
-**Throws:** `Error with code '23503'`
+**Throws:** Error with code '23503'
 
 **Required Handling:**
 
@@ -320,7 +320,7 @@ Verify referenced records exist before insert. DO NOT retry without fixing data 
 
 **Condition:** Database connection failed
 
-**Throws:** `Network error`
+**Throws:** Network error
 
 **Required Handling:**
 
@@ -357,7 +357,7 @@ What happens **after** calling this function:
 
 **Condition:** RLS policy denies update permission (42501)
 
-**Throws:** `Error with code '42501'`
+**Throws:** Error with code '42501'
 
 **Required Handling:**
 
@@ -370,7 +370,9 @@ Ensure RLS policies allow UPDATE for user. Verify user owns the record if policy
 
 **Condition:** No records match the update criteria
 
-**Returns:** Empty data array
+**Returns:**
+
+Empty data array
 
 **Required Handling:**
 
@@ -383,7 +385,7 @@ Check if returned data array is empty. This may indicate record doesn't exist or
 
 **Condition:** Update would violate unique constraint (23505)
 
-**Throws:** `Error with code '23505'`
+**Throws:** Error with code '23505'
 
 **Required Handling:**
 
@@ -410,7 +412,7 @@ What happens **after** calling this function:
 
 **Condition:** RLS policy denies delete permission (42501)
 
-**Throws:** `Error with code '42501'`
+**Throws:** Error with code '42501'
 
 **Required Handling:**
 
@@ -423,7 +425,7 @@ Ensure RLS policies allow DELETE for user. Verify user owns the record if policy
 
 **Condition:** Cannot delete due to dependent records (23503)
 
-**Throws:** `Error with code '23503'`
+**Throws:** Error with code '23503'
 
 **Required Handling:**
 
@@ -451,7 +453,7 @@ What happens **after** calling this function:
 
 **Condition:** PostgreSQL function does not exist (42883)
 
-**Throws:** `Error with code '42883'`
+**Throws:** Error with code '42883'
 
 **Required Handling:**
 
@@ -464,7 +466,7 @@ Verify function name is correct. Ensure function is created in database. DO NOT 
 
 **Condition:** User doesn't have permission to execute function (42501)
 
-**Throws:** `Error with code '42501'`
+**Throws:** Error with code '42501'
 
 **Required Handling:**
 
@@ -477,7 +479,7 @@ Grant EXECUTE permission on function to appropriate role. Check if user is authe
 
 **Condition:** Function execution error
 
-**Throws:** `Error from function execution`
+**Throws:** Error from function execution
 
 **Required Handling:**
 

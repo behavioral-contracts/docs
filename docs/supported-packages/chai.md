@@ -1,5 +1,5 @@
 ---
-title: chai
+title: "chai"
 ---
 
 # chai
@@ -40,11 +40,11 @@ What happens **after** calling this function:
 
 **Condition:** assertion fails (e.g., expect(value).to.equal(expected) when value !== expected)
 
-**Throws:** `AssertionError`
+**Throws:** AssertionError
 
 **Required Handling:**
 
-Assertions are EXPECTED to throw in test code, but if used outside tests (e.g., in production validation), callers MUST wrap in try-catch. Without error handling, failed assertions crash the application. Use pattern: try { expect(value).to.equal(expected); } catch (error) { /* handle */ }
+Assertions are EXPECTED to throw in test code, but if used outside tests (e.g., in production validation), callers MUST wrap in try-catch. Without error handling, failed assertions crash the application. Use pattern: try  expect(value).to.equal(expected);  catch (error)  /* handle */ 
 
 
 📖 [Source](https://www.chaijs.com/api/bdd/)
@@ -68,7 +68,7 @@ What happens **after** calling this function:
 
 **Condition:** assertion fails (e.g., assert.equal(actual, expected) when actual !== expected)
 
-**Throws:** `AssertionError`
+**Throws:** AssertionError
 
 **Required Handling:**
 
@@ -96,7 +96,7 @@ What happens **after** calling this function:
 
 **Condition:** assertion fails (e.g., value.should.equal(expected) when value !== expected)
 
-**Throws:** `AssertionError`
+**Throws:** AssertionError
 
 **Required Handling:**
 

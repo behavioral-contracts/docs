@@ -1,5 +1,5 @@
 ---
-title: passport-jwt
+title: "passport-jwt"
 ---
 
 # passport-jwt

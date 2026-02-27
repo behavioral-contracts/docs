@@ -1,5 +1,5 @@
 ---
-title: cassandra-driver
+title: "cassandra-driver"
 ---
 
 # cassandra-driver
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** Cannot connect to any contact point in cluster
 
-**Throws:** `NoHostAvailableError with details of failed contact points`
+**Throws:** NoHostAvailableError with details of failed contact points
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ Caller MUST handle NoHostAvailableError. Common causes: - All nodes unreachable 
 
 **Condition:** Invalid credentials
 
-**Throws:** `AuthenticationError`
+**Throws:** AuthenticationError
 
 **Required Handling:**
 
@@ -81,7 +81,7 @@ What happens **after** calling this function:
 
 **Condition:** Invalid CQL syntax
 
-**Throws:** `ResponseError with code indicating syntax error`
+**Throws:** ResponseError with code indicating syntax error
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ Caller MUST validate CQL syntax before execution. Common error codes: - 0x2000: 
 
 **Condition:** Required replicas unavailable for consistency level
 
-**Throws:** `ResponseError with code 0x1000 (Unavailable)`
+**Throws:** ResponseError with code 0x1000 (Unavailable)
 
 **Required Handling:**
 
@@ -107,7 +107,7 @@ Caller MUST handle unavailable errors. Not enough replicas available for request
 
 **Condition:** Query timeout exceeded
 
-**Throws:** `OperationTimedOutError`
+**Throws:** OperationTimedOutError
 
 **Required Handling:**
 
@@ -120,7 +120,7 @@ Caller MUST handle timeout errors. Query took longer than configured timeout. Ma
 
 **Condition:** Write operation timeout at replica
 
-**Throws:** `ResponseError with code 0x1100 (Write_timeout)`
+**Throws:** ResponseError with code 0x1100 (Write_timeout)
 
 **Required Handling:**
 
@@ -133,7 +133,7 @@ Caller MUST handle write timeout errors. Write acknowledged by coordinator but t
 
 **Condition:** Read operation timeout at replica
 
-**Throws:** `ResponseError with code 0x1200 (Read_timeout)`
+**Throws:** ResponseError with code 0x1200 (Read_timeout)
 
 **Required Handling:**
 
@@ -146,7 +146,7 @@ Caller MUST handle read timeout errors. Timeout waiting for replicas to respond.
 
 **Condition:** Coordinator node is overloaded
 
-**Throws:** `ResponseError with code 0x1001 (Overloaded)`
+**Throws:** ResponseError with code 0x1001 (Overloaded)
 
 **Required Handling:**
 
@@ -159,7 +159,7 @@ Caller MUST handle overloaded errors. Coordinator cannot handle more requests. I
 
 **Condition:** Keyspace or table does not exist
 
-**Throws:** `ResponseError with code 0x2200 (Invalid)`
+**Throws:** ResponseError with code 0x2200 (Invalid)
 
 **Required Handling:**
 
@@ -187,7 +187,7 @@ What happens **after** calling this function:
 
 **Condition:** One or more statements in batch failed
 
-**Throws:** `ResponseError with details of failure`
+**Throws:** ResponseError with details of failure
 
 **Required Handling:**
 
@@ -200,7 +200,7 @@ Caller MUST handle batch errors. Entire batch fails if any statement fails. Chec
 
 **Condition:** Batch write timeout
 
-**Throws:** `ResponseError with code 0x1100 (Write_timeout)`
+**Throws:** ResponseError with code 0x1100 (Write_timeout)
 
 **Required Handling:**
 
@@ -228,7 +228,7 @@ What happens **after** calling this function:
 
 **Condition:** Error during shutdown (rare)
 
-**Throws:** `Error with details of shutdown issue`
+**Throws:** Error with details of shutdown issue
 
 **Required Handling:**
 
@@ -256,7 +256,7 @@ What happens **after** calling this function:
 
 **Condition:** Query execution fails during streaming
 
-**Throws:** `ResponseError emitted via 'error' event`
+**Throws:** ResponseError emitted via 'error' event
 
 **Required Handling:**
 
@@ -284,7 +284,7 @@ What happens **after** calling this function:
 
 **Condition:** Query fails or row processing throws error
 
-**Throws:** `Error passed to endCallback parameter`
+**Throws:** Error passed to endCallback parameter
 
 **Required Handling:**
 

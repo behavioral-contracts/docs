@@ -1,5 +1,5 @@
 ---
-title: redis
+title: "redis"
 ---
 
 # redis
@@ -66,7 +66,7 @@ What happens **after** calling this function:
 
 **Condition:** client.connect() called without try-catch or .catch() handler
 
-**Throws:** `Connection errors (ECONNREFUSED, ETIMEDOUT, ECONNRESET, EAI_AGAIN)`
+**Throws:** Connection errors (ECONNREFUSED, ETIMEDOUT, ECONNRESET, EAI_AGAIN)
 
 **Required Handling:**
 
@@ -94,7 +94,7 @@ What happens **after** calling this function:
 
 **Condition:** client.get() called without try-catch or .catch() handler
 
-**Throws:** `Connection errors, timeout errors, or WRONGTYPE errors`
+**Throws:** Connection errors, timeout errors, or WRONGTYPE errors
 
 **Required Handling:**
 
@@ -122,7 +122,7 @@ What happens **after** calling this function:
 
 **Condition:** client.set() called without try-catch or .catch() handler
 
-**Throws:** `Connection errors, timeout errors, or command errors`
+**Throws:** Connection errors, timeout errors, or command errors
 
 **Required Handling:**
 
@@ -150,7 +150,7 @@ What happens **after** calling this function:
 
 **Condition:** client.del() called without try-catch or .catch() handler
 
-**Throws:** `Connection errors or timeout errors`
+**Throws:** Connection errors or timeout errors
 
 **Required Handling:**
 

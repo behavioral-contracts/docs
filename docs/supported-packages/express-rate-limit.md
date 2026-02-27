@@ -1,5 +1,5 @@
 ---
-title: express-rate-limit
+title: "express-rate-limit"
 ---
 
 # express-rate-limit

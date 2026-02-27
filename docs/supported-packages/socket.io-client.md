@@ -1,5 +1,5 @@
 ---
-title: socket.io-client
+title: "socket.io-client"
 ---
 
 # socket.io-client
@@ -41,7 +41,7 @@ What happens **after** calling this function:
 
 **Condition:** connection fails
 
-**Throws:** `emits 'connect_error' event`
+**Throws:** emits 'connect_error' event
 
 **Required Handling:**
 
@@ -64,7 +64,7 @@ socket.active attribute indicates whether automatic reconnection will occur:
 
 **Condition:** socket disconnects
 
-**Throws:** `emits 'disconnect' event with reason`
+**Throws:** emits 'disconnect' event with reason
 
 **Required Handling:**
 
@@ -90,7 +90,7 @@ Disconnect reasons and auto-reconnect behavior:
 
 **Condition:** parser encounters malformed packet
 
-**Throws:** `may emit 'error' event or enter limbo state`
+**Throws:** may emit 'error' event or enter limbo state
 
 **Required Handling:**
 
@@ -127,7 +127,9 @@ What happens **after** calling this function:
 
 **Condition:** server does not acknowledge within timeout
 
-**Returns:** callback invoked with timeout error
+**Returns:**
+
+callback invoked with timeout error
 
 **Required Handling:**
 
@@ -139,7 +141,7 @@ Without timeout:
 - Poor user experience
 - No error feedback
 
-Usage: socket.timeout(5000).emit('event', data, (err, response) => { ... })
+Usage: socket.timeout(5000).emit('event', data, (err, response) =  ... )
 Promise-based: await socket.timeout(10000).emitWithAck('event', data)
 
 

@@ -1,5 +1,5 @@
 ---
-title: @aws-sdk/client-s3
+title: "@aws-sdk/client-s3"
 ---
 
 # @aws-sdk/client-s3
@@ -40,7 +40,7 @@ What happens **after** calling this function:
 
 **Condition:** s3Client.send() called with object operation commands without try-catch
 
-**Throws:** `NoSuchKey (404), AccessDenied (403), NoSuchBucket (404), network errors`
+**Throws:** NoSuchKey (404), AccessDenied (403), NoSuchBucket (404), network errors
 
 **Required Handling:**
 
@@ -53,7 +53,7 @@ MUST wrap await s3Client.send() in try-catch block when using GetObjectCommand, 
 
 **Condition:** s3Client.send() called with multipart commands without try-catch
 
-**Throws:** `NoSuchUpload (404), EntityTooSmall (400), InvalidPart (400)`
+**Throws:** NoSuchUpload (404), EntityTooSmall (400), InvalidPart (400)
 
 **Required Handling:**
 
@@ -66,7 +66,7 @@ MUST wrap multipart upload operations in try-catch block. Catch block MUST call 
 
 **Condition:** s3Client.send() called with bucket operations without try-catch
 
-**Throws:** `BucketAlreadyExists (409), BucketNotEmpty (409), NoSuchBucket (404)`
+**Throws:** BucketAlreadyExists (409), BucketNotEmpty (409), NoSuchBucket (404)
 
 **Required Handling:**
 
@@ -79,7 +79,7 @@ MUST wrap bucket operations in try-catch block. Handle BucketAlreadyExists/Bucke
 
 **Condition:** s3Client.send() called with list operations without try-catch
 
-**Throws:** `NoSuchBucket (404), AccessDenied (403), InvalidArgument (400)`
+**Throws:** NoSuchBucket (404), AccessDenied (403), InvalidArgument (400)
 
 **Required Handling:**
 
@@ -109,7 +109,7 @@ What happens **after** calling this function:
 
 **Required Handling:**
 
-CONSIDER configuring retry settings: new S3Client({ region, maxAttempts: 3, retryMode: 'adaptive' }). Adaptive mode adjusts retry attempts based on throttling signals from AWS.
+CONSIDER configuring retry settings: new S3Client( region, maxAttempts: 3, retryMode: 'adaptive' ). Adaptive mode adjusts retry attempts based on throttling signals from AWS.
 
 
 📖 [Source](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/error-handling.html)
@@ -120,7 +120,7 @@ CONSIDER configuring retry settings: new S3Client({ region, maxAttempts: 3, retr
 
 **Required Handling:**
 
-SHOULD explicitly set region: new S3Client({ region: 'us-east-1' }) or use environment variable with fallback.
+SHOULD explicitly set region: new S3Client( region: 'us-east-1' ) or use environment variable with fallback.
 
 
 📖 [Source](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3/)
