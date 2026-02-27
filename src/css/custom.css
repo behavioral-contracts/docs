@@ -1,0 +1,144 @@
+/**
+ * Behavioral Contracts Documentation - Custom Styles
+ * Professional, Sentry-inspired design system
+ */
+
+:root {
+  /* Backgrounds */
+  --bg-primary: #0E1116;
+  --bg-secondary: #1C1F26;
+  --bg-tertiary: #22252D;
+
+  /* Borders */
+  --border-primary: #2D3139;
+  --border-secondary: #3D4149;
+
+  /* Text */
+  --text-primary: #E6EDF3;
+  --text-secondary: #B1BAC4;
+  --text-muted: #7D8590;
+
+  /* Accent Colors */
+  --accent-purple: #8B5CF6;
+  --success-green: #3FB950;
+  --warning-amber: #D29922;
+  --error-red: #F85149;
+
+  /* Docusaurus overrides */
+  --ifm-color-primary: #8B5CF6;
+  --ifm-color-primary-dark: #7C4DE5;
+  --ifm-color-primary-darker: #7340DE;
+  --ifm-color-primary-darkest: #5E2BC7;
+  --ifm-color-primary-light: #9A6BF7;
+  --ifm-color-primary-lighter: #A378F8;
+  --ifm-color-primary-lightest: #BA95FA;
+
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(139, 92, 246, 0.1);
+
+  --ifm-font-size-base: 13px;
+  --ifm-heading-font-weight: 600;
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] {
+  --ifm-background-color: #0E1116;
+  --ifm-background-surface-color: #1C1F26;
+  --ifm-navbar-background-color: #1C1F26;
+  --ifm-footer-background-color: #1C1F26;
+}
+
+/* Typography */
+body {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-base);
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+}
+
+/* Code blocks */
+code {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  padding: 20px;
+  transition: all 0.15s ease;
+}
+
+.card:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-secondary);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge--success {
+  background: rgba(63, 185, 80, 0.15);
+  color: var(--success-green);
+}
+
+.badge--warning {
+  background: rgba(210, 153, 34, 0.15);
+  color: var(--warning-amber);
+}
+
+.badge--error {
+  background: rgba(248, 81, 73, 0.15);
+  color: var(--error-red);
+}
+
+/* Navbar customization */
+.navbar {
+  border-bottom: 1px solid var(--border-primary);
+  font-size: 12px;
+}
+
+/* Footer customization */
+.footer {
+  border-top: 1px solid var(--border-primary);
+  font-size: 12px;
+}
+
+/* Sidebar customization */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--border-primary);
+}
+
+.menu__link {
+  font-size: 12px;
+}
+
+/* Tables */
+table {
+  font-size: 12px;
+}
+
+table thead th {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}

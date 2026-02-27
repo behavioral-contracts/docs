@@ -1,0 +1,127 @@
+name: Validate Documentation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'src/**'
+      - 'scripts/**'
+      - 'package.json'
+      - '.github/workflows/**'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'src/**'
+      - 'scripts/**'
+      - 'package.json'
+
+jobs:
+  validate:
+    name: Validate Examples and Links
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout docs
+        uses: actions/checkout@v4
+
+      - name: Checkout corpus (for schema and contracts)
+        uses: actions/checkout@v4
+        with:
+          repository: behavioral-contracts/corpus
+          path: ../corpus
+
+      - name: Checkout verify-cli (for help output)
+        uses: actions/checkout@v4
+        with:
+          repository: behavioral-contracts/verify-cli
+          path: ../verify-cli
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install docs dependencies
+        run: npm ci
+
+      - name: Install verify-cli dependencies and build
+        run: |
+          cd ../verify-cli
+          npm ci
+          npm run build
+
+      - name: Regenerate auto-generated docs
+        run: npm run docs:generate
+        continue-on-error: false
+
+      - name: Check for uncommitted changes to auto-generated files
+        run: |
+          git diff --exit-code docs/cli-reference/overview.md docs/contract-schema/schema-reference.md docs/supported-packages/ || \
+          (echo "❌ Auto-generated docs are out of date! Run 'npm run docs:generate' and commit changes." && exit 1)
+
+      - name: Validate TypeScript examples compile
+        run: npm run validate-examples
+        continue-on-error: false
+
+      - name: Check for broken internal links
+        run: npm run check-links
+        continue-on-error: false
+
+      - name: Build documentation site
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Check build output size
+        run: |
+          du -sh build/
+          echo "Build size: $(du -sh build/ | cut -f1)"
+
+  lint:
+    name: Lint Markdown
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+
+      - name: Lint Markdown files
+        run: markdownlint 'docs/**/*.md' --ignore node_modules --config .markdownlint.json
+        continue-on-error: true  # Don't fail build on lint issues, just warn
+
+  accessibility:
+    name: Check Accessibility
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Run accessibility checks
+        uses: a11ywatch/github-action@v2.1.8
+        with:
+          website: ./build
+        continue-on-error: true  # Don't fail build on a11y issues, just warn
