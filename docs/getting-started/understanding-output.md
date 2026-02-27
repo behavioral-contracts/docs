@@ -283,7 +283,9 @@ if (axios.isAxiosError(error) && error.response) {
 
 ---
 
-## False Positives
+## Suppressions
+
+✅ **The suppression system is fully implemented!**
 
 ### When to Suppress
 
@@ -302,18 +304,19 @@ You might want to suppress a violation if:
    ```
 
 3. **Testing/development code**
-   ```typescript
-   // Test file - errors are expected to throw
-   ```
+   - Add to `.behavioralcontractsrc.json` to suppress all test files
 
 ### How to Suppress
 
-**Inline comment:**
+**✅ Inline comment (recommended for specific cases):**
 ```typescript
 // @behavioral-contract-ignore <package>/<postcondition-id>: <reason>
+await axios.get('/api/users');
 ```
 
-**Config file (`.behavioralcontractsrc.json`):**
+**✅ Config file (recommended for global rules):**
+
+Create `.behavioralcontractsrc.json`:
 ```json
 {
   "ignore": [
@@ -331,10 +334,29 @@ You might want to suppress a violation if:
 }
 ```
 
+### Dead Suppression Detection
+
+The analyzer automatically detects when suppressions are no longer needed:
+
+```bash
+verify-cli --tsconfig ./tsconfig.json --check-dead-suppressions
+```
+
+**Example output:**
+```
+🎉 Found 2 dead suppressions (analyzer improved!):
+
+  src/auth.ts:123 - No longer violates
+  Reason: Analyzer now detects timeout in axios config
+```
+
+**See [Suppression System](../cli-reference/suppressions) for complete documentation.**
+
 ---
 
 ## Next Steps
 
 - [Fixing Violations](./fixing-violations) - Best practices for resolving issues
+- [Suppression System](../cli-reference/suppressions) - Complete suppression guide
 - [AI Integration](../ai-integration/using-with-claude) - Automate fixes with Claude
 - [CLI Reference](../cli-reference/overview) - All CLI options
