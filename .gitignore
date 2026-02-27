@@ -23,14 +23,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Auto-generated docs (regenerated before build)
-docs/cli-reference/overview.md
-docs/cli-reference/command-verify.md
-docs/contract-schema/schema-reference.md
-docs/supported-packages/axios.md
-docs/supported-packages/prisma.md
-docs/supported-packages/stripe.md
-# ... other auto-generated package docs
+# Note: Auto-generated docs are now committed to git since Vercel
+# cannot regenerate them (verify-cli not available during build)
 
 # TypeScript
 *.tsbuildinfo

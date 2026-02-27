@@ -41,8 +41,37 @@
   --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+/* Light mode - high contrast for readability */
+[data-theme='light'] {
+  /* Backgrounds */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F6F8FA;
+  --bg-tertiary: #EAEEF2;
+
+  /* Borders */
+  --border-primary: #D0D7DE;
+  --border-secondary: #B1BAC4;
+
+  /* Text - high contrast */
+  --text-primary: #1F2328;
+  --text-secondary: #3D444D;
+  --text-muted: #656D76;
+
+  /* Keep accent colors the same */
+  --accent-purple: #8B5CF6;
+  --success-green: #2DA44E;
+  --warning-amber: #BF8700;
+  --error-red: #CF222E;
+
+  --ifm-background-color: #FFFFFF;
+  --ifm-background-surface-color: #F6F8FA;
+  --ifm-navbar-background-color: #FFFFFF;
+  --ifm-footer-background-color: #F6F8FA;
+}
+
 /* Dark theme adjustments */
 [data-theme='dark'] {
+  /* Use the default dark colors from :root */
   --ifm-background-color: #0E1116;
   --ifm-background-surface-color: #1C1F26;
   --ifm-navbar-background-color: #1C1F26;
