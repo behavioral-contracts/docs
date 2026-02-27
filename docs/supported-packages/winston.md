@@ -85,6 +85,6 @@ Caller MUST attach 'error' event listener to logger to detect transport failures
 
 ## See Also
 
-- [Contract Schema Reference](../contract-schema/schema-reference.md)
-- [All Supported Packages](./overview.md)
-- [How to Use verify-cli](../cli-reference/overview.md)
+- [Contract Schema Reference](../contract-schema/schema-reference)
+- [All Supported Packages](./overview)
+- [How to Use verify-cli](../cli-reference/overview)

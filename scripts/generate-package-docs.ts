@@ -226,9 +226,9 @@ title: "${contract.package}"
 
   // See also
   markdown += `## See Also\n\n`;
-  markdown += `- [Contract Schema Reference](../contract-schema/schema-reference.md)\n`;
-  markdown += `- [All Supported Packages](./overview.md)\n`;
-  markdown += `- [How to Use verify-cli](../cli-reference/overview.md)\n`;
+  markdown += `- [Contract Schema Reference](../contract-schema/schema-reference)\n`;
+  markdown += `- [All Supported Packages](./overview)\n`;
+  markdown += `- [How to Use verify-cli](../cli-reference/overview)\n`;
 
   const outputPath = path.join(DOCS_DIR, `${packageSlug}.md`);
   fs.writeFileSync(outputPath, markdown);

@@ -81,6 +81,6 @@ Controller route handlers MUST handle async errors with try-catch or let NestJS 
 
 ## See Also
 
-- [Contract Schema Reference](../contract-schema/schema-reference.md)
-- [All Supported Packages](./overview.md)
-- [How to Use verify-cli](../cli-reference/overview.md)
+- [Contract Schema Reference](../contract-schema/schema-reference)
+- [All Supported Packages](./overview)
+- [How to Use verify-cli](../cli-reference/overview)

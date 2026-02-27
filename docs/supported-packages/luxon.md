@@ -207,6 +207,6 @@ Caller MUST check isValid property. Invalid calendar values (February 30, 25:00,
 
 ## See Also
 
-- [Contract Schema Reference](../contract-schema/schema-reference.md)
-- [All Supported Packages](./overview.md)
-- [How to Use verify-cli](../cli-reference/overview.md)
+- [Contract Schema Reference](../contract-schema/schema-reference)
+- [All Supported Packages](./overview)
+- [How to Use verify-cli](../cli-reference/overview)

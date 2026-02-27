@@ -208,6 +208,6 @@ describe() callbacks MUST be synchronous. Mocha does NOT await async code in des
 
 ## See Also
 
-- [Contract Schema Reference](../contract-schema/schema-reference.md)
-- [All Supported Packages](./overview.md)
-- [How to Use verify-cli](../cli-reference/overview.md)
+- [Contract Schema Reference](../contract-schema/schema-reference)
+- [All Supported Packages](./overview)
+- [How to Use verify-cli](../cli-reference/overview)
