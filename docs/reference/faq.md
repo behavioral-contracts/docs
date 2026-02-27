@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ### What are behavioral contracts?
 
-Machine-readable specifications of runtime behavior (errors, edge cases) that TypeScript can't express. See [What Are Behavioral Contracts](../introduction/what-are-behavioral-contracts.md) for a detailed explanation.
+Machine-readable specifications of runtime behavior (errors, edge cases) that TypeScript can't express. See [What Are Behavioral Contracts](../introduction/what-are-behavioral-contracts) for a detailed explanation.
 
 ### How is this different from TypeScript?
 
@@ -41,7 +41,7 @@ No! Just run `verify-cli --tsconfig ./tsconfig.json` against your existing codeb
 
 ### What packages are supported?
 
-See [Supported Packages](../supported-packages/overview.md) for the full list. We currently have contracts for 100+ popular packages including:
+See [Supported Packages](../supported-packages/overview) for the full list. We currently have contracts for 100+ popular packages including:
 - axios
 - @prisma/client
 - stripe
@@ -53,7 +53,7 @@ See [Supported Packages](../supported-packages/overview.md) for the full list. W
 
 You have three options:
 1. **Request a contract** - Open a GitHub issue
-2. **Write your own** - See [Writing Contracts](../contributing/writing-contracts.md)
+2. **Write your own** - See [Writing Contracts](../contributing/writing-contracts)
 3. **Use the tool anyway** - It will check packages that *are* covered
 
 ---
@@ -134,7 +134,7 @@ Yes! Use AI integration:
 2. Feed to Claude/ChatGPT
 3. Review and apply fixes
 
-See [AI Integration](../ai-integration/using-with-claude.md) for details.
+See [AI Integration](../ai-integration/using-with-claude) for details.
 
 ---
 
@@ -148,7 +148,7 @@ The community! Contracts are:
 - Reviewed for accuracy
 - Maintained as packages evolve
 
-See [Contributing](../contributing/how-to-contribute.md) to help.
+See [Contributing](../contributing/how-to-contribute) to help.
 
 ### How do you keep contracts up-to-date?
 
@@ -192,7 +192,7 @@ Load with: `verify-cli --corpus ./my-contracts`
     verify-cli --tsconfig ./tsconfig.json --fail-on-error
 ```
 
-See [CI/CD Integration](../cli-reference/ci-cd-integration.md) for more examples.
+See [CI/CD Integration](../cli-reference/ci-cd-integration) for more examples.
 
 ### Should I fail builds on violations?
 
@@ -229,7 +229,7 @@ We measure precision (% of violations that are real issues):
 - **Production contracts**: ~95% precision
 - **Draft contracts**: ~85% precision
 
-See [Benchmarking](../benchmarking/why-benchmarking-matters.md) for methodology.
+See [Benchmarking](../benchmarking/why-benchmarking-matters) for methodology.
 
 ### How does this compare to ESLint?
 
@@ -252,7 +252,7 @@ Yes! Both CC BY-SA and AGPL allow commercial use.
 - **Modified contracts**: Must share under CC BY-SA 4.0
 - **SaaS providers**: Must open source verify-cli modifications (AGPL requirement)
 
-See [Licensing](./license.md) for details.
+See [Licensing](./license) for details.
 
 ### Do I need to credit you?
 
@@ -279,7 +279,7 @@ This prevents proprietary contract forks while keeping the standard open.
 
 ### How do I contribute?
 
-See [Contributing Guide](../contributing/how-to-contribute.md) for:
+See [Contributing Guide](../contributing/how-to-contribute) for:
 - Writing contracts
 - Improving the analyzer
 - Adding documentation

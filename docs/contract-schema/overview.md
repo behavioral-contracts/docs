@@ -319,7 +319,7 @@ functions:
 
 ## Next Steps
 
-- [Schema Reference](./schema-reference.md) - Complete field documentation
-- [Writing Contracts](./writing-contracts.md) - How to create contracts
-- [Examples](./examples.md) - Real-world contract examples
-- [Get Started](../getting-started/installation.md) - Install and run your first scan
+- [Schema Reference](./schema-reference) - Complete field documentation
+- [Writing Contracts](./writing-contracts) - How to create contracts
+- [Examples](./examples) - Real-world contract examples
+- [Get Started](../getting-started/installation) - Install and run your first scan

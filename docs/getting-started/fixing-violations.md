@@ -370,7 +370,7 @@ AI might miss:
 
 **Always review AI fixes before applying.**
 
-See [AI Integration Guide](../ai-integration/using-with-claude.md) for detailed workflows.
+See [AI Integration Guide](../ai-integration/using-with-claude) for detailed workflows.
 
 ---
 
@@ -460,6 +460,6 @@ diff violations.json after-fixes.json
 
 ## Next Steps
 
-- [AI Integration](../ai-integration/using-with-claude.md) - Automate fixes with Claude
-- [CI/CD Integration](../cli-reference/ci-cd-integration.md) - Prevent new violations
-- [Contributing](../contributing/how-to-contribute.md) - Help improve contracts
+- [AI Integration](../ai-integration/using-with-claude) - Automate fixes with Claude
+- [CI/CD Integration](../cli-reference/ci-cd-integration) - Prevent new violations
+- [Contributing](../contributing/how-to-contribute) - Help improve contracts

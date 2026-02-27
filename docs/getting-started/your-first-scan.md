@@ -10,7 +10,7 @@ Let's run behavioral contract verification on a sample project.
 
 - Node.js 18+ installed
 - A TypeScript project (or use our sample)
-- verify-cli installed ([see installation](./installation.md))
+- verify-cli installed ([see installation](./installation))
 
 ## Quick Test with Sample Code
 
@@ -156,12 +156,12 @@ Depending on your results:
 Great! Your error handling is solid for the packages we cover.
 
 **Next steps:**
-- Add to your CI/CD pipeline (see [CI/CD Integration](../cli-reference/ci-cd-integration.md))
-- Write contracts for your internal packages (see [Writing Contracts](../contract-schema/writing-contracts.md))
+- Add to your CI/CD pipeline (see [CI/CD Integration](../cli-reference/ci-cd-integration))
+- Write contracts for your internal packages (see [Writing Contracts](../contract-schema/writing-contracts))
 
 ### ❌ Violations Found
 
-See the next guide: [Understanding Output](./understanding-output.md) to learn how to:
+See the next guide: [Understanding Output](./understanding-output) to learn how to:
 - Read violation reports
 - Prioritize which to fix first
 - Use the fix suggestions
@@ -192,9 +192,9 @@ verify-cli --tsconfig ./path/to/tsconfig.json
 ### "No contracts found for package X"
 
 We might not have a contract for that package yet. You can:
-- Check [Supported Packages](../supported-packages/overview.md) for the full list
+- Check [Supported Packages](../supported-packages/overview) for the full list
 - Request a contract via [GitHub Issues](https://github.com/behavioral-contracts/corpus/issues)
-- Write your own contract (see [Contributing](../contributing/writing-contracts.md))
+- Write your own contract (see [Contributing](../contributing/writing-contracts))
 
 ---
 
@@ -239,6 +239,6 @@ verify-cli --tsconfig ./tsconfig.json --include "src/services/**"
 
 ## Next Steps
 
-- [Understanding Output](./understanding-output.md) - Learn to read violation reports
-- [Fixing Violations](./fixing-violations.md) - Best practices for fixing issues
-- [AI Integration](../ai-integration/using-with-claude.md) - Automate fixes with AI
+- [Understanding Output](./understanding-output) - Learn to read violation reports
+- [Fixing Violations](./fixing-violations) - Best practices for fixing issues
+- [AI Integration](../ai-integration/using-with-claude) - Automate fixes with AI

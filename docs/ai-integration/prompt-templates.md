@@ -10,6 +10,6 @@ Ready-to-use prompt templates for AI-assisted fixing are under construction.
 
 ## Quick Templates
 
-For now, see the examples in [Using with Claude](./using-with-claude.md).
+For now, see the examples in [Using with Claude](./using-with-claude).
 
 More comprehensive templates coming soon!

@@ -443,6 +443,6 @@ Fix the error handling ONLY. Do not change:
 
 ## Next Steps
 
-- [Prompt Templates](./prompt-templates.md) - Ready-to-use prompts
-- [Automating Fixes](./automating-fixes.md) - Scripts for batch processing
-- [CI/CD Integration](../cli-reference/ci-cd-integration.md) - Prevent new violations
+- [Prompt Templates](./prompt-templates) - Ready-to-use prompts
+- [Automating Fixes](./automating-fixes) - Scripts for batch processing
+- [CI/CD Integration](../cli-reference/ci-cd-integration) - Prevent new violations

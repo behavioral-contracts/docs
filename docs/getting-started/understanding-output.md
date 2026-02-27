@@ -335,6 +335,6 @@ You might want to suppress a violation if:
 
 ## Next Steps
 
-- [Fixing Violations](./fixing-violations.md) - Best practices for resolving issues
-- [AI Integration](../ai-integration/using-with-claude.md) - Automate fixes with Claude
-- [CLI Reference](../cli-reference/overview.md) - All CLI options
+- [Fixing Violations](./fixing-violations) - Best practices for resolving issues
+- [AI Integration](../ai-integration/using-with-claude) - Automate fixes with Claude
+- [CLI Reference](../cli-reference/overview) - All CLI options

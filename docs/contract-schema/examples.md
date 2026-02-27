@@ -10,7 +10,7 @@ Real-world contract examples are under construction.
 
 ## Quick Example
 
-See the example in [Understanding the Contract Schema](./overview.md).
+See the example in [Understanding the Contract Schema](./overview).
 
 ## More Examples
 

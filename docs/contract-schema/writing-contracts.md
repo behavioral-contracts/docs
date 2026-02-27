@@ -10,11 +10,11 @@ Comprehensive guide for writing behavioral contracts is under construction.
 
 ## Quick Start
 
-See [Contributing > Writing Contracts](../contributing/writing-contracts.md) for a basic template.
+See [Contributing > Writing Contracts](../contributing/writing-contracts) for a basic template.
 
 ## Schema Reference
 
-For complete field documentation, see [Schema Reference](./overview.md).
+For complete field documentation, see [Schema Reference](./overview).
 
 ## Best Practices
 
@@ -30,4 +30,4 @@ More detailed best practices coming soon. Key points:
 
 - Ask in [GitHub Discussions](https://github.com/behavioral-contracts/corpus/discussions)
 - Review existing contracts in the corpus for examples
-- Check the [FAQ](../reference/faq.md)
+- Check the [FAQ](../reference/faq)

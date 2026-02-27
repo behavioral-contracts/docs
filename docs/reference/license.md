@@ -215,7 +215,7 @@ By contributing to behavioral-contracts (contracts, code, or documentation), you
 - **verify-cli/Code**: AGPL-3.0
 - **Documentation**: CC BY 4.0
 
-See [Contributing Guide](../contributing/how-to-contribute.md) for details.
+See [Contributing Guide](../contributing/how-to-contribute) for details.
 
 ---
 

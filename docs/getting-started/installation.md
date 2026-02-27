@@ -84,5 +84,5 @@ Total size: ~2 MB
 
 ## Next Steps
 
-- [Run your first scan](./your-first-scan.md)
-- [Understand the output](./understanding-output.md)
+- [Run your first scan](./your-first-scan)
+- [Understand the output](./understanding-output)

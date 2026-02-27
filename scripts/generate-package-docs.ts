@@ -284,7 +284,7 @@ Run \`npm run docs:generate-packages\` to regenerate.
     for (const contract of contractList) {
       const slug = contract.package.replace('@', '').replace('/', '-');
       const functionCount = contract.functions?.length || 0;
-      markdown += `| [${contract.package}](./${slug}.md) | \`${contract.semver}\` | ${functionCount} | ${contract.last_verified} |\n`;
+      markdown += `| [${contract.package}](./${slug}) | \`${contract.semver}\` | ${functionCount} | ${contract.last_verified} |\n`;
     }
 
     markdown += `\n`;

@@ -46,6 +46,6 @@ functions:
 
 We're working on a comprehensive guide. In the meantime:
 
-- See [Schema Reference](../contract-schema/overview.md)
+- See [Schema Reference](../contract-schema/overview)
 - Browse existing contracts in the corpus
 - Ask questions in GitHub Discussions
