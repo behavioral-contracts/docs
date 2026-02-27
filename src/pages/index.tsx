@@ -89,7 +89,7 @@ export default function Home(): JSX.Element {
               />
               <Feature
                 title="Open Source & Free"
-                description="MIT licensed. Contracts and CLI are fully open source. No vendor lock-in, no telemetry."
+                description="Fully open source under CC BY-SA 4.0 (corpus) and AGPL-3.0 (CLI). Free for all use. No vendor lock-in, no telemetry."
               />
               <Feature
                 title="CI/CD Ready"

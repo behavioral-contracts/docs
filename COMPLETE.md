@@ -122,8 +122,8 @@ All scripts integrated into `package.json`:
   - Community
 
 - ✅ `docs/reference/license.md` - Complete licensing information
-  - Corpus: MIT
-  - verify-cli: MIT
+  - Corpus: CC BY-SA 4.0 (Creative Commons Attribution-ShareAlike 4.0)
+  - verify-cli: AGPL-3.0 (GNU Affero General Public License v3.0)
   - Documentation: CC BY 4.0
   - What you can/cannot do
 
