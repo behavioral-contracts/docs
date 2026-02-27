@@ -14,7 +14,6 @@
     "docusaurus": "docusaurus",
     "prestart": "npm run docs:check-stale",
     "start": "docusaurus start",
-    "prebuild": "npm run docs:check-stale",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
