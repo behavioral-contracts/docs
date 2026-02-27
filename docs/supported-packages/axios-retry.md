@@ -9,7 +9,7 @@ title: "axios-retry"
 | **Package** | `axios-retry` |
 | **Versions Covered** | `>=1.0.0` |
 | **Contract Version** | `undefined` |
-| **Status** | `in-development` |
+| **Status** | `informational` |
 | **Last Verified** | undefined |
 | **Maintainer** | undefined |
 

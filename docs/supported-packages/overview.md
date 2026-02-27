@@ -19,7 +19,9 @@ Run `npm run docs:generate-packages` to regenerate.
 |---------|--------|-----------|---------------|
 | [@anthropic-ai/sdk](./anthropic-ai-sdk) | `>=0.18.0 <1.0.0` | 3 | 2026-02-24 |
 | [@aws-sdk/client-s3](./aws-sdk-client-s3) | `^3.0.0` | 2 | 2026-02-25 |
+| [@azure/storage-blob](./azure-storage-blob) | `>=12.0.0` | 9 | 2026-02-27 |
 | [@clerk/nextjs](./clerk-nextjs) | `>=5.0.0 <7.0.0` | 11 | 2026-02-24 |
+| [@google-cloud/storage](./google-cloud-storage) | `>=5.0.0` | 10 | 2026-02-27 |
 | [@hapi/hapi](./hapi-hapi) | `>=21.0.0 <22.0.0` | 2 | 2026-02-26 |
 | [@nestjs/common](./nestjs-common) | `>=10.0.0 <12.0.0` | 2 | 2026-02-26 |
 | [@octokit/rest](./octokit-rest) | `>=19.0.0 <23.0.0` | 14 | 2026-02-25 |
@@ -69,7 +71,6 @@ Run `npm run docs:generate-packages` to regenerate.
 | [puppeteer](./puppeteer) | `>=1.0.0` | 6 | 2026-02-26 |
 | [react-hook-form](./react-hook-form) | `^7.0.0` | 3 | Mon Feb 23 2026 19:00:00 GMT-0500 (Eastern Standard Time) |
 | [redis](./redis) | `>=5.0.0 <6.0.0` | 5 | 2026-02-27 |
-| [request-promise](./request-promise) | `>=4.2.6` | 7 | 2026-02-26 |
 | [sequelize](./sequelize) | `>=6.28.1` | 11 | 2026-02-26 |
 | [sharp](./sharp) | `>=0.30.0 <1.0.0` | 2 | 2026-02-27 |
 | [sinon](./sinon) | `>=1.0.0` | 6 | 2026-02-27 |
@@ -93,9 +94,6 @@ Run `npm run docs:generate-packages` to regenerate.
 
 | Package | Semver | Functions | Last Verified |
 |---------|--------|-----------|---------------|
-| [@azure/storage-blob](./azure-storage-blob) | `>=12.0.0` | 0 | undefined |
-| [@google-cloud/storage](./google-cloud-storage) | `>=7.0.0` | 0 | undefined |
-| [axios-retry](./axios-retry) | `>=1.0.0` | 0 | undefined |
 | [bcrypt](./bcrypt) | `>=5.0.0` | 0 | undefined |
 | [body-parser](./body-parser) | `>=1.20.0 <3.0.0` | 4 | 2026-02-27 |
 | [compression](./compression) | `>=1.0.0` | 0 | undefined |
@@ -106,7 +104,6 @@ Run `npm run docs:generate-packages` to regenerate.
 | [express-session](./express-session) | `>=1.0.0` | 0 | undefined |
 | [express-validator](./express-validator) | `>=1.0.0` | 0 | undefined |
 | [helmet](./helmet) | `>=7.0.0 <9.0.0` | 3 | 2026-02-27 |
-| [jsonschema](./jsonschema) | `>=1.0.0` | 0 | undefined |
 | [minio](./minio) | `>=7.0.0` | 0 | undefined |
 | [morgan](./morgan) | `>=1.0.0` | 0 | undefined |
 | [nock](./nock) | `>=9.0.0` | 6 | 2026-02-27 |
@@ -118,8 +115,8 @@ Run `npm run docs:generate-packages` to regenerate.
 | Package | Semver | Functions | Last Verified |
 |---------|--------|-----------|---------------|
 | [ajv](./ajv) | `>=8.18.0 <10.0.0` | 3 | 2026-02-27 |
+| [jsonschema](./jsonschema) | `>=1.0.0` | 3 | undefined |
 | [jsonwebtoken](./jsonwebtoken) | `>=9.0.0` | 2 | 2026-02-27 |
-| [lodash](./lodash) | `>=4.0.0` | 9 | 2026-02-26 |
 | [passport-local](./passport-local) | `>=1.0.0` | 2 | 2026-02-27 |
 | [pino](./pino) | `>=1.0.0` | 1 | 2026-02-26 |
 | [simple-oauth2](./simple-oauth2) | `>=1.0.0` | 1 | 2026-02-26 |
@@ -131,128 +128,139 @@ Run `npm run docs:generate-packages` to regenerate.
 
 | Package | Semver | Functions | Last Verified |
 |---------|--------|-----------|---------------|
+| [axios-retry](./axios-retry) | `>=1.0.0` | 0 | undefined |
+
+### ⚠️ Deprecated
+
+| Package | Semver | Functions | Last Verified |
+|---------|--------|-----------|---------------|
 | [got](./got) | `>=11.0.0` | 6 | 2026-02-26 |
+
+### ⚠️ Deprecated
+
+| Package | Semver | Functions | Last Verified |
+|---------|--------|-----------|---------------|
+| [lodash](./lodash) | `>=4.17.23` | 0 | undefined |
 
 ## Statistics
 
-- **Total Packages:** 100
-- **Production Ready:** 71
-- **Total Functions Covered:** 417
-- **Average Functions per Package:** 4.2
+- **Total Packages:** 99
+- **Production Ready:** 72
+- **Total Functions Covered:** 423
+- **Average Functions per Package:** 4.3
 
 ## Package Categories
 
 ### HTTP Clients
-- [axios](./axios.md)
-- [node-fetch](./node-fetch.md)
-- [got](./got.md)
+- [axios](./axios)
+- [node-fetch](./node-fetch)
+- [got](./got)
 
 ### Database & ORMs
-- [@prisma/client](./prisma-client.md)
-- [mongodb](./mongodb.md)
-- [pg](./pg.md)
-- [sequelize](./sequelize.md)
+- [@prisma/client](./prisma-client)
+- [mongodb](./mongodb)
+- [pg](./pg)
+- [sequelize](./sequelize)
 
 ### All Other Packages
-- [@anthropic-ai/sdk](./anthropic-ai-sdk.md)
-- [@aws-sdk/client-s3](./aws-sdk-client-s3.md)
-- [@clerk/nextjs](./clerk-nextjs.md)
-- [@hapi/hapi](./hapi-hapi.md)
-- [@nestjs/common](./nestjs-common.md)
-- [@octokit/rest](./octokit-rest.md)
-- [@sendgrid/mail](./sendgrid-mail.md)
-- [@slack/web-api](./slack-web-api.md)
-- [@supabase/supabase-js](./supabase-supabase-js.md)
-- [@tanstack/react-query](./tanstack-react-query.md)
-- [@vercel/postgres](./vercel-postgres.md)
-- [archiver](./archiver.md)
-- [bcryptjs](./bcryptjs.md)
-- [bull](./bull.md)
-- [bullmq](./bullmq.md)
-- [busboy](./busboy.md)
-- [cassandra-driver](./cassandra-driver.md)
-- [chai](./chai.md)
-- [cloudinary](./cloudinary.md)
-- [cors](./cors.md)
-- [date-fns](./date-fns.md)
-- [dayjs](./dayjs.md)
-- [discord.js](./discord.js.md)
-- [drizzle-orm](./drizzle-orm.md)
-- [ethers](./ethers.md)
-- [eventemitter2](./eventemitter2.md)
-- [express](./express.md)
-- [fastify](./fastify.md)
-- [firebase-admin](./firebase-admin.md)
-- [formidable](./formidable.md)
-- [graphql](./graphql.md)
-- [ioredis](./ioredis.md)
-- [joi](./joi.md)
-- [knex](./knex.md)
-- [luxon](./luxon.md)
-- [mocha](./mocha.md)
-- [moment](./moment.md)
-- [mongoose](./mongoose.md)
-- [multer](./multer.md)
-- [mysql2](./mysql2.md)
-- [next](./next.md)
-- [nodemailer](./nodemailer.md)
-- [openai](./openai.md)
-- [passport](./passport.md)
-- [puppeteer](./puppeteer.md)
-- [react-hook-form](./react-hook-form.md)
-- [redis](./redis.md)
-- [request-promise](./request-promise.md)
-- [sharp](./sharp.md)
-- [sinon](./sinon.md)
-- [socket.io](./socket.io.md)
-- [socket.io-client](./socket.io-client.md)
-- [sqlite3](./sqlite3.md)
-- [square](./square.md)
-- [stripe](./stripe.md)
-- [superagent](./superagent.md)
-- [tedious](./tedious.md)
-- [twilio](./twilio.md)
-- [typeorm](./typeorm.md)
-- [typescript](./typescript.md)
-- [undici](./undici.md)
-- [uuid](./uuid.md)
-- [winston](./winston.md)
-- [ws](./ws.md)
-- [zod](./zod.md)
-- [@azure/storage-blob](./azure-storage-blob.md)
-- [@google-cloud/storage](./google-cloud-storage.md)
-- [axios-retry](./axios-retry.md)
-- [bcrypt](./bcrypt.md)
-- [body-parser](./body-parser.md)
-- [compression](./compression.md)
-- [cookie-parser](./cookie-parser.md)
-- [dotenv](./dotenv.md)
-- [express-async-errors](./express-async-errors.md)
-- [express-rate-limit](./express-rate-limit.md)
-- [express-session](./express-session.md)
-- [express-validator](./express-validator.md)
-- [helmet](./helmet.md)
-- [jsonschema](./jsonschema.md)
-- [minio](./minio.md)
-- [morgan](./morgan.md)
-- [nock](./nock.md)
-- [passport-jwt](./passport-jwt.md)
-- [yup](./yup.md)
-- [ajv](./ajv.md)
-- [jsonwebtoken](./jsonwebtoken.md)
-- [lodash](./lodash.md)
-- [passport-local](./passport-local.md)
-- [pino](./pino.md)
-- [simple-oauth2](./simple-oauth2.md)
-- [supertest](./supertest.md)
-- [unzipper](./unzipper.md)
-- [validator](./validator.md)
+- [@anthropic-ai/sdk](./anthropic-ai-sdk)
+- [@aws-sdk/client-s3](./aws-sdk-client-s3)
+- [@azure/storage-blob](./azure-storage-blob)
+- [@clerk/nextjs](./clerk-nextjs)
+- [@google-cloud/storage](./google-cloud-storage)
+- [@hapi/hapi](./hapi-hapi)
+- [@nestjs/common](./nestjs-common)
+- [@octokit/rest](./octokit-rest)
+- [@sendgrid/mail](./sendgrid-mail)
+- [@slack/web-api](./slack-web-api)
+- [@supabase/supabase-js](./supabase-supabase-js)
+- [@tanstack/react-query](./tanstack-react-query)
+- [@vercel/postgres](./vercel-postgres)
+- [archiver](./archiver)
+- [bcryptjs](./bcryptjs)
+- [bull](./bull)
+- [bullmq](./bullmq)
+- [busboy](./busboy)
+- [cassandra-driver](./cassandra-driver)
+- [chai](./chai)
+- [cloudinary](./cloudinary)
+- [cors](./cors)
+- [date-fns](./date-fns)
+- [dayjs](./dayjs)
+- [discord.js](./discord.js)
+- [drizzle-orm](./drizzle-orm)
+- [ethers](./ethers)
+- [eventemitter2](./eventemitter2)
+- [express](./express)
+- [fastify](./fastify)
+- [firebase-admin](./firebase-admin)
+- [formidable](./formidable)
+- [graphql](./graphql)
+- [ioredis](./ioredis)
+- [joi](./joi)
+- [knex](./knex)
+- [luxon](./luxon)
+- [mocha](./mocha)
+- [moment](./moment)
+- [mongoose](./mongoose)
+- [multer](./multer)
+- [mysql2](./mysql2)
+- [next](./next)
+- [nodemailer](./nodemailer)
+- [openai](./openai)
+- [passport](./passport)
+- [puppeteer](./puppeteer)
+- [react-hook-form](./react-hook-form)
+- [redis](./redis)
+- [sharp](./sharp)
+- [sinon](./sinon)
+- [socket.io](./socket.io)
+- [socket.io-client](./socket.io-client)
+- [sqlite3](./sqlite3)
+- [square](./square)
+- [stripe](./stripe)
+- [superagent](./superagent)
+- [tedious](./tedious)
+- [twilio](./twilio)
+- [typeorm](./typeorm)
+- [typescript](./typescript)
+- [undici](./undici)
+- [uuid](./uuid)
+- [winston](./winston)
+- [ws](./ws)
+- [zod](./zod)
+- [bcrypt](./bcrypt)
+- [body-parser](./body-parser)
+- [compression](./compression)
+- [cookie-parser](./cookie-parser)
+- [dotenv](./dotenv)
+- [express-async-errors](./express-async-errors)
+- [express-rate-limit](./express-rate-limit)
+- [express-session](./express-session)
+- [express-validator](./express-validator)
+- [helmet](./helmet)
+- [minio](./minio)
+- [morgan](./morgan)
+- [nock](./nock)
+- [passport-jwt](./passport-jwt)
+- [yup](./yup)
+- [ajv](./ajv)
+- [jsonschema](./jsonschema)
+- [jsonwebtoken](./jsonwebtoken)
+- [passport-local](./passport-local)
+- [pino](./pino)
+- [simple-oauth2](./simple-oauth2)
+- [supertest](./supertest)
+- [unzipper](./unzipper)
+- [validator](./validator)
+- [axios-retry](./axios-retry)
+- [lodash](./lodash)
 
 ## Contributing
 
 Want to add a contract for a package that's not listed?
 
-See our [Contributing Guide](../contributing/writing-contracts.md) for instructions on:
+See our [Contributing Guide](../contributing/writing-contracts) for instructions on:
 - Researching package behavior
 - Writing contracts
 - Submitting for review

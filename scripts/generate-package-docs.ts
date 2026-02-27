@@ -97,21 +97,38 @@ function escapeMDX(text: string): string {
   return text;
 }
 
+/**
+ * Get package name from contract (handles both string and object formats)
+ */
+function getPackageName(contract: Contract): string | null {
+  if (typeof contract.package === 'string') {
+    return contract.package;
+  } else if (contract.package && typeof contract.package === 'object' && 'name' in contract.package) {
+    return (contract.package as any).name;
+  }
+  return null;
+}
+
 function generatePackagePage(contract: Contract) {
-  const packageSlug = contract.package.replace('@', '').replace('/', '-');
+  const packageName = getPackageName(contract);
+  if (!packageName) {
+    console.warn(`⚠️  Skipping contract with invalid package name`);
+    return;
+  }
+  const packageSlug = packageName.replace('@', '').replace('/', '-');
 
   let markdown = `---
-title: "${contract.package}"
+title: "${packageName}"
 ---
 
-# ${contract.package}
+# ${packageName}
 
 `;
 
   // Metadata
   markdown += `| Property | Value |\n`;
   markdown += `|----------|-------|\n`;
-  markdown += `| **Package** | \`${contract.package}\` |\n`;
+  markdown += `| **Package** | \`${packageName}\` |\n`;
   markdown += `| **Versions Covered** | \`${contract.semver}\` |\n`;
   markdown += `| **Contract Version** | \`${contract.contract_version}\` |\n`;
   markdown += `| **Status** | \`${contract.status}\` |\n`;
@@ -121,7 +138,7 @@ title: "${contract.package}"
   // Installation
   markdown += `## Installation\n\n`;
   markdown += `\`\`\`bash\n`;
-  markdown += `npm install ${contract.package}\n`;
+  markdown += `npm install ${packageName}\n`;
   markdown += `\`\`\`\n\n`;
 
   // Check if functions array exists
@@ -141,20 +158,24 @@ title: "${contract.package}"
 
   for (const func of contract.functions) {
     markdown += `### \`${func.name}()\`\n\n`;
-    markdown += `${func.description.replace(/[{}<>]/g, '')}\n\n`;
+    if (func.description) {
+      markdown += `${func.description.replace(/[{}<>]/g, '')}\n\n`;
+    }
 
     // Import path
-    markdown += `**Import:**\n`;
-    markdown += `\`\`\`typescript\n`;
-    if (func.import_path.includes('.')) {
-      // Property access like "axios.get"
-      const parts = func.import_path.split('.');
-      markdown += `import ${parts[0]} from '${parts[0]}';\n`;
-      markdown += `${parts.slice(0, -1).join('.')}.${func.name}(...);\n`;
-    } else {
-      markdown += `import { ${func.name} } from '${func.import_path}';\n`;
+    if (func.import_path) {
+      markdown += `**Import:**\n`;
+      markdown += `\`\`\`typescript\n`;
+      if (func.import_path.includes('.')) {
+        // Property access like "axios.get"
+        const parts = func.import_path.split('.');
+        markdown += `import ${parts[0]} from '${parts[0]}';\n`;
+        markdown += `${parts.slice(0, -1).join('.')}.${func.name}(...);\n`;
+      } else {
+        markdown += `import { ${func.name} } from '${func.import_path}';\n`;
+      }
+      markdown += `\`\`\`\n\n`;
     }
-    markdown += `\`\`\`\n\n`;
 
     // Preconditions
     if (func.preconditions && func.preconditions.length > 0) {
@@ -172,19 +193,25 @@ title: "${contract.package}"
       markdown += `#### Postconditions\n\n`;
       markdown += `What happens **after** calling this function:\n\n`;
       for (const post of func.postconditions) {
-        markdown += `**${getSeverityBadge(post.severity)} - ${post.id}**\n\n`;
-        markdown += `**Condition:** ${post.condition.replace(/[{}<>]/g, '')}\n\n`;
-        if (post.returns) {
+        if (post.severity && post.id) {
+          markdown += `**${getSeverityBadge(post.severity)} - ${post.id}**\n\n`;
+        }
+        if (post.condition && typeof post.condition === 'string') {
+          markdown += `**Condition:** ${post.condition.replace(/[{}<>]/g, '')}\n\n`;
+        }
+        if (post.returns && typeof post.returns === 'string') {
           markdown += `**Returns:**\n\n${post.returns.replace(/[{}<>]/g, '')}\n\n`;
         }
-        if (post.throws) {
+        if (post.throws && typeof post.throws === 'string') {
           markdown += `**Throws:** ${post.throws.replace(/[{}<>]/g, '')}\n\n`;
         }
-        if (post.required_handling) {
+        if (post.required_handling && typeof post.required_handling === 'string') {
           markdown += `**Required Handling:**\n\n`;
           markdown += `${post.required_handling.replace(/[{}<>]/g, '')}\n\n`;
         }
-        markdown += `📖 [Source](${post.source})\n\n`;
+        if (post.source) {
+          markdown += `📖 [Source](${post.source})\n\n`;
+        }
       }
     }
 
@@ -209,7 +236,7 @@ title: "${contract.package}"
 
   if (hasErrorPostcondition) {
     markdown += `\`\`\`typescript\n`;
-    markdown += `import ${contract.package.split('/').pop()} from '${contract.package}';\n\n`;
+    markdown += `import ${packageName.split('/').pop()} from '${packageName}';\n\n`;
     markdown += `async function example() {\n`;
     markdown += `  try {\n`;
     markdown += `    const result = await ${firstFunc.name}(/* args */);\n`;
@@ -236,13 +263,18 @@ title: "${contract.package}"
 }
 
 function generateOverviewPage(contracts: Contract[]) {
+  // Filter out contracts with invalid package names
+  const validContracts = contracts.filter(c => getPackageName(c) !== null);
+
   // Sort by status and then by package name
-  const sortedContracts = contracts.sort((a, b) => {
+  const sortedContracts = validContracts.sort((a, b) => {
     const statusOrder = { production: 0, 'in-development': 1, draft: 2, deprecated: 3 };
     const statusA = statusOrder[a.status as keyof typeof statusOrder] ?? 99;
     const statusB = statusOrder[b.status as keyof typeof statusOrder] ?? 99;
     if (statusA !== statusB) return statusA - statusB;
-    return a.package.localeCompare(b.package);
+    const nameA = getPackageName(a) || '';
+    const nameB = getPackageName(b) || '';
+    return nameA.localeCompare(nameB);
   });
 
   let markdown = `---
@@ -282,9 +314,10 @@ Run \`npm run docs:generate-packages\` to regenerate.
     markdown += `|---------|--------|-----------|---------------|\n`;
 
     for (const contract of contractList) {
-      const slug = contract.package.replace('@', '').replace('/', '-');
+      const packageName = getPackageName(contract)!;
+      const slug = packageName.replace('@', '').replace('/', '-');
       const functionCount = contract.functions?.length || 0;
-      markdown += `| [${contract.package}](./${slug}) | \`${contract.semver}\` | ${functionCount} | ${contract.last_verified} |\n`;
+      markdown += `| [${packageName}](./${slug}) | \`${contract.semver}\` | ${functionCount} | ${contract.last_verified} |\n`;
     }
 
     markdown += `\n`;
@@ -292,42 +325,51 @@ Run \`npm run docs:generate-packages\` to regenerate.
 
   // Statistics
   markdown += `## Statistics\n\n`;
-  const totalFunctions = contracts.reduce((sum, c) => sum + (c.functions?.length || 0), 0);
-  const productionCount = contracts.filter(c => c.status === 'production').length;
+  const totalFunctions = sortedContracts.reduce((sum, c) => sum + (c.functions?.length || 0), 0);
+  const productionCount = sortedContracts.filter(c => c.status === 'production').length;
 
-  markdown += `- **Total Packages:** ${contracts.length}\n`;
+  markdown += `- **Total Packages:** ${sortedContracts.length}\n`;
   markdown += `- **Production Ready:** ${productionCount}\n`;
   markdown += `- **Total Functions Covered:** ${totalFunctions}\n`;
-  markdown += `- **Average Functions per Package:** ${(totalFunctions / contracts.length).toFixed(1)}\n\n`;
+  markdown += `- **Average Functions per Package:** ${(totalFunctions / sortedContracts.length).toFixed(1)}\n\n`;
 
   // Categories (if we add categories later)
   markdown += `## Package Categories\n\n`;
   markdown += `### HTTP Clients\n`;
-  const httpClients = contracts.filter(c => ['axios', 'node-fetch', 'got'].includes(c.package));
+  const httpClients = sortedContracts.filter(c => {
+    const name = getPackageName(c);
+    return name && ['axios', 'node-fetch', 'got'].includes(name);
+  });
   for (const contract of httpClients) {
-    const slug = contract.package.replace('@', '').replace('/', '-');
-    markdown += `- [${contract.package}](./${slug}.md)\n`;
+    const packageName = getPackageName(contract)!;
+    const slug = packageName.replace('@', '').replace('/', '-');
+    markdown += `- [${packageName}](./${slug})\n`;
   }
 
   markdown += `\n### Database & ORMs\n`;
-  const dbPackages = contracts.filter(c => ['@prisma/client', 'pg', 'mongodb', 'sequelize'].some(p => c.package.includes(p)));
+  const dbPackages = sortedContracts.filter(c => {
+    const name = getPackageName(c);
+    return name && ['@prisma/client', 'pg', 'mongodb', 'sequelize'].some(p => name.includes(p));
+  });
   for (const contract of dbPackages) {
-    const slug = contract.package.replace('@', '').replace('/', '-');
-    markdown += `- [${contract.package}](./${slug}.md)\n`;
+    const packageName = getPackageName(contract)!;
+    const slug = packageName.replace('@', '').replace('/', '-');
+    markdown += `- [${packageName}](./${slug})\n`;
   }
 
   markdown += `\n### All Other Packages\n`;
-  const otherPackages = contracts.filter(c =>
+  const otherPackages = sortedContracts.filter(c =>
     !httpClients.includes(c) && !dbPackages.includes(c)
   );
   for (const contract of otherPackages) {
-    const slug = contract.package.replace('@', '').replace('/', '-');
-    markdown += `- [${contract.package}](./${slug}.md)\n`;
+    const packageName = getPackageName(contract)!;
+    const slug = packageName.replace('@', '').replace('/', '-');
+    markdown += `- [${packageName}](./${slug})\n`;
   }
 
   markdown += `\n## Contributing\n\n`;
   markdown += `Want to add a contract for a package that's not listed?\n\n`;
-  markdown += `See our [Contributing Guide](../contributing/writing-contracts.md) for instructions on:\n`;
+  markdown += `See our [Contributing Guide](../contributing/writing-contracts) for instructions on:\n`;
   markdown += `- Researching package behavior\n`;
   markdown += `- Writing contracts\n`;
   markdown += `- Submitting for review\n`;
